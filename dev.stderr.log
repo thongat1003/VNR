@@ -1,0 +1,8 @@
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⨯ ./src/components/museum/ExhibitModal.tsx
+Error: ENOENT: no such file or directory, open 'D:\portfolio\public\le-duan-virtual-museum\le-duan-virtual-museum\src\components\museum\ExhibitModal.tsx'
+
+Import trace for requested module:
+./src/components/museum/ExhibitModal.tsx
+./src/components/museum/MuseumScene.tsx
+^C

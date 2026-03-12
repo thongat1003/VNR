@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1F1712"/>
+      <stop offset="1" stop-color="#4A231E"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(300 180) rotate(30) scale(480 280)">
+      <stop stop-color="#9F1D20" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#9F1D20" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <rect width="1200" height="800" fill="url(#halo)"/>
+  <rect x="54" y="52" width="1092" height="696" rx="34" stroke="#D6B26F" stroke-opacity="0.22" stroke-width="2"/>
+  <circle cx="944" cy="240" r="122" fill="#D6B26F" fill-opacity="0.08"/>
+  <circle cx="944" cy="240" r="74" fill="#D6B26F" fill-opacity="0.12"/>
+  <path d="M786 538C840 430 941 352 1054 336" stroke="#D6B26F" stroke-opacity="0.25" stroke-width="3" stroke-dasharray="8 12"/>
+  <rect x="138" y="164" width="380" height="472" rx="24" fill="#120E0B" fill-opacity="0.5" stroke="#D6B26F" stroke-opacity="0.2"/>
+  <rect x="188" y="218" width="280" height="280" rx="18" fill="#D6B26F" fill-opacity="0.12"/>
+  <path d="M238 442C282 356 335 300 376 300C417 300 468 354 518 442" stroke="#EFD9B1" stroke-opacity="0.65" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="376" cy="258" r="52" fill="#EFD9B1" fill-opacity="0.78"/>
+  <text x="188" y="578" fill="#F4EEE7" font-size="46" font-family="Arial, Helvetica, sans-serif" font-weight="700">Giai đoạn lãnh đạo</text>
+  <text x="188" y="624" fill="#CBB7A3" font-size="24" font-family="Arial, Helvetica, sans-serif">Placeholder thumbnail</text>
+  <text x="650" y="150" fill="#D6B26F" font-size="22" font-family="Arial, Helvetica, sans-serif" letter-spacing="7">DIGITAL HISTORY MUSEUM</text>
+  <text x="650" y="214" fill="#FFFFFF" font-size="54" font-family="Arial, Helvetica, sans-serif" font-weight="700">BẢO TÀNG 3D</text>
+  <text x="650" y="272" fill="#F3E6D4" font-size="28" font-family="Arial, Helvetica, sans-serif">Không gian lịch sử, hiện vật, timeline, ảnh và video tư liệu</text>
+  <g opacity="0.75">
+    <rect x="650" y="360" width="210" height="96" rx="20" fill="#120E0B" fill-opacity="0.48" stroke="#D6B26F" stroke-opacity="0.22"/>
+    <text x="686" y="400" fill="#D6B26F" font-size="20" font-family="Arial, Helvetica, sans-serif">Phòng trưng bày</text>
+    <text x="686" y="432" fill="#FFFFFF" font-size="32" font-family="Arial, Helvetica, sans-serif" font-weight="700">05</text>
+  </g>
+  <g opacity="0.75">
+    <rect x="882" y="360" width="210" height="96" rx="20" fill="#120E0B" fill-opacity="0.48" stroke="#D6B26F" stroke-opacity="0.22"/>
+    <text x="918" y="400" fill="#D6B26F" font-size="20" font-family="Arial, Helvetica, sans-serif">Tư liệu media</text>
+    <text x="918" y="432" fill="#FFFFFF" font-size="32" font-family="Arial, Helvetica, sans-serif" font-weight="700">ẢNH / VIDEO</text>
+  </g>
+</svg>
