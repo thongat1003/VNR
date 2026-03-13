@@ -124,7 +124,7 @@ export function ExhibitModal({ exhibit, onClose }: ExhibitModalProps) {
                   <p className="text-base leading-8 text-stone-100">{exhibit.detail}</p>
                 </div>
 
-                <div className="grid gap-3 sm:grid-cols-2">
+                {/* <div className="grid gap-3 sm:grid-cols-2">
                   <div className="rounded-[1.35rem] border border-white/10 bg-white/[0.04] p-5 text-sm text-stone-300">
                     <div className="mb-2 text-xs uppercase tracking-[0.22em] text-stone-400">Loai hien vat</div>
                     <div className="text-base font-medium capitalize text-white">{exhibit.type}</div>
@@ -133,7 +133,7 @@ export function ExhibitModal({ exhibit, onClose }: ExhibitModalProps) {
                     <div className="mb-2 text-xs uppercase tracking-[0.22em] text-stone-400">Muc dich hien thi</div>
                     <div className="text-base font-medium text-white">Anh hien vat, mo ta lich su va lien ket tu lieu</div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

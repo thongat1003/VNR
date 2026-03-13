@@ -13,15 +13,15 @@ export default function MediaPage() {
     <section className="mx-auto max-w-7xl px-4 py-14 md:px-6 lg:px-8">
       <SectionHeading
         eyebrow="Tu lieu"
-        title="Kho anh, video va storyboard cho cac tran danh lich su"
-        description="Thumbnail va anh cot loi trong trang nay da duoc thay bang anh that trich tu file Word, dong thoi giu lai phan boi canh lich su."
+        title="Kho ảnh, storyboard cho các trận đánh lịch sử"
+        // description="Thumbnail va anh cot loi trong trang nay da duoc thay bang anh that trich tu file Word, dong thoi giu lai phan boi canh lich su."
       />
 
       <div className="mt-10 grid gap-4 md:grid-cols-3">
         {[
           { label: 'Bo anh', value: imageCount.toString().padStart(2, '0') },
-          { label: 'Module video', value: videoCount.toString().padStart(2, '0') },
-          { label: 'Uu tien cot loi', value: coreCount.toString().padStart(2, '0') }
+          // { label: 'Module video', value: videoCount.toString().padStart(2, '0') },
+          { label: 'Uu tien cot loi', value: coreCount.toString().padStart(2, '0') },
         ].map((item) => (
           <div key={item.label} className="rounded-[1.5rem] border border-white/10 bg-museum.card p-5">
             <div className="text-xs uppercase tracking-[0.24em] text-stone-400">{item.label}</div>
@@ -65,7 +65,7 @@ export default function MediaPage() {
         <SectionHeading
           eyebrow="Chien dich"
           title="Storyboard chi tiet cho cac tran danh va buoc ngoat lich su"
-          description="Moi ho so duoi day ghep san phan dien giai lich su, vai tro cua Le Duan va ghi chu can thiet de dua thang vao bao tang."
+          // description="Moi ho so duoi day ghep san phan dien giai lich su, vai tro cua Le Duan va ghi chu can thiet de dua thang vao bao tang."
         />
 
         <div className="mt-8 space-y-6">

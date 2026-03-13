@@ -9,7 +9,7 @@ export const mediaAssets: MediaAsset[] = [
     category: 'image',
     priority: 'core',
     section: 'Quê hương & Tuổi trẻ',
-    source: 'BTLSQG / Báo Nhân Dân',
+    source: 'Báo Nhân Dân',
     note:
       'Phục vụ phòng mở đầu, bản đồ quê hương, panel tiểu sử và phần giới thiệu về môi trường hình thành nhân cách.',
     usage:
@@ -35,7 +35,7 @@ export const mediaAssets: MediaAsset[] = [
     category: 'image',
     priority: 'core',
     section: 'Hoạt động Cách mạng (1930-1945)',
-    source: 'BTLSQG / Di tích nhà tù / Báo chính thống',
+    source: 'Di tích nhà tù / Báo chính thống',
     note:
       'Dùng cho khu “những năm tháng giam cầm”, phù hợp với ảnh hồ sơ, buồng giam, hiện vật tù chính trị và trích dẫn hồi ức.',
     usage:
@@ -123,7 +123,7 @@ export const mediaAssets: MediaAsset[] = [
     category: 'image',
     priority: 'core',
     section: 'Thống nhất đất nước',
-    source: 'QĐND / BTLSQG / Bảo tàng Lịch sử Quân sự Việt Nam',
+    source: 'QĐND /Bảo tàng Lịch sử Quân sự Việt Nam',
     note:
       'Đây là cụm ảnh phải đầu tư mạnh nhất sau chân dung nhân vật trung tâm vì là đỉnh cao cảm xúc của toàn bộ bảo tàng.',
     usage:
@@ -147,96 +147,96 @@ export const mediaAssets: MediaAsset[] = [
       }
     ]
   },
-  {
-    id: 'legacy-document-set',
-    title: 'Ảnh làm việc và di sản sau thống nhất',
-    category: 'image',
-    priority: 'support',
-    section: 'Di sản & Đổi mới',
-    source: 'BTLSQG / Báo Nhân Dân',
-    note:
-      'Dùng cho không gian kết thúc, chuyển từ thắng lợi quân sự sang câu chuyện lãnh đạo đất nước thời hậu chiến.',
-    usage:
-      'Cần ảnh hội nghị, ảnh làm việc, ảnh đi cơ sở và 1 poster hoặc bìa sách nghiên cứu về Lê Duẩn.',
-    historicalContext:
-      'Nhóm ảnh này giúp phần kết không bị cụt ở mốc 1975 mà kéo dài tới giai đoạn xây dựng đất nước và đánh giá di sản.',
-    thumbnail: archiveImages.treaty1978,
-    verified: true,
-    sourceLinks: [
-      {
-        label: 'BTLSQG: Triển lãm Lê Duẩn',
-        href: 'https://baotanglichsu.vn/vi/Articles/3098/58617/trien-lam-le-duan-nha-lanh-djao-kiet-xuat-nguoi-hoc-tro-loi-lac-cua-chu-tich-ho-chi-minh.html'
-      }
-    ]
-  },
-  {
-    id: 'vnews-profile-video',
-    title: 'Video chân dung Lê Duẩn',
-    category: 'video',
-    priority: 'core',
-    section: 'Rạp chiếu tư liệu',
-    source: 'VietnamPlus / VNews',
-    note:
-      'Dùng cho khu mở đầu hoặc phần trình chiếu dài, giúp người xem có một chân dung khái quát trước khi đi sâu vào từng phòng trưng bày.',
-    usage:
-      'Nên dựng dưới dạng video mở đầu 30-60 giây và một phiên bản đầy đủ hơn cho trang media hoặc kiosk video.',
-    historicalContext:
-      'Video chân dung đóng vai trò “narrative anchor”, gom lại các lớp tiểu sử, chiến lược, chiến dịch và di sản trong một trục kể chuyện ngắn.',
-    thumbnail: archiveImages.firstSecretary,
-    verified: true,
-    sourceLinks: [
-      {
-        label: 'VietnamPlus: Tổng Bí thư Lê Duẩn - vị lãnh tụ kiệt xuất',
-        href: 'https://www.vietnamplus.vn/tong-bi-thu-le-duan-vi-lanh-tu-kiet-xuat-cua-dang-va-cach-mang-viet-nam-post773699.vnp'
-      }
-    ]
-  },
-  {
-    id: 'campaign-storyboard-videos',
-    title: 'Chuỗi clip ngắn cho Đồng khởi, Mậu Thân, mùa Xuân 1975',
-    category: 'video',
-    priority: 'core',
-    section: 'Kiosk chiến dịch',
-    source: 'QĐND / VTV / VNews',
-    note:
-      'Mỗi chiến dịch nên có một clip riêng 60-120 giây với bản đồ động, ảnh tư liệu và lời dẫn ngắn.',
-    usage:
-      'Triển khai thành 4 clip: Đồng khởi 1960, Mậu Thân 1968, Tây Nguyên 1975, Chiến dịch Hồ Chí Minh 1975.',
-    historicalContext:
-      'Các clip này biến trang media và không gian 3D thành một bảo tàng sống hơn, giảm cảm giác chỉ đang xem ảnh tĩnh và chữ mô tả.',
-    thumbnail: archiveImages.fidelCastroVisit,
-    verified: true,
-    sourceLinks: [
-      {
-        label: 'QĐND: Tết Mậu Thân 1968',
-        href: 'https://media.qdnd.vn/long-form/cuoc-tong-tien-cong-va-noi-day-tet-mau-than-1968-tam-voc-va-y-nghia-lich-su-56412'
-      },
-      {
-        label: 'QĐND: Chiến dịch Hồ Chí Minh',
-        href: 'https://www.qdnd.vn/50namgiaiphongmiennam/chien-dich-ho-chi-minh-lich-su-to-chuc-su-dung-luc-luong-rat-sang-tao-de-gianh-thang-loi-tron-ven-817547'
-      }
-    ]
-  },
-  {
-    id: 'legacy-video-wall',
-    title: 'Video di sản và tưởng niệm',
-    category: 'video',
-    priority: 'support',
-    section: 'Di sản',
-    source: 'Báo Nhân Dân / VNews / Tư liệu tưởng niệm',
-    note:
-      'Phù hợp cho phòng cuối, nơi cần nhịp kể chậm hơn để khép lại hành trình bằng đánh giá lịch sử và ký ức công chúng.',
-    usage:
-      'Có thể dùng 1 clip tưởng niệm ngắn 45 giây và 1 video dài hơn về di sản chính trị, hình ảnh lưu niệm, hội thảo, triển lãm.',
-    historicalContext:
-      'Video kết thúc giúp nối các lớp tư liệu lịch sử với hiện tại, cho thấy vì sao hình ảnh và di sản của Lê Duẩn vẫn tiếp tục được nhắc lại trong không gian công cộng.',
-    thumbnail: archiveImages.congress1982,
-    verified: true,
-    sourceLinks: [
-      {
-        label: 'BTLSQG: Triển lãm Lê Duẩn',
-        href: 'https://baotanglichsu.vn/vi/Articles/3098/58617/trien-lam-le-duan-nha-lanh-djao-kiet-xuat-nguoi-hoc-tro-loi-lac-cua-chu-tich-ho-chi-minh.html'
-      }
-    ]
-  }
+  // {
+  //   id: 'legacy-document-set',
+  //   title: 'Ảnh làm việc và di sản sau thống nhất',
+  //   category: 'image',
+  //   priority: 'support',
+  //   section: 'Di sản & Đổi mới',
+  //   source: 'BTLSQG / Báo Nhân Dân',
+  //   note:
+  //     'Dùng cho không gian kết thúc, chuyển từ thắng lợi quân sự sang câu chuyện lãnh đạo đất nước thời hậu chiến.',
+  //   usage:
+  //     'Cần ảnh hội nghị, ảnh làm việc, ảnh đi cơ sở và 1 poster hoặc bìa sách nghiên cứu về Lê Duẩn.',
+  //   historicalContext:
+  //     'Nhóm ảnh này giúp phần kết không bị cụt ở mốc 1975 mà kéo dài tới giai đoạn xây dựng đất nước và đánh giá di sản.',
+  //   thumbnail: archiveImages.treaty1978,
+  //   verified: true,
+  //   sourceLinks: [
+  //     {
+  //       label: 'BTLSQG: Triển lãm Lê Duẩn',
+  //       href: 'https://baotanglichsu.vn/vi/Articles/3098/58617/trien-lam-le-duan-nha-lanh-djao-kiet-xuat-nguoi-hoc-tro-loi-lac-cua-chu-tich-ho-chi-minh.html'
+  //     }
+  //   ]
+  // },
+  // {
+  //   id: 'vnews-profile-video',
+  //   title: 'Video chân dung Lê Duẩn',
+  //   category: 'video',
+  //   priority: 'core',
+  //   section: 'Rạp chiếu tư liệu',
+  //   source: 'VietnamPlus / VNews',
+  //   note:
+  //     'Dùng cho khu mở đầu hoặc phần trình chiếu dài, giúp người xem có một chân dung khái quát trước khi đi sâu vào từng phòng trưng bày.',
+  //   usage:
+  //     'Nên dựng dưới dạng video mở đầu 30-60 giây và một phiên bản đầy đủ hơn cho trang media hoặc kiosk video.',
+  //   historicalContext:
+  //     'Video chân dung đóng vai trò “narrative anchor”, gom lại các lớp tiểu sử, chiến lược, chiến dịch và di sản trong một trục kể chuyện ngắn.',
+  //   thumbnail: archiveImages.firstSecretary,
+  //   verified: true,
+  //   sourceLinks: [
+  //     {
+  //       label: 'VietnamPlus: Tổng Bí thư Lê Duẩn - vị lãnh tụ kiệt xuất',
+  //       href: 'https://www.vietnamplus.vn/tong-bi-thu-le-duan-vi-lanh-tu-kiet-xuat-cua-dang-va-cach-mang-viet-nam-post773699.vnp'
+  //     }
+  //   ]
+  // },
+  // {
+  //   id: 'campaign-storyboard-videos',
+  //   title: 'Chuỗi clip ngắn cho Đồng khởi, Mậu Thân, mùa Xuân 1975',
+  //   category: 'video',
+  //   priority: 'core',
+  //   section: 'Kiosk chiến dịch',
+  //   source: 'QĐND / VTV / VNews',
+  //   note:
+  //     'Mỗi chiến dịch nên có một clip riêng 60-120 giây với bản đồ động, ảnh tư liệu và lời dẫn ngắn.',
+  //   usage:
+  //     'Triển khai thành 4 clip: Đồng khởi 1960, Mậu Thân 1968, Tây Nguyên 1975, Chiến dịch Hồ Chí Minh 1975.',
+  //   historicalContext:
+  //     'Các clip này biến trang media và không gian 3D thành một bảo tàng sống hơn, giảm cảm giác chỉ đang xem ảnh tĩnh và chữ mô tả.',
+  //   thumbnail: archiveImages.fidelCastroVisit,
+  //   verified: true,
+  //   sourceLinks: [
+  //     {
+  //       label: 'QĐND: Tết Mậu Thân 1968',
+  //       href: 'https://media.qdnd.vn/long-form/cuoc-tong-tien-cong-va-noi-day-tet-mau-than-1968-tam-voc-va-y-nghia-lich-su-56412'
+  //     },
+  //     {
+  //       label: 'QĐND: Chiến dịch Hồ Chí Minh',
+  //       href: 'https://www.qdnd.vn/50namgiaiphongmiennam/chien-dich-ho-chi-minh-lich-su-to-chuc-su-dung-luc-luong-rat-sang-tao-de-gianh-thang-loi-tron-ven-817547'
+  //     }
+  //   ]
+  // },
+  // {
+  //   id: 'legacy-video-wall',
+  //   title: 'Video di sản và tưởng niệm',
+  //   category: 'video',
+  //   priority: 'support',
+  //   section: 'Di sản',
+  //   source: 'Báo Nhân Dân / VNews / Tư liệu tưởng niệm',
+  //   note:
+  //     'Phù hợp cho phòng cuối, nơi cần nhịp kể chậm hơn để khép lại hành trình bằng đánh giá lịch sử và ký ức công chúng.',
+  //   usage:
+  //     'Có thể dùng 1 clip tưởng niệm ngắn 45 giây và 1 video dài hơn về di sản chính trị, hình ảnh lưu niệm, hội thảo, triển lãm.',
+  //   historicalContext:
+  //     'Video kết thúc giúp nối các lớp tư liệu lịch sử với hiện tại, cho thấy vì sao hình ảnh và di sản của Lê Duẩn vẫn tiếp tục được nhắc lại trong không gian công cộng.',
+  //   thumbnail: archiveImages.congress1982,
+  //   verified: true,
+  //   sourceLinks: [
+  //     {
+  //       label: 'BTLSQG: Triển lãm Lê Duẩn',
+  //       href: 'https://baotanglichsu.vn/vi/Articles/3098/58617/trien-lam-le-duan-nha-lanh-djao-kiet-xuat-nguoi-hoc-tro-loi-lac-cua-chu-tich-ho-chi-minh.html'
+  //     }
+  //   ]
+  // }
 ];
