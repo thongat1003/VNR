@@ -9,13 +9,13 @@ module.exports = {
     extend: {
       colors: {
         museum: {
-          bg: '#120e0b',
-          surface: '#1f1712',
-          card: '#2b2019',
-          line: '#564235',
-          primary: '#9f1d20',
-          accent: '#d6b26f',
-          soft: '#efe8df'
+          bg: 'rgb(var(--museum-bg) / <alpha-value>)',
+          surface: 'rgb(var(--museum-surface) / <alpha-value>)',
+          card: 'rgb(var(--museum-card) / <alpha-value>)',
+          line: 'rgb(var(--museum-line) / <alpha-value>)',
+          primary: 'rgb(var(--museum-primary) / <alpha-value>)',
+          accent: 'rgb(var(--museum-accent) / <alpha-value>)',
+          soft: 'rgb(var(--museum-soft) / <alpha-value>)'
         }
       },
       boxShadow: {

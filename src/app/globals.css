@@ -3,6 +3,13 @@
 
 :root {
   color-scheme: dark;
+  --museum-bg: 18 14 11;
+  --museum-surface: 31 23 18;
+  --museum-card: 43 32 25;
+  --museum-line: 86 66 53;
+  --museum-primary: 159 29 32;
+  --museum-accent: 214 178 111;
+  --museum-soft: 239 232 223;
 }
 
 * {
@@ -17,8 +24,9 @@ body {
   margin: 0;
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background:
-    radial-gradient(circle at top, rgba(159, 29, 32, 0.17), transparent 28%),
-    linear-gradient(180deg, #0f0b09 0%, #120e0b 100%);
+    radial-gradient(circle at top, rgb(var(--museum-primary) / 0.17), transparent 28%),
+    linear-gradient(180deg, rgb(var(--museum-surface)) 0%, rgb(var(--museum-bg)) 100%);
+  transition: background 220ms ease, color 220ms ease;
 }
 
 a {

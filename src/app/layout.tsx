@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import './globals.css';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { ThemeCustomizer } from '@/components/layout/ThemeCustomizer';
 import { siteConfig } from '@/data/site';
 
 export const metadata: Metadata = {
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         <Header />
         <main>{children}</main>
         <Footer />
+        <ThemeCustomizer />
       </body>
     </html>
   );
