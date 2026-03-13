@@ -32,7 +32,7 @@ export const exhibits: Exhibit[] = [
     summary:
       'Tài liệu mô phỏng quá trình tham gia phong trào yêu nước và bước vào hoạt động cách mạng từ cuối thập niên 1920.',
     detail:
-      'Khung thông tin cần hiển thị ảnh chân dung giai đoạn sớm, tài liệu tổ chức, và thuyết minh ngắn về chặng đường từ người thanh niên yêu nước ở miền Trung trở thành cán bộ lãnh đạo cách mạng. Có thể bổ sung hotspot dẫn sang timeline mốc 1928 và bộ ảnh tư liệu đầu đời.',
+      'Năm 1928, Lê Văn Nhuận tham gia Hội Việt Nam Cách mạng Thanh niên – tổ chức do Nguyễn Ái Quốc thành lập. Hoạt động trong tổ chức này, ông tham gia tuyên truyền tư tưởng cách mạng, vận động quần chúng và tổ chức phong trào công nhân. Năm 1930, khi Đảng Cộng sản Đông Dương được thành lập, ông trở thành một trong những đảng viên đầu tiên, chính thức bước vào con đường hoạt động cách mạng chuyên nghiệp.',
     image: archiveImages.youth,
     position: [-6.5, 1.1, -1],
     color: '#b53f3f',
@@ -54,7 +54,7 @@ export const exhibits: Exhibit[] = [
     summary:
       'Không gian hồ sơ, ảnh và kỷ vật gợi nhắc các nhà tù Hỏa Lò, Sơn La, Côn Đảo và ý chí của người chiến sĩ cách mạng.',
     detail:
-      'Phần mô tả nên tập trung vào việc Lê Duẩn bị thực dân Pháp bắt năm 1931, trải qua nhiều nhà tù và tiếp tục rèn luyện ý chí, bản lĩnh trong lao tù. Với bảo tàng 3D, nhóm tư liệu này cần đi kèm âm thanh nền tiết chế và lớp ánh sáng tối để tăng chiều sâu cảm xúc.',
+      'Năm 1931, Lê Duẩn bị thực dân Pháp bắt tại Hải Phòng và kết án 20 năm tù khổ sai. Dù bị đày ải qua các nhà tù tàn bạo như Hỏa Lò, Sơn La và Côn Đảo, ông cùng các đồng chí vẫn kiên cường biến chốn giam cầm thành “trường học cách mạng” để rèn luyện bản lĩnh chính trị và ý chí đấu tranh',
     image: archiveImages.prison,
     position: [-2, 1.2, 0],
     color: '#8c5b40',
@@ -98,7 +98,7 @@ export const exhibits: Exhibit[] = [
     summary:
       'Điểm nhấn chiến lược gắn với tư duy về cách mạng miền Nam trong bối cảnh sau Hiệp định Giơ-ne-vơ.',
     detail:
-      'Khung thông tin nên cho thấy rõ đây không chỉ là một tài liệu chính trị đơn lẻ, mà là mắt xích quan trọng trong quá trình hình thành đường lối cách mạng miền Nam, sau này gắn với Nghị quyết 15 và bước ngoặt Đồng khởi. Phù hợp để thêm facsimile, dòng trích dẫn và sơ đồ bối cảnh 1954-1956.',
+      'Năm 1956, trước sự đàn áp khốc liệt của chính quyền Ngô Đình Diệm sau Hiệp định Genève 1954, đồng chí Lê Duẩn đã soạn thảo "Đề cương cách mạng miền Nam. Bản đề cương phân tích sâu sắc tình hình chính trị, xác định con đường đấu tranh và khẳng định vai trò của quần chúng nhân dân. Đây là tài liệu mang tính nền tảng, trở thành cơ sở để Đảng ban hành Nghị quyết 15 (1959), chính thức mở đường cho phong trào đấu tranh vũ trang ở miền Nam',
     image: archiveImages.southernThesis,
     position: [8, 1.35, 0],
     color: '#c0392b',
