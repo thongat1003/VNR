@@ -21,7 +21,10 @@ export const archiveImages = {
   treaty1978: '/assets/archive/hiep-uoc-viet-xo-1978.jpg',
   youthArmy1980: '/assets/archive/thanh-nien-quan-doi-1980.jpg',
   sovietVisit1980: '/assets/archive/tham-lien-xo-1980.jpg',
-  congress1982: '/assets/archive/dai-hoi-v-1982-a.jpg'
+  congress1982: '/assets/archive/dai-hoi-v-1982-a.jpg',
+  passing1986Funeral: '/assets/archive/tu-lieu-cuoi-ho-so-03.jpg',
+  passing1986News: '/assets/archive/tu-lieu-cuoi-ho-so-01.jpg',
+  passing1986Presidium: '/assets/archive/tu-lieu-cuoi-ho-so-02.jpg'
 } as const;
 
 export const documentHighlights: DocumentArchiveItem[] = [

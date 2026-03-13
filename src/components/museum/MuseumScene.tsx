@@ -223,7 +223,8 @@ const museumDisplayOrder = [
   'youth-army-1980',
   'soviet-visit-1980',
   'congress-v-1982',
-  'victory-map'
+  'victory-map',
+  'passaway-1986'
 ] as const;
 
 const galleryLayout: Record<string, DisplaySlot> = {
@@ -383,6 +384,13 @@ const galleryLayout: Record<string, DisplaySlot> = {
     rotation: [0, Math.PI, 0],
     frame: uniformFrameSize,
     hotspot: [73, 29]
+  },
+  'passaway-1986': {
+    kind: 'wall',
+    position: [-23, 2.8, frontWallMountZ],
+    rotation: [0, Math.PI, 0],
+    frame: uniformFrameSize,
+    hotspot: [85, 29]
   }
 };
 
@@ -459,6 +467,8 @@ const fallbackPanels = [
   { id: 'youth-army-1980', style: { left: '57%', top: '29%', width: '11%', height: '17%', transform: 'perspective(1200px) rotateY(-10deg)' } },
   { id: 'soviet-visit-1980', style: { left: '68%', top: '4%', width: '11%', height: '17%', transform: 'perspective(1200px) rotateY(-12deg)' } },
   { id: 'congress-v-1982', style: { left: '79%', top: '29%', width: '11%', height: '17%', transform: 'perspective(1200px) rotateY(-14deg)' } }
+,
+  { id: 'passaway-1986', style: { left: '85%', top: '23%', width: '11%', height: '17%', transform: 'perspective(1200px) rotateY(-16deg)' } }
 ] as const;
 
 function getWallInteractionPosition(slot: WallSlot) {

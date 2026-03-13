@@ -471,9 +471,24 @@ export const exhibits: Exhibit[] = [
         href: 'https://baotanglichsu.vn/vi/Articles/3098/58617/trien-lam-le-duan-nha-lanh-djao-kiet-xuat-nguoi-hoc-tro-loi-lac-cua-chu-tich-ho-chi-minh.html'
       }
     ]
+  },
+
+  {
+    id: 'passaway-1986',
+    name: 'Lễ Quốc tang Tổng Bí thư Lê Duẩn',
+    room: 'Di sản & Đổi mới',
+    title: 'Sự ra đi và Di sản để lại',
+    summary: 'Ngày 10/7/1986, Tổng Bí thư Lê Duẩn qua đời tại Hà Nội sau gần 60 năm hoạt động cách mạng. Lễ quốc tang được tổ chức trọng thể.',
+    detail: 'Cuộc đời ông gắn liền với phong trào cách mạng Việt Nam, kháng chiến chống Pháp, kháng chiến chống Mỹ và công cuộc xây dựng đất nước sau thống nhất.',
+    image: archiveImages.passing1986News,
+    position: [28, 1.35, 0],
+    color: '#3d3d3d',
+    size: [1.8, 1.1, 0.08],
+    type: 'document',
+    verified: true,
+    sourceLinks: []
   }
 ];
-
 const treatyLegacyExhibit = exhibits.find((exhibit) => exhibit.id === 'medal-legacy');
 
 if (treatyLegacyExhibit) {
