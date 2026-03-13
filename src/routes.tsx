@@ -1,9 +1,10 @@
 import type { RouteItem } from '@/types';
 
 export const routes: RouteItem[] = [
-  { label: 'Trang chủ', href: '/', description: 'Giới thiệu tổng quan dự án' },
-  { label: 'Bảo tàng 3D', href: '/museum', description: 'Không gian ảo tương tác' },
-  { label: 'Timeline', href: '/timeline', description: 'Dòng thời gian trực quan' },
-  { label: 'Tư liệu', href: '/media', description: 'Ảnh và video lịch sử' },
-  { label: 'Giới thiệu', href: '/about', description: 'Nguồn tư liệu và định hướng dự án' }
+  { label: 'Trang chu', href: '/', description: 'Gioi thieu tong quan du an' },
+  { label: 'Bao tang 3D', href: '/museum', description: 'Khong gian ao tuong tac' },
+  { label: 'Postcard', href: '/museum/postcard', description: 'Phat video MP4 postcard' },
+  { label: 'Timeline', href: '/timeline', description: 'Dong thoi gian truc quan' },
+  { label: 'Tu lieu', href: '/media', description: 'Anh va video lich su' },
+  { label: 'Gioi thieu', href: '/about', description: 'Nguon tu lieu va dinh huong du an' }
 ];
