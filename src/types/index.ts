@@ -17,6 +17,7 @@ export type TimelineEvent = {
   detail: string;
   room: string;
   image: string;
+  imagePosition?: string;
   verified?: boolean;
   sourceLinks?: SourceLink[];
 };
@@ -50,6 +51,17 @@ export type MediaAsset = {
   thumbnail: string;
   verified?: boolean;
   sourceLinks?: SourceLink[];
+};
+
+export type DocumentArchiveItem = {
+  id: string;
+  period: string;
+  room: string;
+  title: string;
+  summary: string;
+  caption: string;
+  image: string;
+  imagePosition?: string;
 };
 
 export type CampaignPlan = {

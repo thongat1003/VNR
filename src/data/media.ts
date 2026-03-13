@@ -1,4 +1,5 @@
 import type { MediaAsset } from '@/types';
+import { archiveImages } from '@/data/documentArchive';
 
 export const mediaAssets: MediaAsset[] = [
   {
@@ -9,12 +10,12 @@ export const mediaAssets: MediaAsset[] = [
     section: 'Nhân vật trung tâm',
     source: 'BTLSQG / Báo Nhân Dân / TTXVN',
     note:
-      'Dùng cho hero banner, gallery chân dung, popup tiểu sử và các khung chuyển cảnh giữa các phòng.',
+      'Dùng cho hero banner, gallery chân dung, phần giới thiệu tiểu sử và các khung chuyển cảnh giữa các phòng.',
     usage:
       'Chọn 1 ảnh hero ngang, 1 ảnh bán thân trang trọng và 6-8 ảnh tư liệu theo giai đoạn 1930, 1954, 1960, 1968, 1975, 1976-1986.',
     historicalContext:
       'Đây là trục thị giác quan trọng nhất của toàn bộ bảo tàng vì giúp người xem nhìn rõ tiến trình từ nhà hoạt động cách mạng đến nhà lãnh đạo cao nhất của Đảng.',
-    thumbnail: '/assets/media/portrait.svg',
+    thumbnail: archiveImages.firstSecretary,
     verified: true,
     sourceLinks: [
       {
@@ -40,7 +41,7 @@ export const mediaAssets: MediaAsset[] = [
       'Cần 1 ảnh toàn cảnh khu lưu niệm, 2-3 ảnh nhà lưu niệm hoặc không gian thờ tự, 1 bản đồ Quảng Trị đầu thế kỷ XX.',
     historicalContext:
       'Nhóm ảnh này giúp đặt Lê Duẩn vào không gian xã hội - văn hóa cụ thể của Quảng Trị, thay vì chỉ mở đầu bằng chân dung rời rạc.',
-    thumbnail: '/assets/media/quang-tri-home.svg',
+    thumbnail: archiveImages.homeland,
     verified: true,
     sourceLinks: [
       {
@@ -66,7 +67,7 @@ export const mediaAssets: MediaAsset[] = [
       'Cần 1 ảnh hồ sơ, 2 ảnh di tích, 1 ảnh hiện vật tù chính trị và 1 ảnh đồ họa minh họa tuyến giam giữ.',
     historicalContext:
       'Đây là nhóm tư liệu cho thấy sức bền chính trị và tinh thần của thế hệ cách mạng tiền bối, đồng thời tạo chiều sâu cảm xúc trong hành trình bảo tàng.',
-    thumbnail: '/assets/media/prison-years.svg',
+    thumbnail: archiveImages.prison,
     verified: true,
     sourceLinks: [
       {
@@ -83,12 +84,12 @@ export const mediaAssets: MediaAsset[] = [
     section: '“Kiến trúc sư” Thống nhất',
     source: 'Báo Nhân Dân / Văn kiện Đảng',
     note:
-      'Đây là cụm tư liệu nền cho phòng 1954-1960, dùng cho popup tài liệu, bản đồ tư duy và bảng chú giải.',
+      'Đây là cụm tư liệu nền cho phòng 1954-1960, dùng cho khung thông tin tài liệu, bản đồ tư duy và bảng chú giải.',
     usage:
       'Cần ảnh bìa, ảnh trang mở đầu, 2-3 trang trích dẫn có đánh dấu và một sơ đồ tóm tắt bối cảnh 1954-1956.',
     historicalContext:
       'Nhóm tư liệu này giúp bảo tàng đi từ tiểu sử cá nhân sang chiều sâu đường lối chính trị, lý giải vì sao Lê Duẩn thường được gắn với tư duy chiến lược về miền Nam.',
-    thumbnail: '/assets/media/southern-revolution.svg',
+    thumbnail: archiveImages.southernThesis,
     verified: true,
     sourceLinks: [
       {
@@ -110,7 +111,7 @@ export const mediaAssets: MediaAsset[] = [
       'Nên có 1 bản đồ Bến Tre, 2 ảnh phong trào quần chúng, 1 ảnh lực lượng tại chỗ, 1 ảnh tư liệu lãnh đạo liên quan.',
     historicalContext:
       'Đồng khởi không chỉ là một mốc sự kiện mà là bước ngoặt cần được kể như nút mở của chặng đường đi tới Mậu Thân và mùa Xuân 1975.',
-    thumbnail: '/assets/media/youth-revolution.svg',
+    thumbnail: archiveImages.southernResistance,
     verified: true,
     sourceLinks: [
       {
@@ -132,7 +133,7 @@ export const mediaAssets: MediaAsset[] = [
       'Cần 1 bản đồ tổng, 3-4 ảnh đô thị trọng điểm, 1 infographic về quy mô tiến công và 1 ảnh tư liệu lãnh đạo.',
     historicalContext:
       'Bộ ảnh này giúp người xem hiểu Mậu Thân 1968 trong mạch diễn biến chiến tranh, không tách rời vai trò chỉ đạo chiến lược của Trung ương.',
-    thumbnail: '/assets/media/video-documentary.svg',
+    thumbnail: archiveImages.northernLeadership,
     verified: true,
     sourceLinks: [
       {
@@ -154,7 +155,7 @@ export const mediaAssets: MediaAsset[] = [
       'Cần 1 bản đồ liên hoàn ba chiến dịch, 1 bộ ảnh Buôn Ma Thuột, 1 bộ ảnh Huế - Đà Nẵng, 1 bộ ảnh Chiến dịch Hồ Chí Minh và ảnh thống nhất.',
     historicalContext:
       'Chuỗi hình ảnh này cho phép dựng narrative liên tục từ đòn mở màn Tây Nguyên tới khoảnh khắc 30-4-1975, tạo climax thị giác và lịch sử.',
-    thumbnail: '/assets/media/unification-1975.svg',
+    thumbnail: archiveImages.springVictory,
     verified: true,
     sourceLinks: [
       {
@@ -184,7 +185,7 @@ export const mediaAssets: MediaAsset[] = [
       'Cần ảnh hội nghị, ảnh làm việc, ảnh đi cơ sở và 1 poster hoặc bìa sách nghiên cứu về Lê Duẩn.',
     historicalContext:
       'Nhóm ảnh này giúp phần kết không bị cụt ở mốc 1975 mà kéo dài tới giai đoạn xây dựng đất nước và đánh giá di sản.',
-    thumbnail: '/assets/media/post-war-renewal.svg',
+    thumbnail: archiveImages.treaty1978,
     verified: true,
     sourceLinks: [
       {
@@ -201,12 +202,12 @@ export const mediaAssets: MediaAsset[] = [
     section: 'Rạp chiếu tư liệu',
     source: 'VietnamPlus / VNews',
     note:
-      'Dùng cho khu mở đầu hoặc popup media dài, giúp người xem có một chân dung khái quát trước khi đi sâu vào từng phòng trưng bày.',
+      'Dùng cho khu mở đầu hoặc phần trình chiếu dài, giúp người xem có một chân dung khái quát trước khi đi sâu vào từng phòng trưng bày.',
     usage:
       'Nên dựng dưới dạng video mở đầu 30-60 giây và một phiên bản đầy đủ hơn cho trang media hoặc kiosk video.',
     historicalContext:
       'Video chân dung đóng vai trò “narrative anchor”, gom lại các lớp tiểu sử, chiến lược, chiến dịch và di sản trong một trục kể chuyện ngắn.',
-    thumbnail: '/assets/media/video-profile.svg',
+    thumbnail: archiveImages.firstSecretary,
     verified: true,
     sourceLinks: [
       {
@@ -228,7 +229,7 @@ export const mediaAssets: MediaAsset[] = [
       'Triển khai thành 4 clip: Đồng khởi 1960, Mậu Thân 1968, Tây Nguyên 1975, Chiến dịch Hồ Chí Minh 1975.',
     historicalContext:
       'Các clip này biến trang media và không gian 3D thành một bảo tàng sống hơn, giảm cảm giác chỉ đang xem ảnh tĩnh và chữ mô tả.',
-    thumbnail: '/assets/media/video-documentary.svg',
+    thumbnail: archiveImages.fidelCastroVisit,
     verified: true,
     sourceLinks: [
       {
@@ -254,7 +255,7 @@ export const mediaAssets: MediaAsset[] = [
       'Có thể dùng 1 clip tưởng niệm ngắn 45 giây và 1 video dài hơn về di sản chính trị, hình ảnh lưu niệm, hội thảo, triển lãm.',
     historicalContext:
       'Video kết thúc giúp nối các lớp tư liệu lịch sử với hiện tại, cho thấy vì sao hình ảnh và di sản của Lê Duẩn vẫn tiếp tục được nhắc lại trong không gian công cộng.',
-    thumbnail: '/assets/media/video-legacy.svg',
+    thumbnail: archiveImages.congress1982,
     verified: true,
     sourceLinks: [
       {

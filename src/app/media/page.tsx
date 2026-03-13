@@ -14,7 +14,7 @@ export default function MediaPage() {
       <SectionHeading
         eyebrow="Tư liệu"
         title="Kho ảnh, video và storyboard cho các trận đánh lịch sử"
-        description="Trang này không còn chỉ là danh sách placeholder: mỗi bộ media đã có bối cảnh lịch sử, cách dùng trong site và nhóm chiến dịch tương ứng để bạn thay thẳng bằng ảnh/video thật."
+        description="Thumbnail và ảnh cốt lõi trong trang này đã được thay bằng ảnh thật trích từ file Word, đồng thời giữ lại phần bối cảnh lịch sử và cách dùng trong trưng bày."
       />
 
       <div className="mt-10 grid gap-4 md:grid-cols-3">
@@ -54,28 +54,12 @@ export default function MediaPage() {
                 <p className="text-sm leading-7 text-stone-300">{asset.historicalContext}</p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-                <div className="mb-1 text-xs uppercase tracking-[0.22em] text-stone-400">Cách dùng trong site</div>
+                <div className="mb-1 text-xs uppercase tracking-[0.22em] text-stone-400">Cách dùng trong trưng bày</div>
                 <p className="text-sm leading-7 text-stone-300">{asset.usage}</p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-black/20 p-4 text-sm text-stone-300">
-                <div className="mb-1 text-xs uppercase tracking-[0.22em] text-stone-400">Nguồn ưu tiên</div>
                 {asset.source}
               </div>
-              {asset.sourceLinks?.length ? (
-                <div className="flex flex-wrap gap-2">
-                  {asset.sourceLinks.map((source) => (
-                    <a
-                      key={source.href}
-                      href={source.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-stone-200 transition hover:border-museum.accent/40 hover:text-white"
-                    >
-                      {source.label}
-                    </a>
-                  ))}
-                </div>
-              ) : null}
             </div>
           </article>
         ))}
@@ -132,20 +116,6 @@ export default function MediaPage() {
                     </ul>
                   </div>
                 </div>
-              </div>
-
-              <div className="mt-5 flex flex-wrap gap-2">
-                {campaign.sourceLinks.map((source) => (
-                  <a
-                    key={source.href}
-                    href={source.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-stone-200 transition hover:border-museum.accent/40 hover:text-white"
-                  >
-                    {source.label}
-                  </a>
-                ))}
               </div>
             </article>
           ))}

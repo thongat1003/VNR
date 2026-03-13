@@ -1,4 +1,5 @@
 import type { TimelineEvent } from '@/types';
+import { archiveImages } from '@/data/documentArchive';
 
 export const timelineEvents: TimelineEvent[] = [
   {
@@ -10,7 +11,7 @@ export const timelineEvents: TimelineEvent[] = [
     detail:
       'Phòng đầu tiên nên dùng bộ ảnh toàn cảnh Quảng Trị, ảnh khu lưu niệm, bản đồ hành chính và một trục kể chuyện ngắn về gia đình, tuổi thơ, môi trường xã hội đầu thế kỷ XX ở miền Trung. Đây là nền cho toàn bộ hành trình trưng bày.',
     room: 'Quê hương & Tuổi trẻ',
-    image: '/assets/media/quang-tri-home.svg',
+    image: archiveImages.homeland,
     verified: true,
     sourceLinks: [
       {
@@ -32,7 +33,8 @@ export const timelineEvents: TimelineEvent[] = [
     detail:
       'Nội dung nên thể hiện bằng ảnh chân dung giai đoạn sớm, tài liệu tổ chức, bản đồ các địa điểm hoạt động và thuyết minh ngắn về quá trình từ thanh niên yêu nước đến cán bộ lãnh đạo cách mạng.',
     room: 'Quê hương & Tuổi trẻ',
-    image: '/assets/media/youth-revolution.svg',
+    image: archiveImages.youth,
+    imagePosition: '50% 14%',
     verified: true,
     sourceLinks: [
       {
@@ -50,7 +52,7 @@ export const timelineEvents: TimelineEvent[] = [
     detail:
       'Không gian nên dùng ảnh di tích nhà tù, hồ sơ lưu trữ, facsimile quyết định giam giữ và trích dẫn về đời sống đấu tranh trong lao tù. Phần này phù hợp với tông màu nén, ánh sáng hẹp và audio ambience.',
     room: 'Hoạt động Cách mạng (1930-1945)',
-    image: '/assets/media/prison-years.svg',
+    image: archiveImages.prison,
     verified: true,
     sourceLinks: [
       {
@@ -66,9 +68,9 @@ export const timelineEvents: TimelineEvent[] = [
     summary:
       'Trong cuộc kháng chiến chống Pháp, Lê Duẩn đảm nhiệm nhiều trọng trách ở Nam Bộ, trực tiếp gắn với thực tiễn chiến trường và công tác lãnh đạo ở miền Nam.',
     detail:
-      'Phần này nên kết hợp bản đồ Nam Bộ kháng chiến, điện chỉ đạo, ảnh chiến khu và sơ đồ tổ chức để cho thấy kinh nghiệm thực tiễn tích lũy từ giai đoạn chống Pháp đã ảnh hưởng đến tư duy chiến lược về sau.',
+      'Nên dùng ảnh Hội nghị cán bộ Khu ủy khu 9 lần thứ 3, ngày 24-1-1949. Trong ảnh (trái qua phải) là các đồng chí : Lê Duẩn (Bí thư Xứ ủy Nam Bộ); người quàng khăn là đồng chí Lê Đức Thọ (phó Bí thư Xứ ủy Nam Bộ). Kết hợp cùng bản đồ Nam Bộ kháng chiến, điện chỉ đạo và sơ đồ tổ chức để cho thấy kinh nghiệm thực tiễn tích lũy từ giai đoạn chống Pháp đã ảnh hưởng đến tư duy chiến lược về sau.',
     room: 'Kháng chiến chống Pháp (1945-1954)',
-    image: '/assets/media/leadership.svg',
+    image: archiveImages.southernResistance,
     verified: true,
     sourceLinks: [
       {
@@ -86,7 +88,7 @@ export const timelineEvents: TimelineEvent[] = [
     detail:
       'Bố cục nên trưng bày facsimile bản thảo, chú giải bối cảnh lịch sử 1954-1956, các lớp diễn giải liên quan đến Nghị quyết 15 và bước chuyển từ giữ gìn lực lượng sang thế tiến công.',
     room: '“Kiến trúc sư” Thống nhất',
-    image: '/assets/media/southern-revolution.svg',
+    image: archiveImages.southernThesis,
     verified: true,
     sourceLinks: [
       {
@@ -104,7 +106,7 @@ export const timelineEvents: TimelineEvent[] = [
     detail:
       'Đây là điểm nối giữa tiểu sử cá nhân và lịch sử dân tộc. Nên dùng ảnh làm việc, bàn làm việc mô phỏng, điện chỉ đạo và màn hình tương tác dẫn sang hồ sơ các chiến dịch lớn.',
     room: '“Kiến trúc sư” Thống nhất',
-    image: '/assets/media/leadership.svg',
+    image: archiveImages.firstSecretary,
     verified: true,
     sourceLinks: [
       {
@@ -122,7 +124,7 @@ export const timelineEvents: TimelineEvent[] = [
     detail:
       'Nên trình bày theo cấu trúc ba lớp: diễn biến tại các đô thị trọng điểm, tác động chiến lược đối với Mỹ và chính quyền Sài Gòn, cùng ý nghĩa lâu dài đối với tiến trình đi tới thắng lợi cuối cùng năm 1975.',
     room: '“Kiến trúc sư” Thống nhất',
-    image: '/assets/media/video-documentary.svg',
+    image: archiveImages.northernLeadership,
     verified: true,
     sourceLinks: [
       {
@@ -140,7 +142,7 @@ export const timelineEvents: TimelineEvent[] = [
     detail:
       'Nội dung nên dùng bản đồ động liên hoàn, ảnh tư liệu các mũi tiến công, sa bàn số hóa và một clip tổng hợp 90-120 giây để người xem nắm được logic phát triển từ thắng lợi chiến dịch đến sụp đổ hoàn toàn của đối phương.',
     room: '“Kiến trúc sư” Thống nhất',
-    image: '/assets/media/unification-1975.svg',
+    image: archiveImages.springVictory,
     verified: true,
     sourceLinks: [
       {
@@ -162,7 +164,7 @@ export const timelineEvents: TimelineEvent[] = [
     detail:
       'Không gian này phù hợp với ảnh hội nghị, ảnh làm việc sau thống nhất, sơ đồ tái thiết đất nước và các văn kiện về điều hành kinh tế - xã hội. Đây cũng là nơi chuyển từ chiến tranh sang di sản tư tưởng, lãnh đạo.',
     room: 'Di sản & Đổi mới',
-    image: '/assets/media/post-war-renewal.svg',
+    image: archiveImages.congress1976,
     verified: true,
     sourceLinks: [
       {
@@ -180,7 +182,7 @@ export const timelineEvents: TimelineEvent[] = [
     detail:
       'Nên dùng ảnh chân dung cuối đời, sách nghiên cứu, hình ảnh tưởng niệm và một video tổng kết để kết thúc hành trình bằng giọng điệu lắng hơn, thiên về đánh giá lịch sử và di sản lâu dài.',
     room: 'Di sản & Đổi mới',
-    image: '/assets/media/legacy.svg',
+    image: archiveImages.treaty1978,
     verified: true,
     sourceLinks: [
       {
@@ -190,3 +192,13 @@ export const timelineEvents: TimelineEvent[] = [
     ]
   }
 ];
+
+const firstSecretary1960Event = timelineEvents.find((event) => event.id === 'first-secretary-1960');
+
+if (firstSecretary1960Event) {
+  firstSecretary1960Event.summary =
+    'Tại Đại hội đại biểu Đảng Lao động Việt Nam toàn quốc lần thứ III, được tổ chức tại Hà Nội từ 5 - 10/9/1960, đồng chí Lê Duẩn được bầu làm Bí thư thứ nhất Ban Chấp hành Trung ương Đảng.';
+  firstSecretary1960Event.detail =
+    'Tại Đại hội đại biểu Đảng Lao động Việt Nam toàn quốc lần thứ III, được tổ chức tại Hà Nội từ 5 - 10/9/1960, đồng chí Lê Duẩn được bầu làm Bí thư thứ nhất Ban Chấp hành Trung ương Đảng.';
+  firstSecretary1960Event.image = archiveImages.firstSecretary;
+}

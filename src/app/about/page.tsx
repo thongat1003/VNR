@@ -8,7 +8,7 @@ export default function AboutPage() {
       <SectionHeading
         eyebrow="Giới thiệu"
         title="Kế hoạch biên tập và triển khai toàn bộ ảnh, video, chiến dịch lịch sử"
-        description="Trang này tổng hợp nguyên tắc biên tập, checklist bản quyền và lộ trình sản xuất để bạn có thể đưa bộ ảnh/video thật về Lê Duẩn vào site theo từng giai đoạn rõ ràng."
+        description="Trang này tổng hợp nguyên tắc biên tập, checklist bản quyền và lộ trình sản xuất để bạn có thể đưa bộ ảnh/video thật về Lê Duẩn vào không gian trưng bày theo từng giai đoạn rõ ràng."
       />
 
       <div className="mt-10 grid gap-6 lg:grid-cols-2">
@@ -38,7 +38,7 @@ export default function AboutPage() {
         <SectionHeading
           eyebrow="Lộ trình"
           title="4 giai đoạn để lên full nội dung ảnh và video"
-          description="Nếu bạn đã có đầy đủ hình ảnh về Lê Duẩn, đây là trình tự nên làm để đưa toàn bộ lên site mà không bị rối phần dữ liệu, bản quyền và kể chuyện lịch sử."
+          description="Nếu bạn đã có đầy đủ hình ảnh về Lê Duẩn, đây là trình tự nên làm để đưa toàn bộ lên bảo tàng số mà không bị rối phần dữ liệu, bản quyền và kể chuyện lịch sử."
         />
 
         <div className="mt-8 grid gap-6 xl:grid-cols-2">

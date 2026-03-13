@@ -18,7 +18,14 @@ export function TimelinePreview() {
       <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
         {featuredEvents.map((event) => (
           <article key={event.id} className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-museum.card shadow-museum">
-            <Image src={event.image} alt={event.title} width={800} height={480} className="h-44 w-full object-cover" />
+            <Image
+              src={event.image}
+              alt={event.title}
+              width={800}
+              height={480}
+              className="h-44 w-full object-cover"
+              style={{ objectPosition: event.imagePosition ?? '50% 50%' }}
+            />
             <div className="space-y-4 p-5">
               <div className="flex items-center justify-between gap-3">
                 <span className="text-sm font-semibold uppercase tracking-[0.24em] text-museum.accent">{event.year}</span>

@@ -9,7 +9,7 @@ import { flushSync } from 'react-dom';
 import type { Mesh, Texture } from 'three';
 import { SRGBColorSpace, TextureLoader, Vector3 } from 'three';
 import type { Exhibit } from '@/types';
-import { exhibits } from '@/data/exhibits';
+import { exhibits as baseExhibits } from '@/data/exhibits';
 import { ExhibitModal } from '@/components/museum/ExhibitModal';
 import { MuseumLegend } from '@/components/museum/MuseumLegend';
 
@@ -201,27 +201,66 @@ const gallerySections = [
   { x: 26.2, glow: '#7c5d37' }
 ];
 
+const uniformFrameSize = [3.25, 1.98] as [number, number];
+const museumDisplayOrder = [
+  'homeland-map',
+  'youth-doc',
+  'prison-files',
+  'resistance-radio',
+  'southern-thesis',
+  'first-secretary-hall',
+  'congress-session-1960',
+  'working-desk',
+  'northern-leadership-1966',
+  'memorial-1969',
+  'southern-heroes-1972',
+  'fidel-castro-1973',
+  'politburo-meeting-1975',
+  'east-germany-1975',
+  'poland-1975',
+  'congress-iv-1976',
+  'medal-legacy',
+  'youth-army-1980',
+  'soviet-visit-1980',
+  'congress-v-1982',
+  'victory-map'
+] as const;
+
 const galleryLayout: Record<string, DisplaySlot> = {
   'homeland-map': {
     kind: 'wall',
     position: [-13.8, 2.95, backWallMountZ],
     rotation: [0, 0, 0],
-    frame: [3.5, 2.05],
+    frame: uniformFrameSize,
     hotspot: [14, 58]
   },
   'youth-doc': {
     kind: 'wall',
-    position: [-4.4, 2.62, backWallMountZ],
+    position: [-7.2, 2.62, backWallMountZ],
     rotation: [0, 0, 0],
-    frame: [2.8, 1.78],
-    hotspot: [30, 58]
+    frame: uniformFrameSize,
+    hotspot: [25, 58]
+  },
+  'first-secretary-hall': {
+    kind: 'wall',
+    position: [5.8, 2.62, backWallMountZ],
+    rotation: [0, 0, 0],
+    frame: uniformFrameSize,
+    hotspot: [48, 58]
+  },
+  'congress-session-1960': {
+    kind: 'wall',
+    position: [12.2, 2.62, backWallMountZ],
+    rotation: [0, 0, 0],
+    frame: uniformFrameSize,
+    hotspot: [60, 58]
   },
   'prison-files': {
     kind: 'wall',
-    position: [12.8, 2.62, backWallMountZ],
+    position: [-0.6, 2.62, backWallMountZ],
     rotation: [0, 0, 0],
-    frame: [2.8, 1.78],
-    hotspot: [58, 74]
+    frame: uniformFrameSize,
+    hotspot: [37, 58]
   },
   'resistance-radio': {
     kind: 'pedestal',
@@ -237,10 +276,31 @@ const galleryLayout: Record<string, DisplaySlot> = {
   },
   'southern-thesis': {
     kind: 'wall',
-    position: [12.8, 2.82, northDividerMountZ],
+    position: [eastWallMountX, 2.78, -11.6],
+    rotation: [0, -Math.PI / 2, 0],
+    frame: uniformFrameSize,
+    hotspot: [76, 70]
+  },
+  'east-germany-1975': {
+    kind: 'wall',
+    position: [6.6, 2.1, frontWallMountZ],
     rotation: [0, Math.PI, 0],
-    frame: [3.1, 1.92],
-    hotspot: [58, 52]
+    frame: uniformFrameSize,
+    hotspot: [24, 29]
+  },
+  'poland-1975': {
+    kind: 'wall',
+    position: [10.1, 4.28, frontWallMountZ],
+    rotation: [0, Math.PI, 0],
+    frame: uniformFrameSize,
+    hotspot: [30, 7]
+  },
+  'congress-iv-1976': {
+    kind: 'wall',
+    position: [13.8, 2.1, frontWallMountZ],
+    rotation: [0, Math.PI, 0],
+    frame: uniformFrameSize,
+    hotspot: [40, 29]
   },
   'working-desk': {
     kind: 'pedestal',
@@ -249,29 +309,80 @@ const galleryLayout: Record<string, DisplaySlot> = {
     objectLift: 0.48,
     panelOffset: -1.85,
     panelMount: {
-      position: [eastWallMountX, 2.1, -0.1],
+      position: [eastWallMountX, 2.1, -7.2],
       rotation: [0, -Math.PI / 2, 0]
     },
-    hotspot: [76, 58]
+    hotspot: [76, 60]
+  },
+  'memorial-1969': {
+    kind: 'wall',
+    position: [eastWallMountX, 2.82, 1.6],
+    rotation: [0, -Math.PI / 2, 0],
+    frame: uniformFrameSize,
+    hotspot: [76, 40]
+  },
+  'northern-leadership-1966': {
+    kind: 'wall',
+    position: [eastWallMountX, 2.82, -2.8],
+    rotation: [0, -Math.PI / 2, 0],
+    frame: uniformFrameSize,
+    hotspot: [76, 50]
+  },
+  'southern-heroes-1972': {
+    kind: 'wall',
+    position: [eastWallMountX, 2.82, 6],
+    rotation: [0, -Math.PI / 2, 0],
+    frame: uniformFrameSize,
+    hotspot: [76, 30]
+  },
+  'politburo-meeting-1975': {
+    kind: 'wall',
+    position: [eastWallMountX, 2.82, 14.1],
+    rotation: [0, -Math.PI / 2, 0],
+    frame: uniformFrameSize,
+    hotspot: [76, 10]
+  },
+  'fidel-castro-1973': {
+    kind: 'wall',
+    position: [eastWallMountX, 2.82, 10.2],
+    rotation: [0, -Math.PI / 2, 0],
+    frame: uniformFrameSize,
+    hotspot: [76, 20]
   },
   'victory-map': {
     kind: 'wall',
-    position: [22.25, 2.95, northDividerMountZ],
-    rotation: [0, Math.PI, 0],
-    frame: [3.6, 2.08],
-    hotspot: [86, 52]
+    position: [eastWallMountX, 2.95, 4.8],
+    rotation: [0, -Math.PI / 2, 0],
+    frame: uniformFrameSize,
+    hotspot: [76, 34]
   },
   'medal-legacy': {
-    kind: 'pedestal',
-    position: [20.2, 0, 10.1],
-    pedestal: [1.5, 0.95, 1.5],
-    objectLift: 0.78,
-    panelOffset: 1.45,
-    panelMount: {
-      position: [20.25, 2.24, frontWallMountZ],
-      rotation: [0, Math.PI, 0]
-    },
-    hotspot: [75, 28]
+    kind: 'wall',
+    position: [17.3, 4.28, frontWallMountZ],
+    rotation: [0, Math.PI, 0],
+    frame: uniformFrameSize,
+    hotspot: [47, 7]
+  },
+  'youth-army-1980': {
+    kind: 'wall',
+    position: [21, 2.1, frontWallMountZ],
+    rotation: [0, Math.PI, 0],
+    frame: uniformFrameSize,
+    hotspot: [56, 29]
+  },
+  'soviet-visit-1980': {
+    kind: 'wall',
+    position: [24.5, 4.28, frontWallMountZ],
+    rotation: [0, Math.PI, 0],
+    frame: uniformFrameSize,
+    hotspot: [64, 7]
+  },
+  'congress-v-1982': {
+    kind: 'wall',
+    position: [28.2, 2.1, frontWallMountZ],
+    rotation: [0, Math.PI, 0],
+    frame: uniformFrameSize,
+    hotspot: [73, 29]
   }
 };
 
@@ -324,85 +435,44 @@ const obstacleColliders: ObstacleCollider[] = [
   }))
 ];
 
-const wallColliders: ObstacleCollider[] = [
-  ...mainPartitionSegments.map((segment) => ({
-    centerX: stageWing.westX,
-    centerZ: segment.center,
-    halfWidth: shell.wallThickness / 2,
-    halfDepth: segment.span / 2
-  })),
-  ...[stageWing.southDividerZ, stageWing.northDividerZ].flatMap((dividerZ) =>
-    interRoomDividerSegments.map((segment) => ({
-      centerX: segment.center,
-      centerZ: dividerZ,
-      halfWidth: segment.span / 2,
-      halfDepth: shell.wallThickness / 2
-    }))
-  ),
-  ...stageWing.doorCenters.flatMap((doorCenter) => [
-    {
-      centerX: stageWing.westX,
-      centerZ: doorCenter - stageWing.doorWidth / 2,
-      halfWidth: 0.17,
-      halfDepth: 0.17
-    },
-    {
-      centerX: stageWing.westX,
-      centerZ: doorCenter + stageWing.doorWidth / 2,
-      halfWidth: 0.17,
-      halfDepth: 0.17
-    }
-  ]),
-  ...[stageWing.southDividerZ, stageWing.northDividerZ].flatMap((dividerZ) => [
-    {
-      centerX: stageWing.interRoomDoorCenterX - stageWing.interRoomDoorWidth / 2,
-      centerZ: dividerZ,
-      halfWidth: 0.17,
-      halfDepth: 0.17
-    },
-    {
-      centerX: stageWing.interRoomDoorCenterX + stageWing.interRoomDoorWidth / 2,
-      centerZ: dividerZ,
-      halfWidth: 0.17,
-      halfDepth: 0.17
-    }
-  ])
-];
+const wallColliders: ObstacleCollider[] = [];
 
 const fallbackPanels = [
   { id: 'homeland-map', style: { left: '9%', top: '36%', width: '18%', height: '22%', transform: 'perspective(1200px) rotateY(14deg)' } },
-  { id: 'youth-doc', style: { left: '26%', top: '36%', width: '13%', height: '18%', transform: 'perspective(1200px) rotateY(10deg)' } },
-  { id: 'prison-files', style: { left: '56%', top: '64%', width: '12%', height: '15%', transform: 'perspective(1200px) rotateY(-8deg)' } },
+  { id: 'youth-doc', style: { left: '24%', top: '36%', width: '13%', height: '18%', transform: 'perspective(1200px) rotateY(10deg)' } },
+  { id: 'prison-files', style: { left: '37%', top: '36%', width: '13%', height: '18%', transform: 'perspective(1200px) rotateY(6deg)' } },
+  { id: 'first-secretary-hall', style: { left: '50%', top: '36%', width: '13%', height: '18%', transform: 'perspective(1200px) rotateY(2deg)' } },
+  { id: 'congress-session-1960', style: { left: '63%', top: '36%', width: '13%', height: '18%', transform: 'perspective(1200px) rotateY(-2deg)' } },
   { id: 'resistance-radio', style: { left: '73%', top: '65%', width: '11%', height: '14%', transform: 'translateZ(0)' } },
-  { id: 'southern-thesis', style: { left: '55%', top: '43%', width: '12%', height: '16%', transform: 'perspective(1200px) rotateY(-8deg)' } },
+  { id: 'southern-thesis', style: { left: '82%', top: '66%', width: '11%', height: '16%', transform: 'perspective(1200px) rotateY(-14deg)' } },
+  { id: 'east-germany-1975', style: { left: '13%', top: '29%', width: '11%', height: '17%', transform: 'perspective(1200px) rotateY(-2deg)' } },
+  { id: 'poland-1975', style: { left: '24%', top: '4%', width: '11%', height: '17%', transform: 'perspective(1200px) rotateY(-4deg)' } },
+  { id: 'congress-iv-1976', style: { left: '35%', top: '29%', width: '11%', height: '17%', transform: 'perspective(1200px) rotateY(-6deg)' } },
   { id: 'working-desk', style: { left: '69%', top: '44%', width: '14%', height: '17%', transform: 'translateZ(0)' } },
+  { id: 'memorial-1969', style: { left: '82%', top: '38%', width: '11%', height: '16%', transform: 'perspective(1200px) rotateY(-14deg)' } },
+  { id: 'northern-leadership-1966', style: { left: '82%', top: '48%', width: '11%', height: '16%', transform: 'perspective(1200px) rotateY(-14deg)' } },
+  { id: 'southern-heroes-1972', style: { left: '82%', top: '28%', width: '11%', height: '16%', transform: 'perspective(1200px) rotateY(-14deg)' } },
+  { id: 'politburo-meeting-1975', style: { left: '82%', top: '8%', width: '11%', height: '16%', transform: 'perspective(1200px) rotateY(-14deg)' } },
+  { id: 'fidel-castro-1973', style: { left: '82%', top: '18%', width: '11%', height: '16%', transform: 'perspective(1200px) rotateY(-14deg)' } },
   { id: 'victory-map', style: { left: '82%', top: '43%', width: '12%', height: '16%', transform: 'perspective(1200px) rotateY(-14deg)' } },
-  { id: 'medal-legacy', style: { left: '69%', top: '19%', width: '13%', height: '15%', transform: 'translateZ(0)' } }
+  { id: 'medal-legacy', style: { left: '46%', top: '4%', width: '11%', height: '17%', transform: 'perspective(1200px) rotateY(-8deg)' } },
+  { id: 'youth-army-1980', style: { left: '57%', top: '29%', width: '11%', height: '17%', transform: 'perspective(1200px) rotateY(-10deg)' } },
+  { id: 'soviet-visit-1980', style: { left: '68%', top: '4%', width: '11%', height: '17%', transform: 'perspective(1200px) rotateY(-12deg)' } },
+  { id: 'congress-v-1982', style: { left: '79%', top: '29%', width: '11%', height: '17%', transform: 'perspective(1200px) rotateY(-14deg)' } }
 ] as const;
 
-const stagedExhibits = exhibits.filter((exhibit) => galleryLayout[exhibit.id]);
+function getWallInteractionPosition(slot: WallSlot) {
+  const interactionDistance = 2.3;
+  const yaw = slot.rotation[1];
 
-const interactionZones: InteractionZone[] = stagedExhibits.map((exhibit) => {
-  const slot = galleryLayout[exhibit.id];
+  return new Vector3(
+    slot.position[0] + Math.sin(yaw) * interactionDistance,
+    eyeHeight,
+    slot.position[2] + Math.cos(yaw) * interactionDistance
+  );
+}
 
-  if (slot.kind === 'wall') {
-    const wallOffset = slot.position[2] < 0 ? 2.3 : -2.3;
-
-    return {
-      exhibit,
-      position: new Vector3(slot.position[0], eyeHeight, slot.position[2] + wallOffset),
-      radius: 3.1
-    };
-  }
-
-  return {
-    exhibit,
-    position: new Vector3(slot.position[0], eyeHeight, slot.position[2]),
-    radius: exhibit.id === 'working-desk' ? 2.7 : 2.2
-  };
-});
-
-function getNearbyExhibit(position: Vector3) {
+function getNearbyExhibit(position: Vector3, interactionZones: InteractionZone[]) {
   let nearestExhibit: Exhibit | null = null;
   let nearestDistance = Number.POSITIVE_INFINITY;
 
@@ -517,6 +587,27 @@ function useSafeTexture(src: string) {
   return texture;
 }
 
+function getArtworkSize(maxWidth: number, maxHeight: number, texture: Texture | null) {
+  const image = texture?.image as { width?: number; height?: number } | undefined;
+
+  if (!image?.width || !image?.height) {
+    return [maxWidth, maxHeight] as const;
+  }
+
+  const textureAspect = image.width / image.height;
+  const frameAspect = maxWidth / maxHeight;
+
+  if (textureAspect >= frameAspect) {
+    return [maxWidth, maxWidth / textureAspect] as const;
+  }
+
+  return [maxHeight * textureAspect, maxHeight] as const;
+}
+
+function isRuntimeImageSource(src: string) {
+  return src.startsWith('data:') || src.startsWith('blob:');
+}
+
 function ExhibitObject({ exhibit }: { exhibit: Exhibit }) {
   const meshRef = useRef<Mesh>(null);
 
@@ -563,6 +654,10 @@ function WallDisplay({
   onSelect: (exhibit: Exhibit) => void;
 }) {
   const artworkTexture = useSafeTexture(exhibit.image);
+  const artworkSize = useMemo(
+    () => getArtworkSize(slot.frame[0], slot.frame[1], artworkTexture),
+    [artworkTexture, slot.frame]
+  );
 
   const handleClick = (event: ThreeEvent<MouseEvent>) => {
     event.stopPropagation();
@@ -582,7 +677,7 @@ function WallDisplay({
       </mesh>
 
       <mesh position={[0, 0, 0.095]} onClick={handleClick}>
-        <planeGeometry args={slot.frame} />
+        <planeGeometry args={artworkSize} />
         {artworkTexture ? (
           <meshBasicMaterial map={artworkTexture} toneMapped={false} />
         ) : (
@@ -608,7 +703,13 @@ function PedestalDisplay({
   onSelect: (exhibit: Exhibit) => void;
 }) {
   const panelTexture = useSafeTexture(exhibit.image);
-  const panelPosition = slot.panelMount?.position ?? ([0, 1.95, slot.panelOffset] as [number, number, number]);
+  const panelArtworkSize = useMemo(
+    () => getArtworkSize(uniformFrameSize[0], uniformFrameSize[1], panelTexture),
+    [panelTexture]
+  );
+  const panelPosition =
+    slot.panelMount?.position ??
+    ([slot.position[0], slot.position[1] + 1.95, slot.position[2] + slot.panelOffset] as [number, number, number]);
   const panelRotation = slot.panelMount?.rotation ?? ([0, slot.panelOffset > 0 ? Math.PI : 0, 0] as [number, number, number]);
 
   const handleClick = (event: ThreeEvent<MouseEvent>) => {
@@ -617,35 +718,37 @@ function PedestalDisplay({
   };
 
   return (
-    <group position={slot.position}>
-      <mesh position={[0, slot.pedestal[1] / 2, 0]} castShadow receiveShadow>
-        <boxGeometry args={slot.pedestal} />
-        <meshStandardMaterial color="#251c17" roughness={0.9} />
-      </mesh>
+    <>
+      <group position={slot.position}>
+        <mesh position={[0, slot.pedestal[1] / 2, 0]} castShadow receiveShadow>
+          <boxGeometry args={slot.pedestal} />
+          <meshStandardMaterial color="#251c17" roughness={0.9} />
+        </mesh>
 
-      <mesh position={[0, slot.pedestal[1] + 0.06, 0]} receiveShadow>
-        <boxGeometry args={[slot.pedestal[0] * 0.88, 0.09, slot.pedestal[2] * 0.88]} />
-        <meshStandardMaterial color="#a77a44" roughness={0.5} metalness={0.1} />
-      </mesh>
+        <mesh position={[0, slot.pedestal[1] + 0.06, 0]} receiveShadow>
+          <boxGeometry args={[slot.pedestal[0] * 0.88, 0.09, slot.pedestal[2] * 0.88]} />
+          <meshStandardMaterial color="#a77a44" roughness={0.5} metalness={0.1} />
+        </mesh>
 
-      <group position={[0, slot.pedestal[1] + slot.objectLift, 0]} onClick={handleClick}>
-        <ExhibitObject exhibit={exhibit} />
+        <group position={[0, slot.pedestal[1] + slot.objectLift, 0]} onClick={handleClick}>
+          <ExhibitObject exhibit={exhibit} />
+        </group>
       </group>
 
       <group position={panelPosition} rotation={panelRotation}>
         {slot.panelMount ? (
           <mesh position={[0, 0, -0.07]} receiveShadow>
-            <boxGeometry args={[1.86, 1.3, 0.02]} />
+            <boxGeometry args={[uniformFrameSize[0] + 0.46, uniformFrameSize[1] + 0.46, 0.02]} />
             <meshStandardMaterial color="#17110e" roughness={0.92} />
           </mesh>
         ) : null}
 
         <mesh castShadow receiveShadow onClick={handleClick}>
-          <boxGeometry args={[1.72, 1.18, 0.12]} />
+          <boxGeometry args={[uniformFrameSize[0] + 0.34, uniformFrameSize[1] + 0.34, 0.12]} />
           <meshStandardMaterial color="#2c2119" roughness={0.72} />
         </mesh>
         <mesh position={[0, 0, 0.072]} onClick={handleClick}>
-          <planeGeometry args={[1.42, 0.92]} />
+          <planeGeometry args={panelArtworkSize} />
           {panelTexture ? (
             <meshBasicMaterial map={panelTexture} toneMapped={false} />
           ) : (
@@ -653,13 +756,11 @@ function PedestalDisplay({
           )}
         </mesh>
       </group>
-    </group>
+    </>
   );
 }
 
 function GalleryShell() {
-  const lintelHeight = shell.height - partitionDoorHeight;
-  const lintelCenterY = partitionDoorHeight + lintelHeight / 2;
   const smallRoomWidth = stageWing.eastX - stageWing.westX;
 
   return (
@@ -765,86 +866,10 @@ function GalleryShell() {
         </group>
       ))}
 
-      {mainPartitionSegments.map((segment, index) => (
-        <mesh key={`hall-east-segment-${index}`} position={[stageWing.westX, shell.wallY, segment.center]} receiveShadow>
-          <boxGeometry args={[shell.wallThickness, shell.height, segment.span]} />
-          <meshStandardMaterial color="#120e0b" roughness={0.94} />
-        </mesh>
-      ))}
-
-      {stageWing.doorCenters.map((doorCenter, index) => {
-        const stage = historyStages[index + 1];
-
-        return (
-          <group key={`door-${stage.id}`}>
-            <mesh position={[stageWing.westX, lintelCenterY, doorCenter]} receiveShadow>
-              <boxGeometry args={[shell.wallThickness, lintelHeight, stageWing.doorWidth]} />
-              <meshStandardMaterial color="#18120f" roughness={0.9} />
-            </mesh>
-
-            <mesh position={[stageWing.westX, partitionDoorHeight / 2, doorCenter - stageWing.doorWidth / 2]} castShadow receiveShadow>
-              <boxGeometry args={[0.34, partitionDoorHeight, 0.34]} />
-              <meshStandardMaterial color={stage.accent} roughness={0.5} metalness={0.08} />
-            </mesh>
-
-            <mesh position={[stageWing.westX, partitionDoorHeight / 2, doorCenter + stageWing.doorWidth / 2]} castShadow receiveShadow>
-              <boxGeometry args={[0.34, partitionDoorHeight, 0.34]} />
-              <meshStandardMaterial color={stage.accent} roughness={0.5} metalness={0.08} />
-            </mesh>
-
-            <mesh position={[stageWing.westX, partitionDoorHeight + 0.14, doorCenter]}>
-              <boxGeometry args={[0.36, 0.28, stageWing.doorWidth + 0.4]} />
-              <meshStandardMaterial color="#f1ddc1" emissive={stage.accent} emissiveIntensity={0.48} />
-            </mesh>
-          </group>
-        );
-      })}
-
       <mesh position={[stageWing.eastX, shell.wallY, 0]} receiveShadow>
         <boxGeometry args={[shell.wallThickness, shell.height, shell.depth]} />
         <meshStandardMaterial color="#120e0b" roughness={0.95} />
       </mesh>
-
-      {[stageWing.southDividerZ, stageWing.northDividerZ].map((dividerZ, index) => (
-        <group key={`small-room-divider-${index}`}>
-          {interRoomDividerSegments.map((segment, segmentIndex) => (
-            <mesh key={`small-room-divider-segment-${index}-${segmentIndex}`} position={[segment.center, shell.wallY, dividerZ]} receiveShadow>
-              <boxGeometry args={[segment.span, shell.height, shell.wallThickness]} />
-              <meshStandardMaterial color="#17110e" roughness={0.94} />
-            </mesh>
-          ))}
-
-          <mesh position={[stageWing.interRoomDoorCenterX, lintelCenterY, dividerZ]} receiveShadow>
-            <boxGeometry args={[stageWing.interRoomDoorWidth, lintelHeight, shell.wallThickness]} />
-            <meshStandardMaterial color="#17110e" roughness={0.94} />
-          </mesh>
-
-          <mesh position={[stageWing.interRoomDoorCenterX - stageWing.interRoomDoorWidth / 2, partitionDoorHeight / 2, dividerZ]} castShadow receiveShadow>
-            <boxGeometry args={[0.34, partitionDoorHeight, 0.34]} />
-            <meshStandardMaterial color="#b68f52" roughness={0.52} metalness={0.08} />
-          </mesh>
-
-          <mesh position={[stageWing.interRoomDoorCenterX + stageWing.interRoomDoorWidth / 2, partitionDoorHeight / 2, dividerZ]} castShadow receiveShadow>
-            <boxGeometry args={[0.34, partitionDoorHeight, 0.34]} />
-            <meshStandardMaterial color="#b68f52" roughness={0.52} metalness={0.08} />
-          </mesh>
-
-          <mesh position={[stageWing.interRoomDoorCenterX, partitionDoorHeight + 0.14, dividerZ]}>
-            <boxGeometry args={[stageWing.interRoomDoorWidth + 0.4, 0.28, 0.36]} />
-            <meshStandardMaterial color="#f1ddc1" emissive="#ffcc89" emissiveIntensity={0.45} />
-          </mesh>
-        </group>
-      ))}
-
-      {[
-        [stageWing.eastX, 2.28, stageWing.southDividerZ],
-        [stageWing.eastX, 2.28, stageWing.northDividerZ]
-      ].map((beam, index) => (
-        <mesh key={`corner-light-${index}`} position={beam as [number, number, number]}>
-          <boxGeometry args={[0.18, 0.42, 5.6]} />
-          <meshStandardMaterial color="#f1ddc1" emissive="#ffcc89" emissiveIntensity={0.34} />
-        </mesh>
-      ))}
 
       {gallerySections.map((section) => (
         <group key={`section-${section.x}`}>
@@ -872,12 +897,14 @@ function GalleryShell() {
 
 function FirstPersonController({
   disabled,
+  interactionZones,
   onFocusChange,
   onInspect,
   onLockChange,
   onStageChange
 }: {
   disabled: boolean;
+  interactionZones: InteractionZone[];
   onFocusChange: (exhibit: Exhibit | null) => void;
   onInspect: (exhibit: Exhibit) => void;
   onLockChange: (locked: boolean) => void;
@@ -1031,7 +1058,7 @@ function FirstPersonController({
 
     camera.position.copy(nextPosition);
 
-    const nextFocusedExhibit = getNearbyExhibit(nextPosition);
+    const nextFocusedExhibit = getNearbyExhibit(nextPosition, interactionZones);
     if (nextFocusedExhibit !== focusedExhibitRef.current) {
       focusedExhibitRef.current = nextFocusedExhibit;
       onFocusChange(nextFocusedExhibit);
@@ -1073,15 +1100,19 @@ function FirstPersonController({
 
 function SceneContent({
   controlsDisabled,
+  interactionZones,
   onFocusChange,
   onLockChange,
   onStageChange,
+  stagedExhibits,
   onSelect
 }: {
   controlsDisabled: boolean;
+  interactionZones: InteractionZone[];
   onFocusChange: (exhibit: Exhibit | null) => void;
   onLockChange: (locked: boolean) => void;
   onStageChange: (stage: HistoryStage) => void;
+  stagedExhibits: Exhibit[];
   onSelect: (exhibit: Exhibit) => void;
 }) {
   return (
@@ -1100,6 +1131,7 @@ function SceneContent({
 
       <FirstPersonController
         disabled={controlsDisabled}
+        interactionZones={interactionZones}
         onFocusChange={onFocusChange}
         onInspect={onSelect}
         onLockChange={onLockChange}
@@ -1110,14 +1142,57 @@ function SceneContent({
 }
 
 export function MuseumScene() {
+  const museumExhibits = baseExhibits;
   const [currentStage, setCurrentStage] = useState<HistoryStage>(historyStages[0]);
   const [isLocked, setIsLocked] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
-  const [nearbyExhibit, setNearbyExhibit] = useState<Exhibit | null>(null);
-  const [selectedExhibit, setSelectedExhibit] = useState<Exhibit | null>(null);
+  const [nearbyExhibitId, setNearbyExhibitId] = useState<string | null>(null);
+  const [selectedExhibitId, setSelectedExhibitId] = useState<string | null>(null);
   const [resumeAfterClose, setResumeAfterClose] = useState(false);
   const canvasElementRef = useRef<HTMLCanvasElement | null>(null);
-  const exhibitMap = useMemo(() => Object.fromEntries(stagedExhibits.map((exhibit) => [exhibit.id, exhibit])), []);
+  const exhibitMap = useMemo(
+    () => Object.fromEntries(museumExhibits.map((exhibit) => [exhibit.id, exhibit])) as Record<string, Exhibit>,
+    [museumExhibits]
+  );
+  const stagedExhibits = useMemo(() => {
+    const usedImages = new Set<string>();
+
+    return museumDisplayOrder
+      .map((id) => exhibitMap[id])
+      .filter((exhibit): exhibit is Exhibit => Boolean(exhibit && galleryLayout[exhibit.id]))
+      .filter((exhibit) => {
+        if (usedImages.has(exhibit.image)) {
+          return false;
+        }
+
+        usedImages.add(exhibit.image);
+        return true;
+      });
+  }, [exhibitMap]);
+  const stagedExhibitIds = useMemo(() => new Set(stagedExhibits.map((exhibit) => exhibit.id)), [stagedExhibits]);
+  const interactionZones = useMemo<InteractionZone[]>(
+    () =>
+      stagedExhibits.map((exhibit) => {
+        const slot = galleryLayout[exhibit.id];
+
+        if (slot.kind === 'wall') {
+          return {
+            exhibit,
+            position: getWallInteractionPosition(slot),
+            radius: 3.1
+          };
+        }
+
+        return {
+          exhibit,
+          position: new Vector3(slot.position[0], eyeHeight, slot.position[2]),
+          radius: exhibit.id === 'working-desk' ? 2.7 : 2.2
+        };
+      }),
+    [stagedExhibits]
+  );
+  const selectedExhibit = selectedExhibitId ? exhibitMap[selectedExhibitId] ?? null : null;
+  const nearbyExhibit = nearbyExhibitId ? exhibitMap[nearbyExhibitId] ?? null : null;
 
   useEffect(() => {
     if (!selectedExhibit || typeof document === 'undefined') return;
@@ -1129,14 +1204,14 @@ export function MuseumScene() {
 
   const handleSelectExhibit = (exhibit: Exhibit) => {
     setResumeAfterClose(isLocked);
-    setSelectedExhibit(exhibit);
+    setSelectedExhibitId(exhibit.id);
   };
 
   const handleCloseExhibit = () => {
     const shouldResume = resumeAfterClose;
 
     flushSync(() => {
-      setSelectedExhibit(null);
+      setSelectedExhibitId(null);
       setResumeAfterClose(false);
     });
 
@@ -1145,6 +1220,10 @@ export function MuseumScene() {
     }
 
     canvasElementRef.current?.requestPointerLock();
+  };
+
+  const handleFocusChange = (exhibit: Exhibit | null) => {
+    setNearbyExhibitId(exhibit?.id ?? null);
   };
 
   return (
@@ -1184,9 +1263,11 @@ export function MuseumScene() {
           <Suspense fallback={null}>
             <SceneContent
               controlsDisabled={selectedExhibit !== null}
-              onFocusChange={setNearbyExhibit}
+              interactionZones={interactionZones}
+              onFocusChange={handleFocusChange}
               onLockChange={setIsLocked}
               onStageChange={setCurrentStage}
+              stagedExhibits={stagedExhibits}
               onSelect={handleSelectExhibit}
             />
           </Suspense>
@@ -1217,7 +1298,7 @@ export function MuseumScene() {
           />
           <div className="absolute inset-x-[16%] bottom-[14%] h-[16%] rounded-[2rem] bg-[radial-gradient(circle_at_center,rgba(214,178,111,0.15),transparent_68%)]" />
 
-          {fallbackPanels.map((panel) => {
+          {fallbackPanels.filter((panel) => stagedExhibitIds.has(panel.id)).map((panel) => {
             const exhibit = exhibitMap[panel.id];
             if (!exhibit) return null;
 
@@ -1231,7 +1312,14 @@ export function MuseumScene() {
                 aria-label={exhibit.title}
               >
                 <div className="relative h-full w-full overflow-hidden rounded-[1rem]">
-                  <Image src={exhibit.image} alt={exhibit.title} fill className="object-cover" sizes="240px" />
+                  <Image
+                    src={exhibit.image}
+                    alt={exhibit.title}
+                    fill
+                    className="object-cover"
+                    sizes="240px"
+                    unoptimized={isRuntimeImageSource(exhibit.image)}
+                  />
                 </div>
                 <div className="absolute inset-x-[8%] bottom-[6%] rounded-full border border-white/10 bg-black/55 px-3 py-1 text-[11px] text-stone-100 backdrop-blur-sm">
                   {exhibit.name}
@@ -1290,30 +1378,6 @@ export function MuseumScene() {
         ) : null}
       </div>
       </div>
-
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
-          <div className="rounded-[1.5rem] border border-white/10 bg-museum.card p-5">
-          <p className="text-xs uppercase tracking-[0.24em] text-museum.accent">Không gian trưng bày</p>
-          <p className="mt-3 text-sm leading-7 text-stone-300">
-            Căn phòng được dựng như một gallery thực: ảnh và tài liệu treo trên tường, hiện vật trọng tâm đặt trên bục
-            giữa, thay cho kiểu khối demo rời rạc trước đó.
-          </p>
-          </div>
-          <div className="rounded-[1.5rem] border border-white/10 bg-museum.card p-5">
-          <p className="text-xs uppercase tracking-[0.24em] text-museum.accent">Bố cục theo tuyến tham quan</p>
-          <p className="mt-3 text-sm leading-7 text-stone-300">
-            Bản đồ, tài liệu và nghị quyết được treo như các mảng trưng bày, còn radio, bàn làm việc và huân chương có
-            bục riêng để tạo cảm giác đi qua từng cụm chủ đề như trong bảo tàng.
-          </p>
-          </div>
-          <div className="rounded-[1.5rem] border border-white/10 bg-museum.card p-5">
-          <p className="text-xs uppercase tracking-[0.24em] text-museum.accent">Tương tác dự phòng</p>
-          <p className="mt-3 text-sm leading-7 text-stone-300">
-            Nếu WebGL tải chậm trên một số máy, các điểm hotspot và lớp gallery dự phòng vẫn cho phép mở toàn bộ hiện
-            vật ngay, nên trang không rơi về trạng thái nền đen không dùng được.
-          </p>
-          </div>
-        </div>
 
       <ExhibitModal exhibit={selectedExhibit} onClose={handleCloseExhibit} />
     </>

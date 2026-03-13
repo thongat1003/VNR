@@ -167,10 +167,10 @@ export const productionPhases: ProductionPhase[] = [
     id: 'script',
     title: 'Giai đoạn 2: Biên tập lịch sử',
     timeframe: '1 tuần',
-    objective: 'Viết lại thuyết minh cho timeline, popup hiện vật, media wall và storyboard video.',
+    objective: 'Viết lại thuyết minh cho timeline, khung thông tin hiện vật, media wall và storyboard video.',
     deliverables: [
       'Bản thảo lời dẫn ngắn cho từng mốc lịch sử và từng chiến dịch.',
-      'Bộ text 80-120 chữ cho card ảnh/video và 180-260 chữ cho popup chi tiết.',
+      'Bộ text 80-120 chữ cho card ảnh/video và 180-260 chữ cho phần thuyết minh chi tiết.',
       'Danh sách trích dẫn, nguồn kiểm chứng và thuật ngữ cần thống nhất.'
     ]
   },
@@ -178,10 +178,10 @@ export const productionPhases: ProductionPhase[] = [
     id: 'visual',
     title: 'Giai đoạn 3: Dàn dựng hình ảnh',
     timeframe: '1-2 tuần',
-    objective: 'Đưa ảnh thật, bản đồ, scan tài liệu và poster chiến dịch vào đúng vị trí trong site.',
+    objective: 'Đưa ảnh thật, bản đồ, scan tài liệu và poster chiến dịch vào đúng vị trí trong không gian trưng bày.',
     deliverables: [
       'Hero banner chân dung chính thức và gallery chân dung theo giai đoạn.',
-      'Ảnh nền cho từng phòng, thumbnail cho timeline, popup và media.',
+      'Ảnh nền cho từng phòng, thumbnail cho timeline, khung thông tin và media.',
       'Bản đồ động hoặc ảnh ghép cho Đồng khởi, Mậu Thân 1968 và mùa Xuân 1975.'
     ]
   },
@@ -202,12 +202,12 @@ export const editorialPrinciples = [
   'Ưu tiên nguồn chính thống: Bảo tàng Lịch sử Quốc gia, báo Nhân Dân, báo Quân đội nhân dân, VTV, VietnamPlus/VNews.',
   'Mỗi ảnh và video cần có mô tả bối cảnh, niên đại, nhân vật liên quan và tình trạng bản quyền rõ ràng.',
   'Nội dung chiến dịch phải tách bạch giữa dữ kiện lịch sử, diễn giải trưng bày và yếu tố minh họa đồ họa.',
-  'Mọi popup 3D nên có tối thiểu một nguồn kiểm chứng đi kèm để tránh biến bảo tàng thành trang mô tả chung chung.'
+  'Mọi khung thông tin 3D nên có tối thiểu một nguồn kiểm chứng đi kèm để tránh biến bảo tàng thành trang mô tả chung chung.'
 ];
 
 export const licensingChecklist = [
-  'Xác nhận đơn vị sở hữu ảnh/video gốc và phạm vi được phép công bố trên web.',
-  'Lưu bản scan chất lượng cao riêng với bản nén dùng trên website.',
+  'Xác nhận đơn vị sở hữu ảnh/video gốc và phạm vi được phép công bố trực tuyến.',
+  'Lưu bản scan chất lượng cao riêng với bản nén dùng cho phiên bản trực tuyến.',
   'Chuẩn hóa tên file, alt text và credit line theo cùng một quy tắc.',
   'Kiểm tra lại các trích dẫn lịch sử, ngày tháng chiến dịch và tên đơn vị trước khi xuất bản chính thức.'
 ];

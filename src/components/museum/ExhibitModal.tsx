@@ -38,6 +38,8 @@ export function ExhibitModal({ exhibit, onClose }: ExhibitModalProps) {
     return null;
   }
 
+  const isRuntimeImage = exhibit.image.startsWith('data:') || exhibit.image.startsWith('blob:');
+
   const stopPropagation = (event: MouseEvent<HTMLDivElement>) => {
     event.stopPropagation();
   };
@@ -84,6 +86,7 @@ export function ExhibitModal({ exhibit, onClose }: ExhibitModalProps) {
                       fill
                       className="object-contain p-2 transition duration-300 group-hover:scale-[1.02]"
                       sizes="(max-width: 768px) 100vw, 42vw"
+                      unoptimized={isRuntimeImage}
                     />
                   </div>
 
@@ -131,25 +134,6 @@ export function ExhibitModal({ exhibit, onClose }: ExhibitModalProps) {
                     <div className="text-base font-medium text-white">Anh hien vat, mo ta lich su va lien ket tu lieu</div>
                   </div>
                 </div>
-
-                {exhibit.sourceLinks?.length ? (
-                  <div className="rounded-[1.5rem] border border-white/10 bg-black/20 p-5">
-                    <div className="mb-4 text-xs uppercase tracking-[0.24em] text-stone-400">Nguon kiem chung</div>
-                    <div className="flex flex-wrap gap-2.5">
-                      {exhibit.sourceLinks.map((source) => (
-                        <a
-                          key={source.href}
-                          href={source.href}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-stone-100 transition hover:border-museum.accent/40 hover:bg-museum.accent/10 hover:text-white"
-                        >
-                          {source.label}
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                ) : null}
               </div>
             </div>
           </div>
@@ -176,6 +160,7 @@ export function ExhibitModal({ exhibit, onClose }: ExhibitModalProps) {
                 className="object-contain p-4 md:p-8"
                 sizes="100vw"
                 priority
+                unoptimized={isRuntimeImage}
               />
             </div>
           </div>
