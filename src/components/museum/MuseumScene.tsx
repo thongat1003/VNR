@@ -1,7 +1,6 @@
 'use client';
 
 import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
-import Image from 'next/image';
 import { Canvas, ThreeEvent, useFrame } from '@react-three/fiber';
 import { PointerLockControls } from '@react-three/drei';
 import { Maximize2, Minimize2 } from 'lucide-react';
@@ -445,32 +444,6 @@ const obstacleColliders: ObstacleCollider[] = [
 
 const wallColliders: ObstacleCollider[] = [];
 
-const fallbackPanels = [
-  { id: 'homeland-map', style: { left: '9%', top: '36%', width: '18%', height: '22%', transform: 'perspective(1200px) rotateY(14deg)' } },
-  { id: 'youth-doc', style: { left: '24%', top: '36%', width: '13%', height: '18%', transform: 'perspective(1200px) rotateY(10deg)' } },
-  { id: 'prison-files', style: { left: '37%', top: '36%', width: '13%', height: '18%', transform: 'perspective(1200px) rotateY(6deg)' } },
-  { id: 'first-secretary-hall', style: { left: '50%', top: '36%', width: '13%', height: '18%', transform: 'perspective(1200px) rotateY(2deg)' } },
-  { id: 'congress-session-1960', style: { left: '63%', top: '36%', width: '13%', height: '18%', transform: 'perspective(1200px) rotateY(-2deg)' } },
-  { id: 'resistance-radio', style: { left: '73%', top: '65%', width: '11%', height: '14%', transform: 'translateZ(0)' } },
-  { id: 'southern-thesis', style: { left: '82%', top: '66%', width: '11%', height: '16%', transform: 'perspective(1200px) rotateY(-14deg)' } },
-  { id: 'east-germany-1975', style: { left: '13%', top: '29%', width: '11%', height: '17%', transform: 'perspective(1200px) rotateY(-2deg)' } },
-  { id: 'poland-1975', style: { left: '24%', top: '4%', width: '11%', height: '17%', transform: 'perspective(1200px) rotateY(-4deg)' } },
-  { id: 'congress-iv-1976', style: { left: '35%', top: '29%', width: '11%', height: '17%', transform: 'perspective(1200px) rotateY(-6deg)' } },
-  { id: 'working-desk', style: { left: '69%', top: '44%', width: '14%', height: '17%', transform: 'translateZ(0)' } },
-  { id: 'memorial-1969', style: { left: '82%', top: '38%', width: '11%', height: '16%', transform: 'perspective(1200px) rotateY(-14deg)' } },
-  { id: 'northern-leadership-1966', style: { left: '82%', top: '48%', width: '11%', height: '16%', transform: 'perspective(1200px) rotateY(-14deg)' } },
-  { id: 'southern-heroes-1972', style: { left: '82%', top: '28%', width: '11%', height: '16%', transform: 'perspective(1200px) rotateY(-14deg)' } },
-  { id: 'politburo-meeting-1975', style: { left: '82%', top: '8%', width: '11%', height: '16%', transform: 'perspective(1200px) rotateY(-14deg)' } },
-  { id: 'fidel-castro-1973', style: { left: '82%', top: '18%', width: '11%', height: '16%', transform: 'perspective(1200px) rotateY(-14deg)' } },
-  { id: 'victory-map', style: { left: '82%', top: '43%', width: '12%', height: '16%', transform: 'perspective(1200px) rotateY(-14deg)' } },
-  { id: 'medal-legacy', style: { left: '46%', top: '4%', width: '11%', height: '17%', transform: 'perspective(1200px) rotateY(-8deg)' } },
-  { id: 'youth-army-1980', style: { left: '57%', top: '29%', width: '11%', height: '17%', transform: 'perspective(1200px) rotateY(-10deg)' } },
-  { id: 'soviet-visit-1980', style: { left: '68%', top: '4%', width: '11%', height: '17%', transform: 'perspective(1200px) rotateY(-12deg)' } },
-  { id: 'congress-v-1982', style: { left: '79%', top: '29%', width: '11%', height: '17%', transform: 'perspective(1200px) rotateY(-14deg)' } }
-,
-  { id: 'passaway-1986', style: { left: '85%', top: '23%', width: '11%', height: '17%', transform: 'perspective(1200px) rotateY(-16deg)' } }
-] as const;
-
 function getWallInteractionPosition(slot: WallSlot) {
   const interactionDistance = 2.3;
   const yaw = slot.rotation[1];
@@ -612,10 +585,6 @@ function getArtworkSize(maxWidth: number, maxHeight: number, texture: Texture | 
   }
 
   return [maxHeight * textureAspect, maxHeight] as const;
-}
-
-function isRuntimeImageSource(src: string) {
-  return src.startsWith('data:') || src.startsWith('blob:');
 }
 
 function ExhibitObject({ exhibit }: { exhibit: Exhibit }) {
@@ -1179,7 +1148,6 @@ export function MuseumScene() {
         return true;
       });
   }, [exhibitMap]);
-  const stagedExhibitIds = useMemo(() => new Set(stagedExhibits.map((exhibit) => exhibit.id)), [stagedExhibits]);
   const interactionZones = useMemo<InteractionZone[]>(
     () =>
       stagedExhibits.map((exhibit) => {
@@ -1308,61 +1276,12 @@ export function MuseumScene() {
           />
           <div className="absolute inset-x-[16%] bottom-[14%] h-[16%] rounded-[2rem] bg-[radial-gradient(circle_at_center,rgba(214,178,111,0.15),transparent_68%)]" />
 
-          {fallbackPanels.filter((panel) => stagedExhibitIds.has(panel.id)).map((panel) => {
-            const exhibit = exhibitMap[panel.id];
-            if (!exhibit) return null;
-
-            return (
-              <button
-                key={`${panel.id}-fallback`}
-                type="button"
-                onClick={() => handleSelectExhibit(exhibit)}
-                className="pointer-events-auto absolute block overflow-hidden rounded-[1.2rem] border border-white/12 bg-black/35 shadow-[0_18px_32px_rgba(0,0,0,0.32)]"
-                style={panel.style}
-                aria-label={exhibit.title}
-              >
-                <div className="relative h-full w-full overflow-hidden rounded-[1rem]">
-                  <Image
-                    src={exhibit.image}
-                    alt={exhibit.title}
-                    fill
-                    className="object-cover"
-                    sizes="240px"
-                    unoptimized={isRuntimeImageSource(exhibit.image)}
-                  />
-                </div>
-                <div className="absolute inset-x-[8%] bottom-[6%] rounded-full border border-white/10 bg-black/55 px-3 py-1 text-[11px] text-stone-100 backdrop-blur-sm">
-                  {exhibit.name}
-                </div>
-              </button>
-              );
-            })}
           </div>
         ) : null}
 
         {!isLocked ? (
           <div className="pointer-events-none absolute inset-0 z-[5]">
-          <div className="absolute inset-x-[10%] bottom-[14%] top-[22%] rounded-[2.2rem] bg-[radial-gradient(circle_at_center,rgba(214,178,111,0.09),transparent_58%)]" />
-
-          {stagedExhibits.map((exhibit) => {
-            const slot = galleryLayout[exhibit.id];
-
-            return (
-              <button
-                key={`${exhibit.id}-hotspot`}
-                type="button"
-                onClick={() => handleSelectExhibit(exhibit)}
-                className="pointer-events-auto absolute -translate-x-1/2 -translate-y-1/2 text-left"
-                style={{ left: `${slot.hotspot[0]}%`, top: `${slot.hotspot[1]}%` }}
-                aria-label={exhibit.title}
-              >
-                <span className="relative flex h-5 w-5 items-center justify-center">
-                  <span className="absolute h-5 w-5 rounded-full bg-museum.accent/35 animate-ping" />
-                  <span className="relative h-3.5 w-3.5 rounded-full border border-white/40 bg-museum.accent shadow-[0_0_18px_rgba(214,178,111,0.58)]" />
-                </span>
-              </button>
-              );
-            })}
+            <div className="absolute inset-x-[10%] bottom-[14%] top-[22%] rounded-[2.2rem] bg-[radial-gradient(circle_at_center,rgba(214,178,111,0.09),transparent_58%)]" />
           </div>
         ) : null}
 

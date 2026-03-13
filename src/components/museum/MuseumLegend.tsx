@@ -17,6 +17,7 @@ export function MuseumLegend({ isLocked, nearbyExhibit }: MuseumLegendProps) {
         Máy tính: nhấn vào nút bắt đầu để khóa chuột, rê chuột để nhìn quanh, dùng WASD hoặc phím mũi tên để di
         chuyển. Khi đứng gần hiện vật, nhấn E để mở thông tin. Nhấn ESC để thoát chế độ nhìn thứ nhất.
       </p>
+      <p className="mt-2 text-xs leading-5 text-stone-400">Anh chi tiet duoc an o man hinh tong quan. Vao ben trong de xem tung hien vat.</p>
       <div className="mt-3 flex flex-wrap gap-2">
         <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-stone-200">WASD / mũi tên</span>
         <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-stone-200">Chuột để nhìn</span>
