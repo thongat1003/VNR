@@ -1,7 +1,7 @@
 import type { DocumentArchiveItem } from '@/types';
 
 export const archiveImages = {
-  homeland: '/assets/archive/que-huong-quang-tri-1907.png',
+  homeland: '/assets/archive/thanh-co-quang-tri.jpg',
   youth: '/assets/archive/le-duan-tre-1928.jpg',
   prison: '/assets/archive/ban-tu-con-dao-1931-1936.jpg',
   southernResistance: '/assets/archive/hoi-nghi-khu-uy-khu-9-1949-moi.jpg',

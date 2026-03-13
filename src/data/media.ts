@@ -2,32 +2,7 @@ import type { MediaAsset } from '@/types';
 import { archiveImages } from '@/data/documentArchive';
 
 export const mediaAssets: MediaAsset[] = [
-  {
-    id: 'portrait-gallery',
-    title: 'Bộ chân dung Lê Duẩn theo từng giai đoạn',
-    category: 'image',
-    priority: 'core',
-    section: 'Nhân vật trung tâm',
-    source: 'BTLSQG / Báo Nhân Dân / TTXVN',
-    note:
-      'Dùng cho hero banner, gallery chân dung, phần giới thiệu tiểu sử và các khung chuyển cảnh giữa các phòng.',
-    usage:
-      'Chọn 1 ảnh hero ngang, 1 ảnh bán thân trang trọng và 6-8 ảnh tư liệu theo giai đoạn 1930, 1954, 1960, 1968, 1975, 1976-1986.',
-    historicalContext:
-      'Đây là trục thị giác quan trọng nhất của toàn bộ bảo tàng vì giúp người xem nhìn rõ tiến trình từ nhà hoạt động cách mạng đến nhà lãnh đạo cao nhất của Đảng.',
-    thumbnail: archiveImages.firstSecretary,
-    verified: true,
-    sourceLinks: [
-      {
-        label: 'BTLSQG: Lê Duẩn qua tư liệu, hiện vật',
-        href: 'https://baotanglichsu.vn/vi/Articles/3097/20935/tong-bi-thu-le-duan-qua-tu-lieu-hien-vat-bao-quan-tai-bao-tang-lich-su-quoc-gia.html'
-      },
-      {
-        label: 'BTLSQG: Triển lãm Lê Duẩn',
-        href: 'https://baotanglichsu.vn/vi/Articles/3098/58617/trien-lam-le-duan-nha-lanh-djao-kiet-xuat-nguoi-hoc-tro-loi-lac-cua-chu-tich-ho-chi-minh.html'
-      }
-    ]
-  },
+
   {
     id: 'quang-tri-memorial',
     title: 'Ảnh quê hương và khu lưu niệm tại Quảng Trị',
