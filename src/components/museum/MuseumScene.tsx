@@ -229,157 +229,157 @@ const museumDisplayOrder = [
 const galleryLayout: Record<string, DisplaySlot> = {
   'homeland-map': {
     kind: 'wall',
-    position: [-13.8, 2.95, backWallMountZ],
+    position: [-18, 2.8, backWallMountZ],
     rotation: [0, 0, 0],
     frame: uniformFrameSize,
     hotspot: [14, 58]
   },
   'youth-doc': {
     kind: 'wall',
-    position: [-7.2, 2.62, backWallMountZ],
+    position: [-12.5, 2.8, backWallMountZ],
     rotation: [0, 0, 0],
     frame: uniformFrameSize,
     hotspot: [25, 58]
   },
+  'prison-files': {
+    kind: 'wall',
+    position: [-7, 2.8, backWallMountZ],
+    rotation: [0, 0, 0],
+    frame: uniformFrameSize,
+    hotspot: [37, 58]
+  },
+  'southern-thesis': {
+    kind: 'wall',
+    position: [-1.5, 2.8, backWallMountZ],
+    rotation: [0, 0, 0],
+    frame: uniformFrameSize,
+    hotspot: [76, 70]
+  },
   'first-secretary-hall': {
     kind: 'wall',
-    position: [5.8, 2.62, backWallMountZ],
+    position: [4, 2.8, backWallMountZ],
     rotation: [0, 0, 0],
     frame: uniformFrameSize,
     hotspot: [48, 58]
   },
   'congress-session-1960': {
     kind: 'wall',
-    position: [12.2, 2.62, backWallMountZ],
+    position: [9.5, 2.8, backWallMountZ],
     rotation: [0, 0, 0],
     frame: uniformFrameSize,
     hotspot: [60, 58]
   },
-  'prison-files': {
-    kind: 'wall',
-    position: [-0.6, 2.62, backWallMountZ],
-    rotation: [0, 0, 0],
-    frame: uniformFrameSize,
-    hotspot: [37, 58]
-  },
   'resistance-radio': {
     kind: 'pedestal',
-    position: [20.2, 0, -10.1],
+    position: [15, 0, -10],
     pedestal: [1.55, 0.9, 1.55],
     objectLift: 0.55,
     panelOffset: 1.55,
     panelMount: {
-      position: [20.25, 2.18, backWallMountZ],
+      position: [15, 2.8, backWallMountZ],
       rotation: [0, 0, 0]
     },
     hotspot: [75, 76]
   },
-  'southern-thesis': {
+  'northern-leadership-1966': {
     kind: 'wall',
-    position: [eastWallMountX, 2.78, -11.6],
-    rotation: [0, -Math.PI / 2, 0],
+    position: [20.5, 2.8, backWallMountZ],
+    rotation: [0, 0, 0],
     frame: uniformFrameSize,
-    hotspot: [76, 70]
-  },
-  'east-germany-1975': {
-    kind: 'wall',
-    position: [6.6, 2.1, frontWallMountZ],
-    rotation: [0, Math.PI, 0],
-    frame: uniformFrameSize,
-    hotspot: [24, 29]
-  },
-  'poland-1975': {
-    kind: 'wall',
-    position: [10.1, 4.28, frontWallMountZ],
-    rotation: [0, Math.PI, 0],
-    frame: uniformFrameSize,
-    hotspot: [30, 7]
-  },
-  'congress-iv-1976': {
-    kind: 'wall',
-    position: [13.8, 2.1, frontWallMountZ],
-    rotation: [0, Math.PI, 0],
-    frame: uniformFrameSize,
-    hotspot: [40, 29]
+    hotspot: [76, 50]
   },
   'working-desk': {
     kind: 'pedestal',
-    position: [20.4, 0, 0],
+    position: [20, 0, -2],
     pedestal: [3.1, 0.52, 2.15],
     objectLift: 0.48,
     panelOffset: -1.85,
     panelMount: {
-      position: [eastWallMountX, 2.1, -7.2],
+      position: [eastWallMountX, 2.8, -9],
       rotation: [0, -Math.PI / 2, 0]
     },
     hotspot: [76, 60]
   },
   'memorial-1969': {
     kind: 'wall',
-    position: [eastWallMountX, 2.82, 1.6],
+    position: [eastWallMountX, 2.8, -3],
     rotation: [0, -Math.PI / 2, 0],
     frame: uniformFrameSize,
     hotspot: [76, 40]
   },
-  'northern-leadership-1966': {
-    kind: 'wall',
-    position: [eastWallMountX, 2.82, -2.8],
-    rotation: [0, -Math.PI / 2, 0],
-    frame: uniformFrameSize,
-    hotspot: [76, 50]
-  },
   'southern-heroes-1972': {
     kind: 'wall',
-    position: [eastWallMountX, 2.82, 6],
+    position: [eastWallMountX, 2.8, 3],
     rotation: [0, -Math.PI / 2, 0],
     frame: uniformFrameSize,
     hotspot: [76, 30]
   },
-  'politburo-meeting-1975': {
-    kind: 'wall',
-    position: [eastWallMountX, 2.82, 14.1],
-    rotation: [0, -Math.PI / 2, 0],
-    frame: uniformFrameSize,
-    hotspot: [76, 10]
-  },
   'fidel-castro-1973': {
     kind: 'wall',
-    position: [eastWallMountX, 2.82, 10.2],
+    position: [eastWallMountX, 2.8, 9],
     rotation: [0, -Math.PI / 2, 0],
     frame: uniformFrameSize,
     hotspot: [76, 20]
   },
+  'politburo-meeting-1975': {
+    kind: 'wall',
+    position: [22, 2.8, frontWallMountZ],
+    rotation: [0, Math.PI, 0],
+    frame: uniformFrameSize,
+    hotspot: [76, 10]
+  },
   'victory-map': {
     kind: 'wall',
-    position: [eastWallMountX, 2.95, 4.8],
-    rotation: [0, -Math.PI / 2, 0],
+    position: [17, 2.8, frontWallMountZ],
+    rotation: [0, Math.PI, 0],
     frame: uniformFrameSize,
     hotspot: [76, 34]
   },
+  'east-germany-1975': {
+    kind: 'wall',
+    position: [12, 2.8, frontWallMountZ],
+    rotation: [0, Math.PI, 0],
+    frame: uniformFrameSize,
+    hotspot: [24, 29]
+  },
+  'poland-1975': {
+    kind: 'wall',
+    position: [7, 2.8, frontWallMountZ],
+    rotation: [0, Math.PI, 0],
+    frame: uniformFrameSize,
+    hotspot: [30, 7]
+  },
+  'congress-iv-1976': {
+    kind: 'wall',
+    position: [2, 2.8, frontWallMountZ],
+    rotation: [0, Math.PI, 0],
+    frame: uniformFrameSize,
+    hotspot: [40, 29]
+  },
   'medal-legacy': {
     kind: 'wall',
-    position: [17.3, 4.28, frontWallMountZ],
+    position: [-3, 2.8, frontWallMountZ],
     rotation: [0, Math.PI, 0],
     frame: uniformFrameSize,
     hotspot: [47, 7]
   },
   'youth-army-1980': {
     kind: 'wall',
-    position: [21, 2.1, frontWallMountZ],
+    position: [-8, 2.8, frontWallMountZ],
     rotation: [0, Math.PI, 0],
     frame: uniformFrameSize,
     hotspot: [56, 29]
   },
   'soviet-visit-1980': {
     kind: 'wall',
-    position: [24.5, 4.28, frontWallMountZ],
+    position: [-13, 2.8, frontWallMountZ],
     rotation: [0, Math.PI, 0],
     frame: uniformFrameSize,
     hotspot: [64, 7]
   },
   'congress-v-1982': {
     kind: 'wall',
-    position: [28.2, 2.1, frontWallMountZ],
+    position: [-18, 2.8, frontWallMountZ],
     rotation: [0, Math.PI, 0],
     frame: uniformFrameSize,
     hotspot: [73, 29]
