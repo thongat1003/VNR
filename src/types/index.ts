@@ -14,7 +14,7 @@ export type TimelineEvent = {
   year: string;
   title: string;
   summary: string;
-  detail: string;
+  detail?: string;
   room: string;
   image: string;
   imagePosition?: string;

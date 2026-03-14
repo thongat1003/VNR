@@ -4,15 +4,35 @@ import { useEffect, useState, type MouseEvent } from 'react';
 import Image from 'next/image';
 import { X } from 'lucide-react';
 import type { Exhibit } from '@/types';
+import type { Locale } from '@/i18n/config';
 import { VerifiedBadge } from '@/components/shared/VerifiedBadge';
 
 type ExhibitModalProps = {
   exhibit: Exhibit | null;
   onClose: () => void;
+  locale: Locale;
 };
 
-export function ExhibitModal({ exhibit, onClose }: ExhibitModalProps) {
+export function ExhibitModal({ exhibit, onClose, locale }: ExhibitModalProps) {
   const [isZoomed, setIsZoomed] = useState(false);
+  const copy =
+    locale === 'en'
+      ? {
+          closeExhibit: 'Close exhibit dialog',
+          zoomExhibit: 'Zoom in on exhibit',
+          tapToZoom: 'Click to zoom',
+          displayItem: 'Displayed artifact',
+          detailedCaption: 'Detailed interpretation',
+          closeZoom: 'Close zoom mode'
+        }
+      : {
+          closeExhibit: 'Đóng cửa sổ hiện vật',
+          zoomExhibit: 'Phóng to hiện vật',
+          tapToZoom: 'Bấm để phóng to',
+          displayItem: 'Hiện vật trưng bày',
+          detailedCaption: 'Thuyết minh chi tiết',
+          closeZoom: 'Đóng chế độ phóng to'
+        };
 
   useEffect(() => {
     setIsZoomed(false);
@@ -61,7 +81,7 @@ export function ExhibitModal({ exhibit, onClose }: ExhibitModalProps) {
             type="button"
             onClick={onClose}
             className="absolute right-4 top-4 z-20 rounded-full border border-white/10 bg-black/65 p-2.5 text-white transition hover:bg-black/80"
-            aria-label="Dong cua so hien vat"
+            aria-label={copy.closeExhibit}
           >
             <X className="h-5 w-5" />
           </button>
@@ -77,7 +97,7 @@ export function ExhibitModal({ exhibit, onClose }: ExhibitModalProps) {
                   type="button"
                   onClick={() => setIsZoomed(true)}
                   className="group relative aspect-[4/5] overflow-hidden rounded-[1.75rem] border border-white/12 bg-black/25 p-4 text-left shadow-[0_22px_48px_rgba(0,0,0,0.34)] backdrop-blur-sm transition hover:border-museum.accent/40"
-                  aria-label={`Phong to hien vat ${exhibit.title}`}
+                  aria-label={`${copy.zoomExhibit} ${exhibit.title}`}
                 >
                   <div className="relative h-full w-full overflow-hidden rounded-[1.15rem] bg-black/20">
                     <Image
@@ -91,13 +111,13 @@ export function ExhibitModal({ exhibit, onClose }: ExhibitModalProps) {
                   </div>
 
                   <div className="absolute inset-x-6 bottom-6 flex items-center justify-between rounded-full border border-white/10 bg-black/55 px-4 py-2 text-sm text-stone-100 backdrop-blur-sm">
-                    <span>Bam de phong to</span>
+                    <span>{copy.tapToZoom}</span>
                     <span className="text-xs uppercase tracking-[0.24em] text-museum.accent">Zoom</span>
                   </div>
                 </button>
 
                 <div className="rounded-[1.25rem] border border-white/10 bg-black/28 px-4 py-3 text-sm text-stone-200 backdrop-blur-sm">
-                  <div className="text-xs uppercase tracking-[0.24em] text-museum.accent">Hien vat trung bay</div>
+                  <div className="text-xs uppercase tracking-[0.24em] text-museum.accent">{copy.displayItem}</div>
                   <div className="mt-2 text-base font-medium text-white">{exhibit.name}</div>
                 </div>
               </div>
@@ -109,7 +129,7 @@ export function ExhibitModal({ exhibit, onClose }: ExhibitModalProps) {
                   <span className="rounded-full border border-white/15 bg-black/35 px-4 py-2 text-xs uppercase tracking-[0.28em] text-white">
                     {exhibit.room}
                   </span>
-                  {exhibit.verified ? <VerifiedBadge /> : null}
+                  {exhibit.verified ? <VerifiedBadge locale={locale} /> : null}
                 </div>
 
                 <div className="max-w-2xl">
@@ -120,20 +140,9 @@ export function ExhibitModal({ exhibit, onClose }: ExhibitModalProps) {
                 </div>
 
                 <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
-                  <div className="mb-3 text-xs uppercase tracking-[0.24em] text-museum.accent">Thuyet minh chi tiet</div>
+                  <div className="mb-3 text-xs uppercase tracking-[0.24em] text-museum.accent">{copy.detailedCaption}</div>
                   <p className="text-base leading-8 text-stone-100">{exhibit.detail}</p>
                 </div>
-
-                {/* <div className="grid gap-3 sm:grid-cols-2">
-                  <div className="rounded-[1.35rem] border border-white/10 bg-white/[0.04] p-5 text-sm text-stone-300">
-                    <div className="mb-2 text-xs uppercase tracking-[0.22em] text-stone-400">Loai hien vat</div>
-                    <div className="text-base font-medium capitalize text-white">{exhibit.type}</div>
-                  </div>
-                  <div className="rounded-[1.35rem] border border-white/10 bg-white/[0.04] p-5 text-sm text-stone-300">
-                    <div className="mb-2 text-xs uppercase tracking-[0.22em] text-stone-400">Muc dich hien thi</div>
-                    <div className="text-base font-medium text-white">Anh hien vat, mo ta lich su va lien ket tu lieu</div>
-                  </div>
-                </div> */}
               </div>
             </div>
           </div>
@@ -146,7 +155,7 @@ export function ExhibitModal({ exhibit, onClose }: ExhibitModalProps) {
             type="button"
             onClick={() => setIsZoomed(false)}
             className="absolute right-4 top-4 z-20 rounded-full border border-white/10 bg-black/65 p-2.5 text-white transition hover:bg-black/80"
-            aria-label={`Dong che do phong to ${exhibit.title}`}
+            aria-label={`${copy.closeZoom} ${exhibit.title}`}
           >
             <X className="h-5 w-5" />
           </button>

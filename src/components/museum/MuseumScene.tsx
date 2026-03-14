@@ -8,7 +8,8 @@ import { flushSync } from 'react-dom';
 import type { Mesh, Texture } from 'three';
 import { SRGBColorSpace, TextureLoader, Vector3 } from 'three';
 import type { Exhibit } from '@/types';
-import { exhibits as baseExhibits } from '@/data/exhibits';
+import type { Locale } from '@/i18n/config';
+import { getExhibits } from '@/i18n/data';
 import { ExhibitModal } from '@/components/museum/ExhibitModal';
 import { MuseumLegend } from '@/components/museum/MuseumLegend';
 
@@ -104,7 +105,7 @@ const stageWing = {
   interRoomDoorWidth: 2.4
 };
 
-const historyStages: HistoryStage[] = [
+const baseHistoryStages: HistoryStage[] = [
   {
     id: 'grand-hall',
     title: 'Đại sảnh trưng bày',
@@ -138,6 +139,35 @@ const historyStages: HistoryStage[] = [
     bounds: { minX: stageWing.westX, maxX: roomBounds.maxX, minZ: stageWing.northDividerZ, maxZ: roomBounds.maxZ }
   }
 ];
+
+function getHistoryStages(locale: Locale): HistoryStage[] {
+  if (locale === 'en') {
+    return [
+      {
+        ...baseHistoryStages[0],
+        title: 'Grand introductory hall',
+        summary: 'An opening gallery on Quang Tri, Le Duan’s youth, and the social setting that shaped his revolutionary path.'
+      },
+      {
+        ...baseHistoryStages[1],
+        title: 'Prisons and resistance',
+        summary: 'The first small room focuses on imprisonment under colonial rule and early resistance experience in the South.'
+      },
+      {
+        ...baseHistoryStages[2],
+        title: 'Strategic thought',
+        summary: 'The central room presents strategic thinking, leadership desks, and maps leading toward the Spring of 1975.'
+      },
+      {
+        ...baseHistoryStages[3],
+        title: 'Legacy after reunification',
+        summary: 'The final room turns to the post-war period and the long historical legacy left after national reunification.'
+      }
+    ];
+  }
+
+  return baseHistoryStages;
+}
 
 const partitionDepthGap = stageWing.doorWidth;
 const partitionDoorHeight = stageWing.doorHeight;
@@ -470,7 +500,7 @@ function getNearbyExhibit(position: Vector3, interactionZones: InteractionZone[]
   return nearestExhibit;
 }
 
-function getCurrentStage(position: Vector3) {
+function getCurrentStage(position: Vector3, historyStages: HistoryStage[]) {
   return (
     historyStages.find(
       (stage) =>
@@ -876,6 +906,7 @@ function GalleryShell() {
 
 function FirstPersonController({
   disabled,
+  historyStages,
   interactionZones,
   onFocusChange,
   onInspect,
@@ -883,6 +914,7 @@ function FirstPersonController({
   onStageChange
 }: {
   disabled: boolean;
+  historyStages: HistoryStage[];
   interactionZones: InteractionZone[];
   onFocusChange: (exhibit: Exhibit | null) => void;
   onInspect: (exhibit: Exhibit) => void;
@@ -897,7 +929,7 @@ function FirstPersonController({
   });
   const isLockedRef = useRef(false);
   const focusedExhibitRef = useRef<Exhibit | null>(null);
-  const currentStageRef = useRef<HistoryStage>(getCurrentStage(new Vector3(...initialCameraPosition)));
+  const currentStageRef = useRef<HistoryStage>(getCurrentStage(new Vector3(...initialCameraPosition), historyStages));
   const forwardVectorRef = useRef(new Vector3());
   const rightVectorRef = useRef(new Vector3());
   const nextPositionRef = useRef(new Vector3());
@@ -983,11 +1015,11 @@ function FirstPersonController({
       onFocusChange(null);
     }
 
-    currentStageRef.current = getCurrentStage(new Vector3(...initialCameraPosition));
+    currentStageRef.current = getCurrentStage(new Vector3(...initialCameraPosition), historyStages);
     onStageChange(currentStageRef.current);
     isLockedRef.current = false;
     onLockChange(false);
-  }, [disabled, onFocusChange, onLockChange, onStageChange]);
+  }, [disabled, historyStages, onFocusChange, onLockChange, onStageChange]);
 
   useFrame(({ camera }, delta) => {
     camera.position.y = eyeHeight;
@@ -1043,7 +1075,7 @@ function FirstPersonController({
       onFocusChange(nextFocusedExhibit);
     }
 
-    const nextStage = getCurrentStage(nextPosition);
+    const nextStage = getCurrentStage(nextPosition, historyStages);
     if (nextStage.id !== currentStageRef.current.id) {
       currentStageRef.current = nextStage;
       onStageChange(nextStage);
@@ -1068,7 +1100,7 @@ function FirstPersonController({
           right: false
         };
         focusedExhibitRef.current = null;
-        currentStageRef.current = getCurrentStage(new Vector3(...initialCameraPosition));
+        currentStageRef.current = getCurrentStage(new Vector3(...initialCameraPosition), historyStages);
         onFocusChange(null);
         onStageChange(currentStageRef.current);
         onLockChange(false);
@@ -1079,6 +1111,7 @@ function FirstPersonController({
 
 function SceneContent({
   controlsDisabled,
+  historyStages,
   interactionZones,
   onFocusChange,
   onLockChange,
@@ -1087,6 +1120,7 @@ function SceneContent({
   onSelect
 }: {
   controlsDisabled: boolean;
+  historyStages: HistoryStage[];
   interactionZones: InteractionZone[];
   onFocusChange: (exhibit: Exhibit | null) => void;
   onLockChange: (locked: boolean) => void;
@@ -1110,6 +1144,7 @@ function SceneContent({
 
       <FirstPersonController
         disabled={controlsDisabled}
+        historyStages={historyStages}
         interactionZones={interactionZones}
         onFocusChange={onFocusChange}
         onInspect={onSelect}
@@ -1120,8 +1155,9 @@ function SceneContent({
   );
 }
 
-export function MuseumScene() {
-  const museumExhibits = baseExhibits;
+export function MuseumScene({ locale }: { locale: Locale }) {
+  const museumExhibits = getExhibits(locale);
+  const historyStages = useMemo(() => getHistoryStages(locale), [locale]);
   const [currentStage, setCurrentStage] = useState<HistoryStage>(historyStages[0]);
   const [isLocked, setIsLocked] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -1171,6 +1207,28 @@ export function MuseumScene() {
   );
   const selectedExhibit = selectedExhibitId ? exhibitMap[selectedExhibitId] ?? null : null;
   const nearbyExhibit = nearbyExhibitId ? exhibitMap[nearbyExhibitId] ?? null : null;
+  const copy =
+    locale === 'en'
+      ? {
+          collapse: 'Collapse',
+          expand: 'Expand',
+          collapseAria: 'Collapse museum frame',
+          expandAria: 'Expand museum frame',
+          nearbyPrompt: (name: string) => `Near ${name}. Press E to inspect the exhibit.`,
+          roomPrompt: (period: string) => `You are in ${period}. Use WASD to move, mouse to look, and ESC to exit.`
+        }
+      : {
+          collapse: 'Thu nhỏ',
+          expand: 'Phóng to',
+          collapseAria: 'Thu nhỏ khung bảo tàng',
+          expandAria: 'Phóng to khung bảo tàng',
+          nearbyPrompt: (name: string) => `Gần ${name}. Nhấn E để xem hiện vật.`,
+          roomPrompt: (period: string) => `Đang ở phòng ${period}. WASD để di chuyển, rê chuột để nhìn, ESC để thoát.`
+        };
+
+  useEffect(() => {
+    setCurrentStage(historyStages[0]);
+  }, [historyStages]);
 
   useEffect(() => {
     if (!selectedExhibit || typeof document === 'undefined') return;
@@ -1219,13 +1277,13 @@ export function MuseumScene() {
           type="button"
           onClick={() => setIsExpanded((value) => !value)}
           className="absolute right-4 top-4 z-[12] flex items-center gap-2 rounded-full border border-white/10 bg-black/55 px-4 py-2 text-sm text-stone-100 backdrop-blur-sm transition hover:border-museum.accent/35 hover:bg-black/70"
-          aria-label={isExpanded ? 'Thu nho khung bao tang' : 'Phong to khung bao tang'}
+          aria-label={isExpanded ? copy.collapseAria : copy.expandAria}
         >
           {isExpanded ? <Minimize2 className="h-4 w-4" /> : <Maximize2 className="h-4 w-4" />}
-          <span>{isExpanded ? 'Thu nhỏ' : 'Phóng to'}</span>
+          <span>{isExpanded ? copy.collapse : copy.expand}</span>
         </button>
 
-        {!isLocked ? <MuseumLegend isLocked={isLocked} nearbyExhibit={nearbyExhibit} /> : null}
+        {!isLocked ? <MuseumLegend isLocked={isLocked} nearbyExhibit={nearbyExhibit} locale={locale} /> : null}
 
         <Canvas
           shadows
@@ -1241,6 +1299,7 @@ export function MuseumScene() {
           <Suspense fallback={null}>
             <SceneContent
               controlsDisabled={selectedExhibit !== null}
+              historyStages={historyStages}
               interactionZones={interactionZones}
               onFocusChange={handleFocusChange}
               onLockChange={setIsLocked}
@@ -1301,14 +1360,14 @@ export function MuseumScene() {
             </div>
 
             <div className="pointer-events-none absolute bottom-5 left-1/2 z-[7] -translate-x-1/2 rounded-full border border-white/10 bg-black/40 px-4 py-2 text-sm text-stone-100 backdrop-blur-sm">
-              {nearbyExhibit ? `Gần ${nearbyExhibit.name}. Nhấn E để xem hiện vật.` : `Đang ở phòng ${currentStage.period}. WASD để di chuyển, rê chuột để nhìn, ESC để thoát.`}
+              {nearbyExhibit ? copy.nearbyPrompt(nearbyExhibit.name) : copy.roomPrompt(currentStage.period)}
             </div>
           </>
         ) : null}
       </div>
       </div>
 
-      <ExhibitModal exhibit={selectedExhibit} onClose={handleCloseExhibit} />
+      <ExhibitModal exhibit={selectedExhibit} onClose={handleCloseExhibit} locale={locale} />
     </>
   );
 }

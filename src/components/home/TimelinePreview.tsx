@@ -1,19 +1,24 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { timelineEvents } from '@/data/timeline';
+import type { TimelineEvent } from '@/types';
 import { VerifiedBadge } from '@/components/shared/VerifiedBadge';
 import { SectionHeading } from '@/components/shared/SectionHeading';
+import type { Locale } from '@/i18n/config';
+import { localizeHref } from '@/i18n/routing';
+import { getHomeCopy } from '@/i18n/copy';
 
-export function TimelinePreview() {
-  const featuredEvents = timelineEvents.slice(0, 4);
+type TimelinePreviewProps = {
+  locale: Locale;
+  events: TimelineEvent[];
+};
+
+export function TimelinePreview({ locale, events }: TimelinePreviewProps) {
+  const copy = getHomeCopy(locale).timelinePreview;
+  const featuredEvents = events.slice(0, 4);
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-16 md:px-6 lg:px-8">
-      <SectionHeading
-        eyebrow="Timeline"
-        title="Các mốc gợi ý để mở rộng thành dòng thời gian trực quan"
-        description="Mỗi mốc có thể liên kết ngược lại hiện vật 3D, ảnh, video, trích đoạn và bản đồ tương ứng."
-      />
+      <SectionHeading eyebrow={copy.eyebrow} title={copy.title} description={copy.description} />
 
       <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
         {featuredEvents.map((event) => (
@@ -29,19 +34,21 @@ export function TimelinePreview() {
             <div className="space-y-4 p-5">
               <div className="flex items-center justify-between gap-3">
                 <span className="text-sm font-semibold uppercase tracking-[0.24em] text-museum.accent">{event.year}</span>
-                {event.verified ? <VerifiedBadge /> : null}
+                {event.verified ? <VerifiedBadge locale={locale} /> : null}
               </div>
               <h3 className="text-xl font-semibold text-white">{event.title}</h3>
               <p className="text-sm leading-7 text-stone-300">{event.summary}</p>
-              <p className="text-sm text-stone-400">Không gian: {event.room}</p>
+              <p className="text-sm text-stone-400">
+                {copy.roomLabel}: {event.room}
+              </p>
             </div>
           </article>
         ))}
       </div>
 
       <div className="mt-8">
-        <Link href="/timeline" className="text-sm font-medium text-museum.accent transition hover:text-white">
-          Xem toàn bộ timeline →
+        <Link href={localizeHref(locale, '/timeline')} className="text-sm font-medium text-museum.accent transition hover:text-white">
+          {copy.viewAllLabel}
         </Link>
       </div>
     </section>

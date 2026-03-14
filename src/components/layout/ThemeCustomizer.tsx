@@ -2,6 +2,7 @@
 
 import { Palette, RotateCcw, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import type { Locale } from '@/i18n/config';
 
 type ThemeColors = {
   bg: string;
@@ -17,6 +18,10 @@ type ThemePreset = {
   colors: ThemeColors;
 };
 
+type ThemeCustomizerProps = {
+  locale: Locale;
+};
+
 const storageKey = 'museum-theme-colors-v1';
 
 const defaultTheme: ThemeColors = {
@@ -28,10 +33,10 @@ const defaultTheme: ThemeColors = {
 };
 
 const presets: ThemePreset[] = [
-  { id: 'heritage', label: 'Di san', colors: defaultTheme },
+  { id: 'heritage', label: 'Heritage', colors: defaultTheme },
   {
     id: 'emerald',
-    label: 'Ngoc',
+    label: 'Emerald',
     colors: {
       bg: '#0d1511',
       surface: '#16231d',
@@ -42,7 +47,7 @@ const presets: ThemePreset[] = [
   },
   {
     id: 'sapphire',
-    label: 'Lam',
+    label: 'Sapphire',
     colors: {
       bg: '#0c1220',
       surface: '#151d34',
@@ -53,7 +58,7 @@ const presets: ThemePreset[] = [
   },
   {
     id: 'amber',
-    label: 'Dong',
+    label: 'Amber',
     colors: {
       bg: '#171008',
       surface: '#24180d',
@@ -64,13 +69,38 @@ const presets: ThemePreset[] = [
   }
 ];
 
-const fields: Array<{ key: keyof ThemeColors; label: string }> = [
-  { key: 'bg', label: 'Nen' },
-  { key: 'surface', label: 'Surface' },
-  { key: 'card', label: 'Card' },
-  { key: 'primary', label: 'Primary' },
-  { key: 'accent', label: 'Accent' }
-];
+const fieldLabels = {
+  vi: {
+    bg: 'Nền',
+    surface: 'Surface',
+    card: 'Card',
+    primary: 'Primary',
+    accent: 'Accent',
+    title: 'Theme website',
+    eyebrow: 'Tùy chỉnh màu',
+    close: 'Đóng bảng tùy chỉnh màu',
+    preset: 'Preset',
+    reset: 'Mặc định',
+    resetNote: 'Màu được lưu trên trình duyệt này.',
+    toggle: 'Đổi màu',
+    chooseColor: 'Chọn màu'
+  },
+  en: {
+    bg: 'Background',
+    surface: 'Surface',
+    card: 'Card',
+    primary: 'Primary',
+    accent: 'Accent',
+    title: 'Website theme',
+    eyebrow: 'Theme controls',
+    close: 'Close theme controls',
+    preset: 'Presets',
+    reset: 'Reset',
+    resetNote: 'Colors are stored in this browser.',
+    toggle: 'Theme',
+    chooseColor: 'Choose color'
+  }
+} as const;
 
 function hexToRgbChannels(hex: string) {
   const normalized = hex.replace('#', '');
@@ -111,10 +141,11 @@ function applyTheme(colors: ThemeColors) {
   root.style.setProperty('--museum-soft', mixHex('#ffffff', colors.accent, 0.2));
 }
 
-export function ThemeCustomizer() {
+export function ThemeCustomizer({ locale }: ThemeCustomizerProps) {
   const [open, setOpen] = useState(false);
   const [isReady, setIsReady] = useState(false);
   const [theme, setTheme] = useState<ThemeColors>(defaultTheme);
+  const labels = fieldLabels[locale];
 
   useEffect(() => {
     try {
@@ -155,28 +186,36 @@ export function ThemeCustomizer() {
     window.localStorage.removeItem(storageKey);
   };
 
+  const fields: Array<{ key: keyof ThemeColors; label: string }> = [
+    { key: 'bg', label: labels.bg },
+    { key: 'surface', label: labels.surface },
+    { key: 'card', label: labels.card },
+    { key: 'primary', label: labels.primary },
+    { key: 'accent', label: labels.accent }
+  ];
+
   return (
     <div className="fixed bottom-5 right-5 z-[90]">
       {open ? (
         <div className="w-[min(92vw,22rem)] rounded-[1.8rem] border border-white/10 bg-museum.surface/95 p-4 shadow-[0_22px_70px_rgba(0,0,0,0.42)] backdrop-blur-xl">
           <div className="flex items-start justify-between gap-4">
             <div>
-              <div className="text-xs uppercase tracking-[0.24em] text-museum.accent">Tuy chinh mau</div>
-              <div className="mt-1 text-lg font-semibold text-white">Theme website</div>
+              <div className="text-xs uppercase tracking-[0.24em] text-museum.accent">{labels.eyebrow}</div>
+              <div className="mt-1 text-lg font-semibold text-white">{labels.title}</div>
             </div>
 
             <button
               type="button"
               onClick={() => setOpen(false)}
               className="rounded-full border border-white/10 bg-black/20 p-2 text-stone-200 transition hover:bg-black/35"
-              aria-label="Dong bang tuy chinh mau"
+              aria-label={labels.close}
             >
               <X className="h-4 w-4" />
             </button>
           </div>
 
           <div className="mt-4">
-            <div className="text-xs uppercase tracking-[0.22em] text-stone-400">Preset</div>
+            <div className="text-xs uppercase tracking-[0.22em] text-stone-400">{labels.preset}</div>
             <div className="mt-3 grid grid-cols-2 gap-2">
               {presets.map((preset) => (
                 <button
@@ -210,7 +249,7 @@ export function ThemeCustomizer() {
                     value={theme[field.key]}
                     onChange={(event) => handleThemeChange(field.key, event.target.value)}
                     className="h-9 w-9 cursor-pointer rounded-full border border-white/10 bg-transparent"
-                    aria-label={`Chon mau ${field.label}`}
+                    aria-label={`${labels.chooseColor} ${field.label}`}
                   />
                 </div>
               </label>
@@ -224,9 +263,9 @@ export function ThemeCustomizer() {
               className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-stone-100 transition hover:bg-white/10"
             >
               <RotateCcw className="h-4 w-4" />
-              Mac dinh
+              {labels.reset}
             </button>
-            <div className="text-xs text-stone-400">Mau duoc luu tren trinh duyet nay.</div>
+            <div className="text-xs text-stone-400">{labels.resetNote}</div>
           </div>
         </div>
       ) : null}
@@ -237,7 +276,7 @@ export function ThemeCustomizer() {
         className="mt-3 ml-auto flex items-center gap-2 rounded-full border border-white/10 bg-museum.surface/90 px-4 py-3 text-sm font-medium text-white shadow-[0_14px_32px_rgba(0,0,0,0.34)] backdrop-blur-md transition hover:border-museum.accent/35 hover:bg-museum.surface"
       >
         <Palette className="h-4 w-4 text-museum.accent" />
-        Doi mau
+        {labels.toggle}
       </button>
     </div>
   );

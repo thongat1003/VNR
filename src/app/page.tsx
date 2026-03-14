@@ -1,11 +1,6 @@
-import { Hero } from '@/components/home/Hero';
-import { TimelinePreview } from '@/components/home/TimelinePreview';
+import { redirect } from 'next/navigation';
+import { defaultLocale } from '@/i18n/config';
 
-export default function HomePage() {
-  return (
-    <>
-      <Hero />
-      <TimelinePreview />
-    </>
-  );
+export default function RootPage() {
+  redirect(`/${defaultLocale}`);
 }
