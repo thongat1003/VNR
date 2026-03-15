@@ -195,9 +195,9 @@ export function ThemeCustomizer({ locale }: ThemeCustomizerProps) {
   ];
 
   return (
-    <div className="fixed bottom-5 right-5 z-[90]">
+    <div className="fixed bottom-5 left-4 z-[90] sm:left-5">
       {open ? (
-        <div className="w-[min(92vw,22rem)] rounded-[1.8rem] border border-white/10 bg-museum.surface/95 p-4 shadow-[0_22px_70px_rgba(0,0,0,0.42)] backdrop-blur-xl">
+        <div className="w-[min(calc(100vw-2rem),22rem)] rounded-[1.8rem] border border-white/10 bg-museum.surface/95 p-4 shadow-[0_22px_70px_rgba(0,0,0,0.42)] backdrop-blur-xl">
           <div className="flex items-start justify-between gap-4">
             <div>
               <div className="text-xs uppercase tracking-[0.24em] text-museum.accent">{labels.eyebrow}</div>
@@ -273,7 +273,7 @@ export function ThemeCustomizer({ locale }: ThemeCustomizerProps) {
       <button
         type="button"
         onClick={() => setOpen((currentValue) => !currentValue)}
-        className="mt-3 ml-auto flex items-center gap-2 rounded-full border border-white/10 bg-museum.surface/90 px-4 py-3 text-sm font-medium text-white shadow-[0_14px_32px_rgba(0,0,0,0.34)] backdrop-blur-md transition hover:border-museum.accent/35 hover:bg-museum.surface"
+        className="mt-3 flex items-center gap-2 rounded-full border border-white/10 bg-museum.surface/90 px-4 py-3 text-sm font-medium text-white shadow-[0_14px_32px_rgba(0,0,0,0.34)] backdrop-blur-md transition hover:border-museum.accent/35 hover:bg-museum.surface"
       >
         <Palette className="h-4 w-4 text-museum.accent" />
         {labels.toggle}

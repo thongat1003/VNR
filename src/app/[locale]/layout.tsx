@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { notFound } from 'next/navigation';
+import { MuseumChatbot } from '@/components/chatbot/MuseumChatbot';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { ThemeCustomizer } from '@/components/layout/ThemeCustomizer';
@@ -46,6 +47,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       <main>{children}</main>
       <Footer locale={activeLocale} />
       <ThemeCustomizer locale={activeLocale} />
+      <MuseumChatbot locale={activeLocale} />
     </>
   );
 }
