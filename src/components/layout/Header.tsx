@@ -17,8 +17,8 @@ const copy = {
     eyebrow: 'Bảo tàng số',
     brand: 'Lê Duẩn',
     menuLabel: 'Mở menu',
-    techDemo: 'Bản demo kỹ thuật',
-    localeLabel: 'Ngôn ngữ'
+    // techDemo: 'Bản demo kỹ thuật',
+    localeLabel: 'Ngôn ngữ',
   },
   en: {
     eyebrow: 'Digital Museum',
@@ -79,7 +79,7 @@ export function Header({ locale }: HeaderProps) {
               </Link>
             ))}
           </div>
-          <VerifiedBadge locale={locale} label={ui.techDemo} />
+          <VerifiedBadge locale={locale} />
         </div>
 
         <button

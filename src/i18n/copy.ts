@@ -419,3 +419,359 @@ export function getAboutPageCopy(locale: Locale) {
     }
   };
 }
+
+export function getTechnologyPageCopy(locale: Locale) {
+  if (locale === 'en') {
+    return {
+      hero: {
+        eyebrow: 'Technology',
+        title: 'Technologies used in this website',
+        description:
+          'This page summarizes the real stack used to build the Le Duan digital museum, along with a short AI appendix drawn from the working chat with Codex.',
+        sectionLinks: {
+          stack: 'View the stack',
+          ai: 'Open the AI appendix'
+        },
+        highlights: [
+          { label: 'Framework', value: 'Next.js 16 / React 19' },
+          { label: '3D web', value: 'Three.js / React Three Fiber' },
+          { label: 'AI support', value: 'Codex' }
+        ]
+      },
+      stack: {
+        eyebrow: 'Stack',
+        title: 'Core technologies used to build the project',
+        description: 'These are the main tools directly reflected in the current package and codebase.',
+        items: [
+          {
+            id: 'app',
+            title: 'Next.js 16 + React 19',
+            detail: 'Used for the App Router structure, localized routes, server and client rendering, and production builds.'
+          },
+          {
+            id: 'three',
+            title: 'Three.js + React Three Fiber + Drei',
+            detail: 'Powers the 3D museum scene, exhibit presentation, and spatial interaction inside the virtual gallery.'
+          },
+          {
+            id: 'style',
+            title: 'TypeScript 5 + Tailwind CSS 4',
+            detail: 'Keeps the code typed and maintainable while making interface work faster and more consistent.'
+          },
+          {
+            id: 'tooling',
+            title: 'Lucide React + clsx',
+            detail: 'Supports iconography and flexible UI state styling across shared components and feature pages.'
+          }
+        ]
+      },
+      ai: {
+        eyebrow: 'AI Appendix',
+        title: 'AI used during the web build process',
+        description: 'A short summary based on the current working chat with Codex in this repository.',
+        assistants: [
+          {
+            id: 'codex',
+            title: 'Codex',
+            summary: 'Used to build and adjust the website directly in the codebase.',
+            notes: [
+              'Implemented UI and content updates requested during the working session.',
+              'Adjusted the footer content and refined the timeline image viewer behavior.',
+              'Added the new Technology page and integrated it into the navigation.'
+            ]
+          },
+          {
+            id: 'other',
+            title: 'Other AI tools',
+            summary: 'No other AI tool has been explicitly confirmed in the current chat.',
+            notes: ['This section can be extended later if the project uses more AI tools for content, design, or research.']
+          }
+        ],
+        promptsTitle: 'Primary build prompt',
+        prompts: [
+          `Prompt: Xây dựng Bảo tàng 3D Kỹ thuật số - Chuyên đề: Lê Duẩn - Nhà lãnh đạo kiệt xuất
+1. Mục tiêu và Phong cách:
+Tạo một không gian bảo tàng 3D tương tác, hiện đại nhưng trang nghiêm, tái hiện cuộc đời và sự nghiệp của Tổng Bí thư Lê Duẩn trong bối cảnh lịch sử Việt Nam thế kỷ 20.
+
+Phong cách kiến trúc: Kết hợp giữa kiến trúc bảo tàng truyền thống Việt Nam (mái ngói, cột gỗ - cách tân) và công nghệ trình chiếu kỹ thuật số hiện đại.
+
+Ánh sáng: Ấm áp, tập trung vào các hiện vật và khu vực trưng bày, tạo cảm giác thiêng liêng và hoài niệm.
+
+Âm thanh: Nhạc nền nhẹ nhàng, không lời (ví dụ: giai điệu các bài hát cách mạng được hòa tấu), kết hợp với âm thanh tái hiện (tiếng pháo, tiếng máy bay b52 - ở âm lượng thấp, trong các khu vực cụ thể).
+
+2. Cấu trúc các Không gian Trưng bày:
+
+Sảnh chính (Entrance Hall):
+
+Tâm điểm: Một bức tượng bán thân Lê Duẩn bằng đồng lớn, trang nghiêm.
+
+Vách tường chính: Dòng chữ lớn "LÊ DUẨN - NHÀ LÃNH ĐẠO KIỆT XUẤT CỦA CÁCH MẠNG VIỆT NAM".
+
+Giới thiệu: Một bảng giới thiệu tóm tắt bằng văn bản và một video ngắn (giả lập) giới thiệu tổng quan về bảo tàng.
+
+Khu vực 1: Tiểu sử và Tuổi trẻ (Biography & Youth):
+
+Nội dung: Thời niên thiếu tại Quảng Trị, quá trình giác ngộ cách mạng, hoạt động trong các tổ chức cộng sản ban đầu.
+
+Hình ảnh (Tạo prompt cho AI tạo ảnh):
+
+Tái hiện ngôi nhà quê hương của Lê Duẩn ở Quảng Trị.
+
+Hình ảnh mô phỏng Lê Duẩn thời trẻ đang đọc sách hoặc hoạt động bí mật.
+
+Đạo cụ: Sách, tài liệu mật, bút mực, bản đồ hành chính thời Pháp thuộc.
+
+Khu vực 2: Kháng chiến chống Pháp và Vai trò ở Miền Nam (Resistance against French & Southern Leader):
+
+Nội dung: Hoạt động tại Xứ ủy Nam Bộ, lãnh đạo cuộc kháng chiến ở Miền Nam, bản "Đề cương cách mạng miền Nam".
+
+Hình ảnh (Tạo prompt cho AI tạo ảnh):
+
+Cảnh Lê Duẩn họp với các đồng chí trong rừng đước Nam Bộ.
+
+Hình ảnh mô phỏng ông đang viết bản "Đề cương cách mạng miền Nam" dưới ánh đèn dầu.
+
+Trận chiến: Trưng bày thông tin và hình ảnh (giả lập) về một số trận đánh tiêu biểu ở Nam Bộ giai đoạn này.
+
+Đạo cụ: Đèn dầu, sổ tay, bản đồ quân sự, radio cũ.
+
+Khu vực 3: Lãnh đạo Đất nước trong Kháng chiến chống Mỹ (Leadership during the Anti-American War):
+
+Nội dung: Giai đoạn làm Tổng Bí thư, chiến lược "Hai ngọn cờ", đường lối kháng chiến chống Mỹ, cứu nước.
+
+Hình ảnh (Tạo prompt cho AI tạo ảnh):
+
+Chân dung Lê Duẩn trang nghiêm trong trang phục áo đại tướng hoặc áo sơ mi trắng, đang phát biểu tại hội nghị.
+
+Cảnh ông đang thảo luận với các vị lãnh đạo khác như Hồ Chí Minh, Võ Nguyên Giáp.
+
+Trận chiến (Khu vực chuyên biệt):
+
+Mô phỏng 3D: Một sa bàn 3D tương tác mô phỏng Chiến dịch Đường 9 - Nam Lào hoặc Chiến dịch Điện Biên Phủ trên không.
+
+Hình ảnh: Ảnh chụp tái hiện sự khốc liệt của chiến tranh, sự kiên cường của quân và dân ta.
+
+Đạo cụ:
+
+Chiến tranh: Nón cối, quân phục, súng AK-47, bản đồ quân sự chi tiết, mô hình xe tăng, máy bay.
+
+Lê Duẩn: Bút ký, kính mắt, đồng hồ đeo tay.
+
+Khu vực 4: Giải phóng Miền Nam và Thống nhất Đất nước (Liberation of the South & Reunification):
+
+Nội dung: Cuộc Tổng tiến công và nổi dậy Mùa Xuân 1975, vai trò lãnh đạo trong chiến dịch Hồ Chí Minh, khoảnh khắc thống nhất.
+
+Hình ảnh (Tạo prompt cho AI tạo ảnh):
+
+Xe tăng húc đổ cổng Dinh Độc Lập (tái hiện).
+
+Lê Duẩn phát biểu tại mít tinh mừng chiến thắng.
+
+Đạo cụ: Lá cờ Mặt trận Dân tộc Giải phóng Miền Nam Việt Nam, Huân chương, các kỷ vật chiến tranh.
+
+Khu vực 5: Những Đạo cụ Chiến tranh & Hiện vật Liên quan (War Artifacts & Related Objects):
+
+Nội dung: Một gian phòng lớn trưng bày các loại vũ khí, trang thiết bị quân sự đã được sử dụng trong cả hai cuộc kháng chiến.
+
+Hiện vật: Súng cá nhân, lựu đạn, mô hình pháo, mô hình máy bay (như MiG-21), trang phục của quân nhân, trang bị thông tin.
+
+Lưu ý: Cần có mô tả chi tiết cho từng loại hiện vật.
+
+3. Tương tác và Công nghệ:
+
+Dẫn tour tự động: Có một hướng dẫn viên ảo (avatar) dẫn người xem đi qua các khu vực.
+
+Tương tác 3D: Người xem có thể xoay, phóng to các đạo cụ để xem chi tiết.
+
+Bảng thông tin: Khi di chuột vào một hiện vật hoặc hình ảnh, một bảng thông tin chi tiết sẽ hiện ra.
+
+Gobot 4.6.1 Integration (Khu vực Trải nghiệm Công nghệ):
+
+Mô tả: Một góc nhỏ trong bảo tàng (ví dụ: trong Khu vực 5 hoặc một phòng riêng) giới thiệu về ứng dụng công nghệ trong bảo tàng.
+
+Nội dung: Trưng bày một mô hình 3D của Gobot 4.6.1.
+
+Tương tác: Cho phép người dùng tương tác đơn giản với Gobot 4.6.1 (ví dụ: điều khiển nó di chuyển ngắn, hiển thị một số thông tin kỹ thuật của bot).
+
+Văn bản: Bảng thông tin giải thích vai trò của Gobot 4.6.1 trong việc thu thập dữ liệu, tạo mô hình 3D cho bảo tàng, hoặc thậm chí là làm hướng dẫn viên ảo.`
+        ]
+      }
+    };
+  }
+
+  return {
+    hero: {
+      eyebrow: 'Công nghệ',
+      title: 'Công nghệ được sử dụng',
+      description:
+        'Trang này tổng hợp stack thực tế đang dùng để dựng website Bảo tàng số Lê Duẩn, đồng thời thêm một phụ lục AI tóm tắt ngắn từ chính đoạn chat làm việc với Codex.',
+      sectionLinks: {
+        stack: 'Xem stack công nghệ',
+        ai: 'Mở Phụ lục AI'
+      },
+      highlights: [
+        { label: 'Framework', value: 'Next.js 16 / React 19' },
+        { label: '3D web', value: 'Three.js / React Three Fiber' },
+        { label: 'AI hỗ trợ', value: 'Codex' }
+      ]
+    },
+    stack: {
+      eyebrow: 'Stack',
+      title: 'Các công nghệ chính dùng để dựng dự án',
+      description: 'Đây là các công nghệ xuất hiện trực tiếp trong package và codebase hiện tại.',
+      items: [
+        {
+          id: 'app',
+          title: 'Next.js 16 + React 19',
+          detail: 'Dùng để tổ chức App Router, route đa ngôn ngữ, render server và client, đồng thời build toàn bộ website.'
+        },
+        {
+          id: 'three',
+          title: 'Three.js + React Three Fiber + Drei',
+          detail: 'Phục vụ không gian bảo tàng 3D, vật thể trưng bày và các tương tác trong trải nghiệm tham quan ảo.'
+        },
+        {
+          id: 'style',
+          title: 'TypeScript 5 + Tailwind CSS 4',
+          detail: 'Giữ code có kiểu dữ liệu rõ ràng và giúp triển khai giao diện nhanh, thống nhất với design system của dự án.'
+        },
+        {
+          id: 'tooling',
+          title: 'Lucide React + clsx',
+          detail: 'Hỗ trợ icon và cách ghép class linh hoạt cho các trạng thái giao diện ở nhiều component dùng chung.'
+        }
+      ]
+    },
+    ai: {
+      eyebrow: 'Phụ lục AI',
+      title: 'AI được dùng trong quá trình dựng web',
+      description: 'Phần này tóm tắt ngắn gọn từ chính đoạn chat làm việc với Codex trong repository hiện tại.',
+      assistants: [
+        {
+          id: 'codex',
+          title: 'Codex',
+          summary: 'Được dùng để dựng web và chỉnh sửa trực tiếp trong codebase theo yêu cầu.',
+          notes: [
+            'Triển khai các thay đổi giao diện và nội dung ngay trên project.',
+            'Sửa footer, bổ sung khả năng xem ảnh ở Timeline và tinh gọn chế độ chỉ xem ảnh.',
+            'Thêm trang Công nghệ và đưa route mới vào thanh điều hướng.'
+          ]
+        },
+        {
+          id: 'other',
+          title: 'AI khác',
+          summary: 'Hiện chưa có công cụ AI nào khác được xác nhận trực tiếp trong đoạn chat này.',
+          notes: ['Nếu dự án dùng thêm AI khác sau này thì có thể bổ sung tiếp vào mục này.']
+        }
+      ],
+      promptsTitle: 'Prompt gốc dùng để dựng web',
+      prompts: [
+        `Prompt: Xây dựng Bảo tàng 3D Kỹ thuật số - Chuyên đề: Lê Duẩn - Nhà lãnh đạo kiệt xuất
+1. Mục tiêu và Phong cách:
+Tạo một không gian bảo tàng 3D tương tác, hiện đại nhưng trang nghiêm, tái hiện cuộc đời và sự nghiệp của Tổng Bí thư Lê Duẩn trong bối cảnh lịch sử Việt Nam thế kỷ 20.
+
+Phong cách kiến trúc: Kết hợp giữa kiến trúc bảo tàng truyền thống Việt Nam (mái ngói, cột gỗ - cách tân) và công nghệ trình chiếu kỹ thuật số hiện đại.
+
+Ánh sáng: Ấm áp, tập trung vào các hiện vật và khu vực trưng bày, tạo cảm giác thiêng liêng và hoài niệm.
+
+Âm thanh: Nhạc nền nhẹ nhàng, không lời (ví dụ: giai điệu các bài hát cách mạng được hòa tấu), kết hợp với âm thanh tái hiện (tiếng pháo, tiếng máy bay b52 - ở âm lượng thấp, trong các khu vực cụ thể).
+
+2. Cấu trúc các Không gian Trưng bày:
+
+Sảnh chính (Entrance Hall):
+
+Tâm điểm: Một bức tượng bán thân Lê Duẩn bằng đồng lớn, trang nghiêm.
+
+Vách tường chính: Dòng chữ lớn "LÊ DUẨN - NHÀ LÃNH ĐẠO KIỆT XUẤT CỦA CÁCH MẠNG VIỆT NAM".
+
+Giới thiệu: Một bảng giới thiệu tóm tắt bằng văn bản và một video ngắn (giả lập) giới thiệu tổng quan về bảo tàng.
+
+Khu vực 1: Tiểu sử và Tuổi trẻ (Biography & Youth):
+
+Nội dung: Thời niên thiếu tại Quảng Trị, quá trình giác ngộ cách mạng, hoạt động trong các tổ chức cộng sản ban đầu.
+
+Hình ảnh (Tạo prompt cho AI tạo ảnh):
+
+Tái hiện ngôi nhà quê hương của Lê Duẩn ở Quảng Trị.
+
+Hình ảnh mô phỏng Lê Duẩn thời trẻ đang đọc sách hoặc hoạt động bí mật.
+
+Đạo cụ: Sách, tài liệu mật, bút mực, bản đồ hành chính thời Pháp thuộc.
+
+Khu vực 2: Kháng chiến chống Pháp và Vai trò ở Miền Nam (Resistance against French & Southern Leader):
+
+Nội dung: Hoạt động tại Xứ ủy Nam Bộ, lãnh đạo cuộc kháng chiến ở Miền Nam, bản "Đề cương cách mạng miền Nam".
+
+Hình ảnh (Tạo prompt cho AI tạo ảnh):
+
+Cảnh Lê Duẩn họp với các đồng chí trong rừng đước Nam Bộ.
+
+Hình ảnh mô phỏng ông đang viết bản "Đề cương cách mạng miền Nam" dưới ánh đèn dầu.
+
+Trận chiến: Trưng bày thông tin và hình ảnh (giả lập) về một số trận đánh tiêu biểu ở Nam Bộ giai đoạn này.
+
+Đạo cụ: Đèn dầu, sổ tay, bản đồ quân sự, radio cũ.
+
+Khu vực 3: Lãnh đạo Đất nước trong Kháng chiến chống Mỹ (Leadership during the Anti-American War):
+
+Nội dung: Giai đoạn làm Tổng Bí thư, chiến lược "Hai ngọn cờ", đường lối kháng chiến chống Mỹ, cứu nước.
+
+Hình ảnh (Tạo prompt cho AI tạo ảnh):
+
+Chân dung Lê Duẩn trang nghiêm trong trang phục áo đại tướng hoặc áo sơ mi trắng, đang phát biểu tại hội nghị.
+
+Cảnh ông đang thảo luận với các vị lãnh đạo khác như Hồ Chí Minh, Võ Nguyên Giáp.
+
+Trận chiến (Khu vực chuyên biệt):
+
+Mô phỏng 3D: Một sa bàn 3D tương tác mô phỏng Chiến dịch Đường 9 - Nam Lào hoặc Chiến dịch Điện Biên Phủ trên không.
+
+Hình ảnh: Ảnh chụp tái hiện sự khốc liệt của chiến tranh, sự kiên cường của quân và dân ta.
+
+Đạo cụ:
+
+Chiến tranh: Nón cối, quân phục, súng AK-47, bản đồ quân sự chi tiết, mô hình xe tăng, máy bay.
+
+Lê Duẩn: Bút ký, kính mắt, đồng hồ đeo tay.
+
+Khu vực 4: Giải phóng Miền Nam và Thống nhất Đất nước (Liberation of the South & Reunification):
+
+Nội dung: Cuộc Tổng tiến công và nổi dậy Mùa Xuân 1975, vai trò lãnh đạo trong chiến dịch Hồ Chí Minh, khoảnh khắc thống nhất.
+
+Hình ảnh (Tạo prompt cho AI tạo ảnh):
+
+Xe tăng húc đổ cổng Dinh Độc Lập (tái hiện).
+
+Lê Duẩn phát biểu tại mít tinh mừng chiến thắng.
+
+Đạo cụ: Lá cờ Mặt trận Dân tộc Giải phóng Miền Nam Việt Nam, Huân chương, các kỷ vật chiến tranh.
+
+Khu vực 5: Những Đạo cụ Chiến tranh & Hiện vật Liên quan (War Artifacts & Related Objects):
+
+Nội dung: Một gian phòng lớn trưng bày các loại vũ khí, trang thiết bị quân sự đã được sử dụng trong cả hai cuộc kháng chiến.
+
+Hiện vật: Súng cá nhân, lựu đạn, mô hình pháo, mô hình máy bay (như MiG-21), trang phục của quân nhân, trang bị thông tin.
+
+Lưu ý: Cần có mô tả chi tiết cho từng loại hiện vật.
+
+3. Tương tác và Công nghệ:
+
+Dẫn tour tự động: Có một hướng dẫn viên ảo (avatar) dẫn người xem đi qua các khu vực.
+
+Tương tác 3D: Người xem có thể xoay, phóng to các đạo cụ để xem chi tiết.
+
+Bảng thông tin: Khi di chuột vào một hiện vật hoặc hình ảnh, một bảng thông tin chi tiết sẽ hiện ra.
+
+Gobot 4.6.1 Integration (Khu vực Trải nghiệm Công nghệ):
+
+Mô tả: Một góc nhỏ trong bảo tàng (ví dụ: trong Khu vực 5 hoặc một phòng riêng) giới thiệu về ứng dụng công nghệ trong bảo tàng.
+
+Nội dung: Trưng bày một mô hình 3D của Gobot 4.6.1.
+
+Tương tác: Cho phép người dùng tương tác đơn giản với Gobot 4.6.1 (ví dụ: điều khiển nó di chuyển ngắn, hiển thị một số thông tin kỹ thuật của bot).
+
+Văn bản: Bảng thông tin giải thích vai trò của Gobot 4.6.1 trong việc thu thập dữ liệu, tạo mô hình 3D cho bảo tàng, hoặc thậm chí là làm hướng dẫn viên ảo.`
+      ]
+    }
+  };
+}

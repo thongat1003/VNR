@@ -2,8 +2,8 @@ import type { RouteItem } from '@/types';
 import type { Locale } from '@/i18n/config';
 
 type RouteDefinition = {
-  key: 'home' | 'museum' | 'postcard' | 'timeline' | 'media' | 'about';
-  path: '/' | '/museum' | '/museum/postcard' | '/timeline' | '/media' | '/about';
+  key: 'home' | 'museum' | 'postcard' | 'timeline' | 'media' | 'technology' | 'about';
+  path: '/' | '/museum' | '/museum/postcard' | '/timeline' | '/media' | '/technology' | '/about';
 };
 
 const routeDefinitions: RouteDefinition[] = [
@@ -12,6 +12,7 @@ const routeDefinitions: RouteDefinition[] = [
   { key: 'postcard', path: '/museum/postcard' },
   { key: 'timeline', path: '/timeline' },
   { key: 'media', path: '/media' },
+  { key: 'technology', path: '/technology' },
   { key: 'about', path: '/about' }
 ];
 
@@ -22,6 +23,7 @@ const routeMessages: Record<Locale, Record<RouteDefinition['key'], { label: stri
     postcard: { label: 'Postcard', description: 'Phát video MP4 postcard' },
     timeline: { label: 'Timeline', description: 'Dòng thời gian trực quan' },
     media: { label: 'Tư liệu', description: 'Ảnh và video lịch sử' },
+    technology: { label: 'Công nghệ', description: 'Công nghệ được sử dụng và phụ lục AI' },
     about: { label: 'Giới thiệu', description: 'Nguồn tư liệu và định hướng dự án' }
   },
   en: {
@@ -30,6 +32,7 @@ const routeMessages: Record<Locale, Record<RouteDefinition['key'], { label: stri
     postcard: { label: 'Postcard', description: 'Play the MP4 postcard' },
     timeline: { label: 'Timeline', description: 'Visual historical journey' },
     media: { label: 'Media', description: 'Historical images and videos' },
+    technology: { label: 'Technology', description: 'Stack used in the project and AI appendix' },
     about: { label: 'About', description: 'Sources and project direction' }
   }
 };

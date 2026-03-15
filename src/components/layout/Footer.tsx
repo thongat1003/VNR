@@ -6,23 +6,27 @@ type FooterProps = {
   locale: Locale;
 };
 
+const credits = [
+  'Soạn nội dung: Hứa Hoài Thương, Đào Bùi Thanh Duy',
+  'Thuyết trình: Ngô Huỳnh Tuấn, Vũ Trung Tín',
+  'Làm web: Trần Anh Thông, Đỗ Trần Phúc Hậu'
+] as const;
+
 const copy = {
   vi: {
     eyebrow: 'Dự án mẫu',
-    title: 'Bảo tàng lịch sử số về Lê Duẩn',
-    description:
-      'Bộ khung này ưu tiên kiến trúc rõ ràng, giao diện trang trọng, hỗ trợ SEO và sẵn sàng để thay thế ảnh, video, mô hình 3D, âm thanh và tư liệu đã kiểm chứng.'
+    title: 'Bảo tàng lịch sử số về Lê Duẩn'
   },
   en: {
     eyebrow: 'Prototype project',
-    title: 'A digital historical museum on Le Duan',
-    description:
-      'This structure prioritizes clear information architecture, a dignified interface, SEO readiness, and straightforward replacement of images, video, 3D models, audio, and verified archival material.'
+    title: 'A digital historical museum on Le Duan'
   }
 } as const;
 
 export function Footer({ locale }: FooterProps) {
   const routes = getRoutes(locale);
+  const splitIndex = Math.max(1, Math.floor(routes.length / 2));
+  const routeColumns = [routes.slice(0, splitIndex), routes.slice(splitIndex)];
   const ui = copy[locale];
 
   return (
@@ -31,14 +35,22 @@ export function Footer({ locale }: FooterProps) {
         <div className="space-y-3">
           <p className="text-sm uppercase tracking-[0.24em] text-museum.accent">{ui.eyebrow}</p>
           <h3 className="text-2xl font-semibold text-white">{ui.title}</h3>
-          <p className="max-w-2xl text-stone-300">{ui.description}</p>
+          <div className="max-w-2xl space-y-1 text-stone-300">
+            {credits.map((line) => (
+              <p key={line}>{line}</p>
+            ))}
+          </div>
         </div>
 
-        <div className="grid gap-3">
-          {routes.map((route) => (
-            <Link key={route.href} href={route.href} className="text-stone-300 transition hover:text-white">
-              {route.label}
-            </Link>
+        <div className="grid grid-cols-2 gap-x-8 gap-y-3">
+          {routeColumns.map((column, columnIndex) => (
+            <div key={columnIndex} className="grid content-start gap-3">
+              {column.map((route) => (
+                <Link key={route.href} href={route.href} className="text-stone-300 transition hover:text-white">
+                  {route.label}
+                </Link>
+              ))}
+            </div>
           ))}
         </div>
       </div>
