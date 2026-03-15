@@ -28,7 +28,7 @@ export default async function LocalizedMediaPage({ params }: MediaPageProps) {
     <section className="mx-auto max-w-7xl px-4 py-14 md:px-6 lg:px-8">
       <SectionHeading eyebrow={copy.archiveHeading.eyebrow} title={copy.archiveHeading.title} />
 
-      <div className="mt-10 grid gap-4 md:grid-cols-3">
+      {/* <div className="mt-10 grid gap-4 md:grid-cols-3">
         {[
           { label: copy.statLabels.images, value: imageCount.toString().padStart(2, '0') },
           { label: copy.statLabels.videos, value: videoCount.toString().padStart(2, '0') },
@@ -39,7 +39,7 @@ export default async function LocalizedMediaPage({ params }: MediaPageProps) {
             <div className="mt-3 text-3xl font-semibold text-white">{item.value}</div>
           </div>
         ))}
-      </div>
+      </div> */}
 
       <div className="mt-10 grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
         {mediaAssets.map((asset) => (
