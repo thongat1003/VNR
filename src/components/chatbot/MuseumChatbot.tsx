@@ -2,8 +2,10 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Bot, LoaderCircle, MessageCircleMore, SendHorizontal, Sparkles, X } from 'lucide-react';
+import { Bot, LoaderCircle, MessageCircleMore, Plus, SendHorizontal, Sparkles, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import type { Locale } from '@/i18n/config';
 import { chatbotResponseStyles, type ChatbotResponseStyle } from '@/types/chatbot';
 
@@ -39,30 +41,31 @@ type MuseumChatbotProps = {
 
 const widgetCopy = {
   vi: {
-    open: 'Mo chatbot',
-    close: 'Dong chatbot',
-    inputPlaceholder: 'Nhap cau hoi cua ban...',
-    send: 'Gui',
-    typing: 'Dang soan cau tra loi...',
-    pages: 'Trang lien quan',
-    sources: 'Nguon tham khao',
-    title: 'Tro ly lich su va bao tang',
-    subtitle: 'Hoi ve lich su Dang, lich su Viet Nam, Le Duan va noi dung tren website.',
+    open: 'Mở chatbot',
+    close: 'Đóng chatbot',
+    inputPlaceholder: 'Nhập câu hỏi của bạn...',
+    send: 'Gửi',
+    typing: 'Đang soạn câu trả lời...',
+    pages: 'Trang liên quan',
+    sources: 'Nguồn tham khảo',
+    title: 'Trợ lý lịch sử và bảo tàng',
+    subtitle: 'Hỏi về lịch sử Đảng, lịch sử Việt Nam, Lê Duẩn và nội dung trên website.',
     intro:
-      'Toi la tro ly AI tong hop. Ban co the hoi ve lich su Dang Cong san Viet Nam, lich su Viet Nam noi chung, vai tro cua Le Duan, hoac cac noi dung trong Bao tang so Le Duan.',
+      'Tôi là trợ lý AI tổng hợp. Bạn có thể hỏi về lịch sử Đảng Cộng sản Việt Nam, lịch sử Việt Nam nói chung, vai trò của Lê Duẩn, hoặc các nội dung trong Bảo tàng số Lê Duẩn.',
     initialSuggestions: [
-      'Dang Cong san Viet Nam thanh lap trong boi canh nao?',
-      'Tom tat lich su Viet Nam tu 1930 den nay',
-      'Vai tro cua Le Duan trong lich su Dang la gi?',
-      'Bao tang 3D co gi?'
+      'Đảng Cộng sản Việt Nam thành lập trong bối cảnh nào?',
+      'Tóm tắt lịch sử Việt Nam từ 1930 đến nay',
+      'Vai trò của Lê Duẩn trong lịch sử Đảng là gì?',
+      'Bảo tàng 3D có gì?'
     ],
-    responseStyleLabel: 'Do dai',
+    responseStyleLabel: 'Độ dài',
     responseStyles: {
-      concise: 'Ngan',
-      detailed: 'Chi tiet'
+      concise: 'Ngắn',
+      detailed: 'Chi tiết'
     },
     error:
-      'Ket noi toi chatbot dang gap loi. Ban co the thu lai sau hoac dat cau hoi ngan hon de toi xu ly tot hon.'
+      'Kết nối tới chatbot đang gặp lỗi. Bạn có thể thử lại sau hoặc đặt câu hỏi ngắn hơn để tôi xử lý tốt hơn.',
+    newSession: 'Phiên mới'
   },
   en: {
     open: 'Open chatbot',
@@ -88,7 +91,8 @@ const widgetCopy = {
       detailed: 'Detailed'
     },
     error:
-      'The chatbot request failed. Please try again or ask a shorter, more specific question.'
+      'The chatbot request failed. Please try again or ask a shorter, more specific question.',
+    newSession: 'New session'
   }
 } as const;
 
@@ -138,6 +142,12 @@ export function MuseumChatbot({ locale }: MuseumChatbotProps) {
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
   }, [messages, open, isLoading]);
+
+  function resetSession() {
+    setMessages([createWelcomeMessage(locale)]);
+    setInputValue('');
+    setIsLoading(false);
+  }
 
   async function sendMessage(rawMessage: string) {
     const message = rawMessage.trim();
@@ -216,62 +226,62 @@ export function MuseumChatbot({ locale }: MuseumChatbotProps) {
   }
 
   return (
-    <div className="pointer-events-none fixed inset-x-4 bottom-4 z-[60] sm:inset-x-auto sm:right-6 sm:w-[24rem]">
+    <div className="pointer-events-none fixed inset-x-4 bottom-4 z-[60] sm:inset-x-auto sm:right-6 sm:w-[28rem]">
       {open ? (
-        <section className="pointer-events-auto rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(43,32,25,0.96),rgba(18,14,11,0.98))] shadow-[0_28px_80px_rgba(0,0,0,0.45)] backdrop-blur-xl">
-          <header className="border-b border-white/10 px-4 py-4 sm:px-5">
-            <div className="flex items-start justify-between gap-4">
-              <div className="min-w-0">
-                <div className="flex items-center gap-2 text-museum.accent">
-                  <Sparkles className="h-4 w-4" />
-                  <p className="text-xs font-semibold uppercase tracking-[0.24em]">{ui.title}</p>
+        <section className="pointer-events-auto flex flex-col overflow-hidden rounded-[2.5rem] border border-white/10 bg-[linear-gradient(135deg,rgba(28,22,18,0.98),rgba(15,12,10,0.99))] shadow-[0_32px_120px_rgba(0,0,0,0.6)] backdrop-blur-2xl transition-all duration-300">
+          <header className="relative border-b border-white/10 px-6 py-5">
+            <div className="flex items-center justify-between gap-4">
+              <div className="min-w-0 flex-1">
+                <div className="flex items-center gap-2.5">
+                  <div className="flex h-6 items-center gap-2 rounded-full bg-white/5 px-2.5 py-1">
+                    <Sparkles className="h-3.5 w-3.5 text-museum.accent" />
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/90">{ui.title}</p>
+                  </div>
+                  <span className="animate-pulse rounded-full bg-museum.accent/10 border border-museum.accent/30 px-2 py-0.5 text-[9px] font-black text-museum.accent">NEW</span>
                 </div>
-                <p className="mt-2 text-sm leading-6 text-stone-300">{ui.subtitle}</p>
+                <p className="mt-2.5 text-xs leading-5 text-stone-400/90">{ui.subtitle}</p>
               </div>
 
-              <button
-                type="button"
-                onClick={() => setOpen(false)}
-                className="rounded-full border border-white/10 bg-white/5 p-2 text-stone-300 transition hover:bg-white/10 hover:text-white"
-                aria-label={ui.close}
-              >
-                <X className="h-4 w-4" />
-              </button>
-            </div>
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={resetSession}
+                  className="group relative flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-stone-300 transition-all hover:bg-white/10 hover:text-white"
+                  title={ui.newSession}
+                >
+                  <Plus className="h-4 w-4 transition-transform group-hover:rotate-90" />
+                </button>
 
-            <div className="mt-4">
-              <div className="mb-2 text-[11px] uppercase tracking-[0.22em] text-stone-400">{ui.responseStyleLabel}</div>
-              <div className="flex flex-wrap gap-2">
-                {chatbotResponseStyles.map((nextStyle) => (
-                  <button
-                    key={nextStyle}
-                    type="button"
-                    onClick={() => setResponseStyle(nextStyle)}
-                    className={`rounded-full px-3 py-1.5 text-xs font-medium transition ${
-                      responseStyle === nextStyle
-                        ? 'bg-museum.accent text-black'
-                        : 'border border-white/10 bg-white/5 text-stone-200 hover:bg-white/10'
-                    }`}
-                  >
-                    {ui.responseStyles[nextStyle]}
-                  </button>
-                ))}
+                <button
+                  type="button"
+                  onClick={() => setOpen(false)}
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-stone-300 transition-all hover:bg-white/10 hover:text-white"
+                  aria-label={ui.close}
+                >
+                  <X className="h-4 w-4" />
+                </button>
               </div>
             </div>
+
+
           </header>
 
-          <div className="max-h-[28rem] overflow-y-auto px-4 py-4 sm:px-5">
-            <div className="space-y-4">
+          <div className="scrollbar-thin scrollbar-thumb-stone-700/50 scrollbar-track-transparent max-h-[22rem] overflow-y-auto px-6 py-5 transition-all duration-300">
+            <div className="space-y-6">
               {messages.map((message) => (
-                <article key={message.id} className={message.role === 'assistant' ? 'mr-8' : 'ml-8'}>
+                <article key={message.id} className={`flex flex-col ${message.role === 'assistant' ? 'items-start' : 'items-end'}`}>
                   <div
-                    className={`rounded-[1.5rem] px-4 py-3 text-sm leading-7 ${
+                    className={`max-w-[90%] rounded-[2rem] px-5 py-4 text-[13.5px] leading-7 shadow-sm transition-all ${
                       message.role === 'assistant'
-                        ? 'border border-white/8 bg-black/25 text-stone-100'
-                        : 'bg-museum.primary text-white'
-                    }`}
+                        ? 'border border-white/10 bg-white/5 text-stone-200'
+                        : 'bg-museum.primary text-white shadow-xl shadow-museum.primary/10'
+                    } ${message.role === 'assistant' ? 'rounded-tl-none' : 'rounded-tr-none'}`}
                   >
-                    <p className="whitespace-pre-line">{message.content}</p>
+                    <div className="prose prose-invert prose-sm max-w-none">
+                      <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                        {message.content}
+                      </ReactMarkdown>
+                    </div>
 
                     {message.pages?.length ? (
                       <div className="mt-4">
@@ -328,10 +338,12 @@ export function MuseumChatbot({ locale }: MuseumChatbotProps) {
               ))}
 
               {isLoading ? (
-                <div className="mr-8 rounded-[1.5rem] border border-white/8 bg-black/25 px-4 py-3 text-sm text-stone-300">
-                  <div className="flex items-center gap-2">
-                    <LoaderCircle className="h-4 w-4 animate-spin text-museum.accent" />
-                    <span>{ui.typing}</span>
+                <div className="flex flex-col items-start gap-1">
+                  <div className="rounded-[1.5rem] rounded-tl-none border border-white/8 bg-white/5 px-5 py-4 text-sm text-stone-400 shadow-sm">
+                    <div className="flex items-center gap-2.5">
+                      <LoaderCircle className="h-4 w-4 animate-spin text-museum.accent" />
+                      <span className="font-medium">{ui.typing}</span>
+                    </div>
                   </div>
                 </div>
               ) : null}
@@ -340,27 +352,24 @@ export function MuseumChatbot({ locale }: MuseumChatbotProps) {
           </div>
 
           <form
-            className="border-t border-white/10 px-4 py-4 sm:px-5"
+            className="border-t border-white/10 bg-black/20 px-6 py-5"
             onSubmit={(event) => {
               event.preventDefault();
               void sendMessage(inputValue);
             }}
           >
-            <div className="flex items-center gap-3 rounded-[1.5rem] border border-white/10 bg-black/20 p-2">
-              <label htmlFor="museum-chatbot-input" className="sr-only">
-                {ui.inputPlaceholder}
-              </label>
+            <div className="group relative flex items-center gap-3 rounded-[1.75rem] border border-white/10 bg-white/5 p-1.5 pl-5 ring-museum.accent/20 transition-all focus-within:border-museum.accent/40 focus-within:ring-4">
               <input
                 id="museum-chatbot-input"
                 value={inputValue}
                 onChange={(event) => setInputValue(event.target.value)}
                 placeholder={ui.inputPlaceholder}
-                className="min-w-0 flex-1 border-0 bg-transparent px-2 text-sm text-white outline-none placeholder:text-stone-500"
+                className="min-w-0 flex-1 border-0 bg-transparent py-2 text-[13.5px] text-white outline-none placeholder:text-stone-500"
               />
               <button
                 type="submit"
                 disabled={isLoading || inputValue.trim().length === 0}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-museum.accent text-black transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
+                className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-museum.accent text-black transition-all hover:scale-105 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100"
                 aria-label={ui.send}
               >
                 <SendHorizontal className="h-4 w-4" />
@@ -370,19 +379,19 @@ export function MuseumChatbot({ locale }: MuseumChatbotProps) {
         </section>
       ) : null}
 
-      <div className={`flex ${open ? 'justify-end pt-3' : 'justify-end'}`}>
+      <div className={`flex ${open ? 'justify-end pt-5' : 'justify-end'}`}>
         <button
           type="button"
           onClick={() => setOpen((current) => !current)}
-          className="pointer-events-auto inline-flex items-center gap-3 rounded-full border border-museum.accent/30 bg-[linear-gradient(135deg,rgba(159,29,32,0.95),rgba(214,178,111,0.92))] px-4 py-3 text-sm font-medium text-black shadow-[0_18px_48px_rgba(0,0,0,0.38)] transition hover:translate-y-[-1px]"
+          className="pointer-events-auto group relative flex h-14 w-14 items-center justify-center rounded-full border border-museum.accent/40 bg-[linear-gradient(135deg,rgba(159,29,32,1),rgba(194,158,91,1))] text-black shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all hover:translate-y-[-4px] hover:shadow-[0_24px_60px_rgba(0,0,0,0.6)]"
           aria-expanded={open}
           aria-label={open ? ui.close : ui.open}
         >
-          {open ? <X className="h-4 w-4" /> : <MessageCircleMore className="h-4 w-4" />}
-          <span className="flex items-center gap-2">
-            <Bot className="h-4 w-4" />
-            {ui.title}
-          </span>
+          {open ? (
+            <X className="h-6 w-6" />
+          ) : (
+            <Bot className="h-7 w-7 transition-transform group-hover:scale-110" />
+          )}
         </button>
       </div>
     </div>

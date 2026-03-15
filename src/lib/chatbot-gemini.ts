@@ -38,18 +38,16 @@ function createGeminiClient() {
 }
 
 function getConfiguredChatbotModel() {
-  return process.env.GEMINI_CHATBOT_MODEL?.trim() || 'gemini-flash-lite-latest';
+  return process.env.GEMINI_CHATBOT_MODEL?.trim() || 'gemini-1.5-pro-latest';
 }
 
 function getChatbotModelCandidates() {
   return Array.from(
     new Set([
       getConfiguredChatbotModel(),
-      'gemini-flash-lite-latest',
-      'gemini-2.5-flash-lite',
-      'gemini-2.0-flash-lite',
-      'gemini-2.5-flash',
-      'gemini-2.0-flash'
+      'gemini-1.5-pro-latest',
+      'gemini-1.5-flash-latest',
+      'gemini-2.0-flash-exp'
     ])
   );
 }
@@ -302,6 +300,7 @@ function getInstructions(locale: Locale, responseStyle: ChatbotResponseStyle) {
       'Neu co nhieu cach dien giai hoc thuat, hay ghi ngan gon rang van con nhieu cach nhin.',
       'Voi cac cau hoi hien thoi ve lanh dao duong nhiem, chuc vu hien tai, gia ca, tin tuc, hay du lieu co the thay doi gan day, neu khong co du lieu xac minh truc tiep thi khong duoc tu doan.',
       'Khong duoc bia dat su kien, moc thoi gian, trich dan hay nguon.',
+      'Day la phien ban nang cap (New Version) voi kha nang phan tich lich su chuyen sau.',
       responseStyle === 'detailed'
         ? 'Ban duoc phep tra loi sau hon va tach thanh cac muc ngan nhu boi canh, dien bien, y nghia, va tac dong khi can.'
         : 'Uu tien tra loi gon trong 2-4 doan ngan hoac 3-6 cau ngan, nhung van du y chinh.',
