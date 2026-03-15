@@ -8,32 +8,32 @@ type RouteDefinition = {
 
 const routeDefinitions: RouteDefinition[] = [
   { key: 'home', path: '/' },
-  { key: 'museum', path: '/museum' },
-  { key: 'postcard', path: '/museum/postcard' },
+  { key: 'about', path: '/about' },
   { key: 'timeline', path: '/timeline' },
   { key: 'media', path: '/media' },
-  { key: 'technology', path: '/technology' },
-  { key: 'about', path: '/about' }
+  { key: 'postcard', path: '/museum/postcard' },
+  { key: 'museum', path: '/museum' },
+  { key: 'technology', path: '/technology' }
 ];
 
 const routeMessages: Record<Locale, Record<RouteDefinition['key'], { label: string; description: string }>> = {
   vi: {
     home: { label: 'Trang chủ', description: 'Giới thiệu tổng quan dự án' },
+    about: { label: 'Giới thiệu', description: 'Nguồn tư liệu và định hướng dự án' },
     museum: { label: 'Bảo tàng 3D', description: 'Không gian ảo tương tác' },
     postcard: { label: 'Postcard', description: 'Phát video MP4 postcard' },
     timeline: { label: 'Timeline', description: 'Dòng thời gian trực quan' },
     media: { label: 'Tư liệu', description: 'Ảnh và video lịch sử' },
-    technology: { label: 'Công nghệ', description: 'Công nghệ được sử dụng và phụ lục AI' },
-    about: { label: 'Giới thiệu', description: 'Nguồn tư liệu và định hướng dự án' }
+    technology: { label: 'Công nghệ', description: 'Công nghệ được sử dụng và phụ lục AI' }
   },
   en: {
     home: { label: 'Home', description: 'Project overview' },
+    about: { label: 'About', description: 'Sources and project direction' },
     museum: { label: '3D Museum', description: 'Interactive virtual space' },
     postcard: { label: 'Postcard', description: 'Play the MP4 postcard' },
     timeline: { label: 'Timeline', description: 'Visual historical journey' },
     media: { label: 'Media', description: 'Historical images and videos' },
-    technology: { label: 'Technology', description: 'Stack used in the project and AI appendix' },
-    about: { label: 'About', description: 'Sources and project direction' }
+    technology: { label: 'Technology', description: 'Stack used in the project and AI appendix' }
   }
 };
 

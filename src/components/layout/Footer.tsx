@@ -7,8 +7,8 @@ type FooterProps = {
 };
 
 const credits = [
-  'Soạn nội dung: Hứa Hoài Thương, Đào Bùi Thanh Duy',
-  'Thuyết trình: Ngô Huỳnh Tuấn, Vũ Trung Tín',
+  'Soạn nội dung: Ngô Huỳnh Tuấn, Vũ Trung Tín',
+  'Thuyết trình: Hứa Hoài Thương, Đào Bùi Thanh Duy',
   'Làm web: Trần Anh Thông, Đỗ Trần Phúc Hậu'
 ] as const;
 

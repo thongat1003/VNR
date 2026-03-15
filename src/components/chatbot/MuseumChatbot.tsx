@@ -132,6 +132,23 @@ export function MuseumChatbot({ locale }: MuseumChatbotProps) {
   const [messages, setMessages] = useState<ChatMessage[]>(() => [createWelcomeMessage(locale)]);
   const [isLoading, setIsLoading] = useState(false);
   const endRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    }
+
+    if (open) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [open]);
 
   useEffect(() => {
     setMessages([createWelcomeMessage(locale)]);
@@ -226,7 +243,7 @@ export function MuseumChatbot({ locale }: MuseumChatbotProps) {
   }
 
   return (
-    <div className="pointer-events-none fixed inset-x-4 bottom-4 z-[60] sm:inset-x-auto sm:right-6 sm:w-[28rem]">
+    <div ref={containerRef} className="pointer-events-none fixed inset-x-4 bottom-4 z-[60] sm:inset-x-auto sm:right-6 sm:w-[28rem]">
       {open ? (
         <section className="pointer-events-auto flex flex-col overflow-hidden rounded-[2.5rem] border border-white/10 bg-[linear-gradient(135deg,rgba(28,22,18,0.98),rgba(15,12,10,0.99))] shadow-[0_32px_120px_rgba(0,0,0,0.6)] backdrop-blur-2xl transition-all duration-300">
           <header className="relative border-b border-white/10 px-6 py-5">
