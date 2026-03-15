@@ -106,7 +106,7 @@ function createWelcomeMessage(locale: Locale): ChatMessage {
     locale === 'vi'
       ? [
           { label: 'Timeline', href: '/vi/timeline' },
-          { label: 'Bao tang 3D', href: '/vi/museum' }
+          { label: 'Bảo tàng 3D', href: '/vi/museum' }
         ]
       : [
           { label: 'Timeline', href: '/en/timeline' },

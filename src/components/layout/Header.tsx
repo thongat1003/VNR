@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X } from 'lucide-react';
+import { Gamepad2, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { VerifiedBadge } from '@/components/shared/VerifiedBadge';
 import type { Locale } from '@/i18n/config';
@@ -19,13 +19,15 @@ const copy = {
     menuLabel: 'Mở menu',
     // techDemo: 'Bản demo kỹ thuật',
     localeLabel: 'Ngôn ngữ',
+    game: 'Trò chơi',
   },
   en: {
     eyebrow: 'Digital Museum',
     brand: 'Le Duan',
     menuLabel: 'Open menu',
     techDemo: 'Technical demo',
-    localeLabel: 'Language'
+    localeLabel: 'Language',
+    game: 'Game',
   }
 } as const;
 
@@ -62,6 +64,15 @@ export function Header({ locale }: HeaderProps) {
               </Link>
             );
           })}
+          <a
+            href="https://www.gimkit.com/view/69b69fcdb42d156a698dee03"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 rounded-full border border-museum.accent/30 bg-museum.accent/10 px-4 py-2 text-sm font-bold text-museum.accent transition hover:bg-museum.accent/20"
+          >
+            <Gamepad2 className="h-4 w-4" />
+            {ui.game}
+          </a>
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
@@ -120,6 +131,16 @@ export function Header({ locale }: HeaderProps) {
                 {route.description ? <div className="text-sm text-stone-400">{route.description}</div> : null}
               </Link>
             ))}
+            <a
+              href="https://www.gimkit.com/view/69b69fcdb42d156a698dee03"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-museum.accent px-3 py-3 text-sm font-bold text-black"
+              onClick={() => setOpen(false)}
+            >
+              <Gamepad2 className="h-4 w-4" />
+              {ui.game}
+            </a>
           </div>
         </div>
       ) : null}
