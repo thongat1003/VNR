@@ -136,13 +136,13 @@ export const exhibits: Exhibit[] = [
   },
   {
     id: 'congress-session-1960',
-    name: 'Dai hoi III nam 1960',
-    room: 'Kien truc su Thong nhat',
-    title: 'Chu tich Ho Chi Minh phat bieu tai Dai hoi III',
+    name: 'Đại hội III năm 1960',
+    room: 'Kiến trúc sư Thống nhất',
+    title: 'Chủ tịch Hồ Chí Minh phát biểu tại Đại Hội III',
     summary:
-      'Anh tu lieu ghi lai khoanh khac Chu tich Ho Chi Minh phat bieu tai Dai hoi dai bieu Dang Lao dong Viet Nam toan quoc lan thu III nam 1960.',
+      'Ảnh tư liệu ghi lại khoảnh khắc Chủ tịch Hồ Chí Minh phát biểu tại Đại hội đại biểu Đảng Lao động Việt Nam toàn quốc lần thứ III năm 1960.',
     detail:
-      'Anh tu lieu ghi lai khoanh khac Chu tich Ho Chi Minh phat bieu tai Dai hoi dai bieu Dang Lao dong Viet Nam toan quoc lan thu III nam 1960.',
+      'Ảnh tư liệu ghi lại khoảnh khắc Chủ tịch Hồ Chí Minh phát biểu tại Đại hội đại biểu Đảng Lao động Việt Nam toàn quốc lần thứ III năm 1960.',
     image: archiveImages.congressSession1960,
     position: [8.5, 1.35, 0],
     color: '#8a7257',
@@ -158,13 +158,13 @@ export const exhibits: Exhibit[] = [
   },
   {
     id: 'northern-leadership-1966',
-    name: 'Lanh dao mien Bac nam 1966',
-    room: 'Kien truc su Thong nhat',
-    title: 'Le Duan cung cac lanh dao mien Bac',
+    name: 'Lãnh đạo miền Bắc năm 1966',
+    room: 'Kiến trúc sư Thống nhất',
+    title: 'Lê Duẩn cùng các lãnh đạo miền Bắc',
     summary:
-      'TBT Le Duan (thu 2 tu ben phai) cung cac lanh dao mien Bac Viet Nam vao nam 1966. Ong Duan duoc coi la nguoi dieu hanh cuoc tong tien cong Mau Than, chu khong phai Ho Chi Minh hay Vo Nguyen Giap.',
+      'TBT Lê Duẩn (thứ 2 từ bên phải) cùng các lãnh đạo miền Bắc Việt Nam vào năm 1966. Ông Duẩn được coi là người điều hành cuộc tổng tiến công Mậu Thân, chứ không phải Hồ Chí Minh hay Võ Nguyên Giáp.',
     detail:
-      'TBT Le Duan (thu 2 tu ben phai) cung cac lanh dao mien Bac Viet Nam vao nam 1966. Ong Duan duoc coi la nguoi dieu hanh cuoc tong tien cong Mau Than, chu khong phai Ho Chi Minh hay Vo Nguyen Giap.',
+      'TBT Lê Duẩn (thứ 2 từ bên phải) cùng các lãnh đạo miền Bắc Việt Nam vào năm 1966. Ông Duẩn được coi là người điều hành cuộc tổng tiến công Mậu Thân, chứ không phải Hồ Chí Minh hay Võ Nguyên Giáp.',
     image: archiveImages.northernLeadership,
     position: [14.2, 1.35, 0],
     color: '#8a7461',
@@ -180,13 +180,13 @@ export const exhibits: Exhibit[] = [
   },
   {
     id: 'memorial-1969',
-    name: 'Le Duan truy dieu Bac Ho',
-    room: 'Kien truc su Thong nhat',
-    title: 'Le Duan doc dieu van tai Le truy dieu',
+    name: 'Lễ truy điệu',
+    room: 'Kiến trúc thống nhất',
+    title: 'Lê Duẩn đọc điếu văn tại Lễ truy điệu ',
     summary:
-      'Dong chi Le Duan doc dieu van tai Le truy dieu Chu tich Ho Chi Minh tai Ha Noi, ngay 9-9-1969.',
+      'Đồng chí Lê Duẩn đọc điếu văn tại Lễ truy điệu Chủ tịch Hồ Chí Minh tại Hà Nội, ngày 9-9-1969.',
     detail:
-      'Dong chi Le Duan doc dieu van tai Le truy dieu Chu tich Ho Chi Minh tai Ha Noi, ngay 9-9-1969.',
+      'Đồng chí Lê Duẩn đọc điếu văn tại Lễ truy điệu Chủ tịch Hồ Chí Minh tại Hà Nội, ngày 9-9-1969.',
     image: archiveImages.hoChiMinhMemorial,
     position: [7.2, 1.35, 0],
     color: '#837061',
@@ -202,13 +202,13 @@ export const exhibits: Exhibit[] = [
   },
   {
     id: 'southern-heroes-1972',
-    name: 'Dung si mien Nam 1972',
-    room: 'Kien truc su Thong nhat',
-    title: 'Le Duan voi cac dung si mien Nam',
+    name: 'Dũng sĩ miền Nam 1972',
+    room: 'Kiến trúc sư Thống nhất',
+    title: 'Lê Duẩn với các dũng sĩ miền Nam',
     summary:
-      'Bi thu thu nhat Le Duan voi cac dung si mien Nam nam 1972.',
+      'Bí thư thứ nhất Lê Duẩn với các dũng sĩ miền Nam (1972).',
     detail:
-      'Bi thu thu nhat Le Duan voi cac dung si mien Nam nam 1972.',
+      'Bí thư thứ nhất Lê Duẩn với các dũng sĩ miền Nam (1972).',
     image: archiveImages.southernHeroes,
     position: [18.2, 1.35, 0],
     color: '#8b755f',
@@ -224,13 +224,13 @@ export const exhibits: Exhibit[] = [
   },
   {
     id: 'fidel-castro-1973',
-    name: 'Fidel Castro tham Viet Nam',
-    room: 'Kien truc su Thong nhat',
-    title: 'Le Duan don doan dai bieu Cuba',
+    name: 'Fidel Castro thăm Việt Nam',
+    room: 'Kiến trúc sư Thống nhất',
+    title: 'Lê Duẩn đón đại biểu Cuba',
     summary:
-      'Tong Bi thu Le Duan don Doan dai bieu Dang va Chinh phu Cuba, do Chu tich Fidel Castro dan dau, sang tham Viet Nam, ngay 12/9/1973.',
+      'Tổng Bí thư Lê Duẩn đón Đoàn đại biểu Đảng và Chính phủ Cuba, do Chủ tịch Fidel Castro dẫn đầu, sang thăm Việt Nam, ngày 12/9/1973.',
     detail:
-      'Tong Bi thu Le Duan don Doan dai bieu Dang va Chinh phu Cuba, do Chu tich Fidel Castro dan dau, sang tham Viet Nam, ngay 12/9/1973.',
+      'Tổng Bí thư Lê Duẩn đón Đoàn đại biểu Đảng và Chính phủ Cuba, do Chủ tịch Fidel Castro dẫn đầu, sang thăm Việt Nam, ngày 12/9/1973. ',
     image: archiveImages.fidelCastroVisit,
     position: [21.8, 1.35, 0],
     color: '#88735d',
@@ -246,13 +246,13 @@ export const exhibits: Exhibit[] = [
   },
   {
     id: 'politburo-meeting-1975',
-    name: 'Hop mo rong Bo Chinh tri 1975',
-    room: 'Kien truc su Thong nhat',
-    title: 'Le Duan chu tri cuoc hop mo rong dot 2',
+    name: 'Họp mở rộng Bộ Chính trị 1975',
+    room: 'Kiến trúc sư Thống nhất',
+    title: 'Lê Duẩn chủ trì cuộc họp mở rộng lần 2',
     summary:
-      'Dong chi Le Duan chu tri cuoc hop mo rong, dot 2 (tu ngay 18-12-1974 den ngay 7-1-1975) cua Bo Chinh tri, quyet dinh mo cuoc Tong tien cong va noi day mua Xuan nam 1975.',
+      'Đồng chí Lê Duẩn chủ trì cuộc họp mở rộng, đợt 2 (từ ngày 18-12-1974 đến ngày 7-1-1975) của Bộ Chính trị, quyết định mở cuộc Tổng tiến công và nổi dậy mùa Xuân năm 1975',
     detail:
-      'Dong chi Le Duan chu tri cuoc hop mo rong, dot 2 (tu ngay 18-12-1974 den ngay 7-1-1975) cua Bo Chinh tri, quyet dinh mo cuoc Tong tien cong va noi day mua Xuan nam 1975.',
+      'Đồng chí Lê Duẩn chủ trì cuộc họp mở rộng, đợt 2 (từ ngày 18-12-1974 đến ngày 7-1-1975) của Bộ Chính trị, quyết định mở cuộc Tổng tiến công và nổi dậy mùa Xuân năm 1975',
     image: archiveImages.politburoMeeting1975,
     position: [17.4, 1.35, 0],
     color: '#8a7460',
@@ -268,13 +268,13 @@ export const exhibits: Exhibit[] = [
   },
   {
     id: 'east-germany-1975',
-    name: 'Tham Cong hoa Dan chu Duc 1975',
-    room: 'Kien truc su Thong nhat',
-    title: 'Le Duan tham Cong hoa Dan chu Duc',
+    name: 'Thăm Cộng hòa Dân chủ Đức 1975',
+    room: 'Kiến trúc sư Thống nhất',
+    title: 'Lê Duẩn thăm Cộng hoà Dân chủ Đức',
     summary:
-      'Tong Bi thu Le Duan tham Cong hoa Dan chu Duc ngay 15/10/1975.',
+      'Tổng Bí thư Lê Duẩn thăm Cộng hòa Dân chủ Đức (15/10/1975).',
     detail:
-      'Tong Bi thu Le Duan tham Cong hoa Dan chu Duc ngay 15/10/1975.',
+      'Tổng Bí thư Lê Duẩn thăm Cộng hòa Dân chủ Đức (15/10/1975).',
     image: archiveImages.eastGermanyVisit,
     position: [18.8, 1.35, 0],
     color: '#85715d',
@@ -290,13 +290,13 @@ export const exhibits: Exhibit[] = [
   },
   {
     id: 'poland-1975',
-    name: 'Tham Ba Lan 1975',
-    room: 'Kien truc su Thong nhat',
-    title: 'Le Duan tham Ba Lan',
+    name: 'Thăm Ba Lan 1975',
+    room: 'Kiến trúc sư Thống nhất',
+    title: 'Lê Duẩn thăm Ba Lan',
     summary:
-      'Tong Bi thu Le Duan tham Ba Lan ngay 12/11/1975.',
+      'Tổng Bí thư Lê Duẩn thăm Ba Lan (12/11/1975).',
     detail:
-      'Tong Bi thu Le Duan tham Ba Lan ngay 12/11/1975.',
+      'Tổng Bí thư Lê Duẩn thăm Ba Lan (12/11/1975).',
     image: archiveImages.polandVisit,
     position: [19.8, 1.35, 0],
     color: '#85715d',
@@ -312,13 +312,13 @@ export const exhibits: Exhibit[] = [
   },
   {
     id: 'congress-iv-1976',
-    name: 'Dai hoi IV nam 1976',
-    room: 'Di san & Doi moi',
-    title: 'Le Duan doc Bao cao chinh tri tai Dai hoi IV',
+    name: 'Đại hội IV năm 1976',
+    room: 'Di sản & Đổi mới',
+    title: 'Lê Duẩn đọc Báo cáo chính trị tại Đại hội IV',
     summary:
-      'Dong chi Le Duan doc Bao cao chinh tri tai Dai hoi Dang toan quoc lan thu IV, to chuc tai Ha Noi tu 14 - 20/12/1976.',
+      'Đồng chí Lê Duẩn đọc Báo cáo chính trị tại Đại hội Đảng toàn quốc lần thứ IV, tổ chức tại Hà Nội từ 14 - 20/12/1976.',
     detail:
-      'Dong chi Le Duan doc Bao cao chinh tri tai Dai hoi Dang toan quoc lan thu IV, to chuc tai Ha Noi tu 14 - 20/12/1976.',
+      'Đồng chí Lê Duẩn đọc Báo cáo chính trị tại Đại hội Đảng toàn quốc lần thứ IV, tổ chức tại Hà Nội từ 14 - 20/12/1976.',
     image: archiveImages.congress1976,
     position: [22.8, 1.35, 0],
     color: '#8a745f',
@@ -334,13 +334,13 @@ export const exhibits: Exhibit[] = [
   },
   {
     id: 'youth-army-1980',
-    name: 'Dai bieu Thanh nien Quan doi 1980',
-    room: 'Di san & Doi moi',
-    title: 'Le Duan voi cac dai bieu Thanh nien Quan doi',
+    name: 'Đại biểu Thanh niên Quân đội 1980',
+    room: 'Di sản & Đổi mới',
+    title: 'Lê Duẩn với các đại biểu Thanh niên Quân đội',
     summary:
-      'Tong Bi thu Le Duan voi cac dai bieu Thanh nien Quan doi tham du Dai hoi dai bieu Doan Thanh nien Cong san Ho Chi Minh toan quoc lan thu IV tai Ha Noi (20/2/1980).',
+      'Tổng Bí thư Lê Duẩn và Tổng Bí thư Đảng Cộng sản Liên Xô Leonid Ilyich Brezhnev ký Hiệp ước Hữu nghị và Hợp tác Việt Nam - Liên Xô (Moskva, 2/11/1978).',
     detail:
-      'Tong Bi thu Le Duan voi cac dai bieu Thanh nien Quan doi tham du Dai hoi dai bieu Doan Thanh nien Cong san Ho Chi Minh toan quoc lan thu IV tai Ha Noi (20/2/1980).',
+      'Tổng Bí thư Lê Duẩn và Tổng Bí thư Đảng Cộng sản Liên Xô Leonid Ilyich Brezhnev ký Hiệp ước Hữu nghị và Hợp tác Việt Nam - Liên Xô (Moskva, 2/11/1978).',
     image: archiveImages.youthArmy1980,
     position: [24.2, 1.35, 0],
     color: '#8a7560',
@@ -356,13 +356,13 @@ export const exhibits: Exhibit[] = [
   },
   {
     id: 'soviet-visit-1980',
-    name: 'Tham Lien Xo 1980',
-    room: 'Di san & Doi moi',
-    title: 'Le Duan dan dau doan dai bieu tham Lien Xo',
+    name: 'Thăm Liên Xô 1980',
+    room: 'Di sản & Đổi mới',
+    title: 'Lê Duẩn dẫn đầu đoàn đại biểu thăm Liên Xô',
     summary:
-      'Tong Bi thu Le Duan dan dau Doan dai bieu cap cao Viet Nam tham Lien Xo (28/6/1980).',
+      'Tổng Bí thư Lê Duẩn dẫn đầu Đoàn đại biểu cấp cao Việt Nam thăm Liên Xô (28/6/1980).',
     detail:
-      'Tong Bi thu Le Duan dan dau Doan dai bieu cap cao Viet Nam tham Lien Xo (28/6/1980).',
+      'Tổng Bí thư Lê Duẩn dẫn đầu Đoàn đại biểu cấp cao Việt Nam thăm Liên Xô (28/6/1980).',
     image: archiveImages.sovietVisit1980,
     position: [25.8, 1.35, 0],
     color: '#8a7560',
@@ -378,13 +378,13 @@ export const exhibits: Exhibit[] = [
   },
   {
     id: 'congress-v-1982',
-    name: 'Dai hoi V nam 1982',
-    room: 'Di san & Doi moi',
-    title: 'Le Duan voi cac dai bieu Dai hoi V',
+    name: 'Đại hội V năm 1982',
+    room: 'Di sản & Đổi mới',
+    title: 'Lê Duẩn với các đại biểu Đại hội V',
     summary:
-      'Tong Bi thu Le Duan voi cac dai bieu du Dai hoi Dang toan quoc lan thu V tai Ha Noi (29/3/1982).',
+      'Tổng Bí thư Lê Duẩn với các đại biểu dự Đại hội Đảng toàn quốc lần thứ V tại Hà Nội (29/3/1982).',
     detail:
-      'Tong Bi thu Le Duan voi cac dai bieu du Dai hoi Dang toan quoc lan thu V tai Ha Noi (29/3/1982).',
+      'Tổng Bí thư Lê Duẩn với các đại biểu dự Đại hội Đảng toàn quốc lần thứ V tại Hà Nội (29/3/1982).',
     image: archiveImages.congress1982,
     position: [27.4, 1.35, 0],
     color: '#8a7560',
@@ -492,14 +492,14 @@ export const exhibits: Exhibit[] = [
 const treatyLegacyExhibit = exhibits.find((exhibit) => exhibit.id === 'medal-legacy');
 
 if (treatyLegacyExhibit) {
-  treatyLegacyExhibit.name = 'Ky Hiep uoc Viet Nam - Lien Xo 1978';
-  treatyLegacyExhibit.room = 'Di san & Doi moi';
-  treatyLegacyExhibit.title = 'Le Duan va Brezhnev ky Hiep uoc Huu nghi';
+  treatyLegacyExhibit.name = 'Ký Hiệp ước Việt Nam - Liên Xô 1978';
+  treatyLegacyExhibit.room = 'Di sản & Đổi mới';
+  treatyLegacyExhibit.title = 'Lê Duẩn và Brezhnev ký Hiệp ước Hữu nghị';
   treatyLegacyExhibit.summary =
-    'Tong Bi thu Le Duan va Tong Bi thu Dang Cong san Lien Xo Leonid Ilyich Brezhnev ky Hiep uoc Huu nghi va Hop tac Viet Nam - Lien Xo (Moskva, 2/11/1978).';
+    'Tổng Bí thư Lê Duẩn và Tổng Bí thư Đảng Cộng sản Liên Xô Leonid Ilyich Brezhnev ký Hiệp ước Hữu nghị và Hợp tác Việt Nam - Liên Xô (Moskva, 2/11/1978).';
   treatyLegacyExhibit.detail =
-    'Tong Bi thu Le Duan va Tong Bi thu Dang Cong san Lien Xo Leonid Ilyich Brezhnev ky Hiep uoc Huu nghi va Hop tac Viet Nam - Lien Xo (Moskva, 2/11/1978).';
-  treatyLegacyExhibit.image = archiveImages.treaty1978;
+    'Tổng Bí thư Lê Duẩn và Tổng Bí thư Đảng Cộng sản Liên Xô Leonid Ilyich Brezhnev ký Hiệp ước Hữu nghị và Hợp tác Việt Nam - Liên Xô (Moskva, 2/11/1978).';
+    treatyLegacyExhibit.image = archiveImages.treaty1978;
   treatyLegacyExhibit.position = [21, 1.35, 0.2];
   treatyLegacyExhibit.color = '#8a7560';
   treatyLegacyExhibit.size = [1.8, 1.1, 0.08];
